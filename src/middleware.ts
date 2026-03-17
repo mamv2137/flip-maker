@@ -16,8 +16,9 @@ const PUBLIC_ROUTES = [
 // Routes that require authentication
 const PROTECTED_PREFIXES = ['/dashboard', '/library']
 
-// Reader routes have their own auth logic (magic links)
+// Reader/embed routes have their own auth logic (magic links)
 const READER_PREFIX = '/read/'
+const EMBED_PREFIX = '/embed/'
 
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
@@ -49,8 +50,8 @@ export async function middleware(request: NextRequest) {
 
   const { pathname } = request.nextUrl
 
-  // Reader routes: allow through (handled by page-level magic link/session logic)
-  if (pathname.startsWith(READER_PREFIX)) {
+  // Reader/embed routes: allow through (handled by page-level magic link/session logic)
+  if (pathname.startsWith(READER_PREFIX) || pathname.startsWith(EMBED_PREFIX)) {
     return supabaseResponse
   }
 

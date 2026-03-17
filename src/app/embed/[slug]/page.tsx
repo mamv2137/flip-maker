@@ -2,9 +2,9 @@
 import { createClient } from '@/supabase/server'
 import { notFound } from 'next/navigation'
 import { verifyMagicLinkToken } from '@/lib/magic-link'
-import { MarkdownReader } from './MarkdownReader'
-import { PdfReaderWrapper } from './PdfReaderWrapper'
-import { AccessDenied } from './AccessDenied'
+import { MarkdownReader } from '@/app/read/[slug]/MarkdownReader'
+import { PdfReaderWrapper } from '@/app/read/[slug]/PdfReaderWrapper'
+import { AccessDenied } from '@/app/read/[slug]/AccessDenied'
 import type { Metadata } from 'next'
 import type { BookPage } from '@/components/reader/FlipbookReader'
 
@@ -32,19 +32,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function ReaderPage({ params, searchParams }: Props) {
+export default async function EmbedReaderPage({ params, searchParams }: Props) {
   const { slug } = await params
   const { token } = await searchParams
   const supabase = await createClient()
 
   let hasValidToken = false
 
-  // Verify magic link token if provided
   if (token) {
     const payload = await verifyMagicLinkToken(token)
     if (payload) {
       hasValidToken = true
-      // Mark access grant as accessed
       await supabase
         .from('access_grants')
         .update({ accessed_at: new Date().toISOString() })
@@ -65,36 +63,9 @@ export default async function ReaderPage({ params, searchParams }: Props) {
 
   // Access control for private books
   if (book.visibility === 'private' && !hasValidToken) {
-    // Check if the current user is the creator
-    const { data } = await supabase.auth.getClaims()
-    const userId = data?.claims?.sub as string | undefined
-
-    let hasAccess = false
-
-    if (userId) {
-      // Creator always has access
-      if (userId === book.creator_id) {
-        hasAccess = true
-      } else {
-        // Check if user has an access grant
-        const { data: grant } = await supabase
-          .from('access_grants')
-          .select('id')
-          .eq('book_id', book.id)
-          .eq('buyer_id', userId)
-          .limit(1)
-          .maybeSingle()
-
-        hasAccess = !!grant
-      }
-    }
-
-    if (!hasAccess) {
-      return <AccessDenied bookTitle={book.title} />
-    }
+    return <AccessDenied bookTitle={book.title} />
   }
 
-  // Build cover page if cover image exists
   const coverPage: BookPage | null = book.cover_image_url
     ? { type: 'image', content: book.cover_image_url, pageNumber: 0 }
     : null
@@ -113,7 +84,6 @@ export default async function ReaderPage({ params, searchParams }: Props) {
     )
   }
 
-  // Markdown book — fetch pre-rendered pages
   const { data: bookPages } = await supabase
     .from('book_pages')
     .select('*')

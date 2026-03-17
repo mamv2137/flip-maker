@@ -89,18 +89,22 @@ export default async function BookDetailPage({ params }: Props) {
         </Card>
 
         {/* Share */}
-        <Card>
+        <Card className="sm:col-span-2 lg:col-span-3">
           <CardHeader>
-            <CardTitle className="text-base">Share</CardTitle>
+            <CardTitle className="text-base">Share & Access</CardTitle>
             <CardDescription>
               {book.is_published
-                ? 'Send a magic link to give someone instant access.'
+                ? 'Control who can access your book and share it with readers.'
                 : 'Publish your book first to share it.'}
             </CardDescription>
           </CardHeader>
           <CardContent>
             {book.is_published && book.status === 'ready' ? (
-              <ShareBookForm bookId={book.id} />
+              <ShareBookForm
+                bookId={book.id}
+                bookSlug={book.slug}
+                visibility={book.visibility ?? 'public'}
+              />
             ) : (
               <p className="text-muted-foreground text-sm">
                 Publish this book to enable sharing.
