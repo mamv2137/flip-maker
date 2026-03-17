@@ -2,8 +2,6 @@ import { createClient } from '@/supabase/server'
 import { processMarkdown } from '@/lib/markdown/processor'
 import { generateSlug } from '@/lib/utils/slug'
 import { NextResponse } from 'next/server'
-import { writeFile, mkdir } from 'fs/promises'
-import path from 'path'
 
 export async function GET() {
   const supabase = await createClient()
@@ -108,16 +106,25 @@ export async function POST(request: Request) {
     return NextResponse.json(book, { status: 201 })
   }
 
-  // PDF: save locally, render client-side with pdf.js
-  // TODO: Replace with R2 upload in production
+  // PDF: save locally for dev, replace with R2 in production
   const bookId = crypto.randomUUID()
-  const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'pdfs', bookId)
-  await mkdir(uploadDir, { recursive: true })
-
-  const buffer = Buffer.from(await file.arrayBuffer())
   const safeFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_')
-  const filePath = path.join(uploadDir, safeFileName)
-  await writeFile(filePath, buffer)
+
+  // Dynamic import of fs — only works in Node.js (local dev), not on Cloudflare Workers
+  try {
+    const { writeFile, mkdir } = await import('fs/promises')
+    const { join } = await import('path')
+    const uploadDir = join(process.cwd(), 'public', 'uploads', 'pdfs', bookId)
+    await mkdir(uploadDir, { recursive: true })
+    const buffer = Buffer.from(await file.arrayBuffer())
+    await writeFile(join(uploadDir, safeFileName), buffer)
+  } catch {
+    // On Cloudflare Workers, fs is not available — TODO: use R2
+    return NextResponse.json(
+      { error: 'PDF upload requires R2 storage (not configured yet)' },
+      { status: 501 },
+    )
+  }
 
   const publicUrl = `/uploads/pdfs/${bookId}/${safeFileName}`
 

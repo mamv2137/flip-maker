@@ -32,8 +32,6 @@ export default async function BookDetailPage({ params }: Props) {
     notFound()
   }
 
-  const readerUrl = `/read/${book.slug}`
-
   return (
     <div className="flex flex-col gap-8">
       <div>
