@@ -1,3 +1,4 @@
+
 import { createClient } from '@/supabase/server'
 import { notFound } from 'next/navigation'
 import { Badge } from '@/components/ui/badge'

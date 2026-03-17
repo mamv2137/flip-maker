@@ -1,3 +1,4 @@
+
 import { createClient } from '@/supabase/server'
 import { notFound } from 'next/navigation'
 import { verifyMagicLinkToken } from '@/lib/magic-link'

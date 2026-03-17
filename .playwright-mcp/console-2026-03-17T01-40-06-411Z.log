@@ -761,3 +761,193 @@ https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/
     at processFullBinaryRow (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:2348:9)
     at processBinaryChunk (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:2457:221)
     at progress (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:2625:13) @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2634667ms] [ERROR] ./Projects/flipbooks/src/app/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { redirect } from 'next/navigation'
+  4 | import { createClient } from '@/supabase/server'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2635899ms] [ERROR] ./Projects/flipbooks/src/app/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { redirect } from 'next/navigation'
+  4 | import { createClient } from '@/supabase/server'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2635899ms] [ERROR] ./Projects/flipbooks/src/app/dashboard/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { Button } from '@/components/ui/button'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2636807ms] [ERROR] ./Projects/flipbooks/src/app/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { redirect } from 'next/navigation'
+  4 | import { createClient } from '@/supabase/server'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2636807ms] [ERROR] ./Projects/flipbooks/src/app/dashboard/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { Button } from '@/components/ui/button'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2636807ms] [ERROR] ./Projects/flipbooks/src/app/dashboard/books/[id]/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { notFound } from 'next/navigation'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2638121ms] [ERROR] ./Projects/flipbooks/src/app/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { redirect } from 'next/navigation'
+  4 | import { createClient } from '@/supabase/server'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2638121ms] [ERROR] ./Projects/flipbooks/src/app/dashboard/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { Button } from '@/components/ui/button'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2638121ms] [ERROR] ./Projects/flipbooks/src/app/dashboard/books/[id]/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { notFound } from 'next/navigation'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2638919ms] [ERROR] ./Projects/flipbooks/src/app/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { redirect } from 'next/navigation'
+  4 | import { createClient } from '@/supabase/server'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2638919ms] [ERROR] ./Projects/flipbooks/src/app/dashboard/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { Button } from '@/components/ui/button'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2638919ms] [ERROR] ./Projects/flipbooks/src/app/dashboard/books/[id]/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { notFound } from 'next/navigation'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2638919ms] [ERROR] ./Projects/flipbooks/src/app/read/[slug]/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { notFound } from 'next/navigation'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2658575ms] [ERROR] ./Projects/flipbooks/src/app/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { redirect } from 'next/navigation'
+  4 | import { createClient } from '@/supabase/server'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2658575ms] [ERROR] ./Projects/flipbooks/src/app/dashboard/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { Button } from '@/components/ui/button'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2658575ms] [ERROR] ./Projects/flipbooks/src/app/dashboard/books/[id]/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { notFound } from 'next/navigation'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2658575ms] [ERROR] ./Projects/flipbooks/src/app/read/[slug]/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { notFound } from 'next/navigation'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2660892ms] [ERROR] ./Projects/flipbooks/src/app/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { redirect } from 'next/navigation'
+  4 | import { createClient } from '@/supabase/server'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2660892ms] [ERROR] ./Projects/flipbooks/src/app/dashboard/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { Button } from '@/components/ui/button'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2660892ms] [ERROR] ./Projects/flipbooks/src/app/dashboard/books/[id]/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { notFound } from 'next/navigation'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2660892ms] [ERROR] ./Projects/flipbooks/src/app/read/[slug]/page.tsx:1:14
+Ecmascript file had an error
+> 1 | export const dynamic = 'force-dynamic'
+    |              ^^^^^^^
+  2 |
+  3 | import { createClient } from '@/supabase/server'
+  4 | import { notFound } from 'next/navigation'
+
+Route segment config "dynamic" is not compatible with `nextConfig.cacheComponents`. Please remove it. @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127
+[ 2711747ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/read/test-book-vSS9aggB?_rsc=rkpvn:0

@@ -1,5 +1,3 @@
-import { redirect } from 'next/navigation'
-import { createClient } from '@/supabase/server'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import { LogoutButton } from '@/components/logout-button'
 import Link from 'next/link'
@@ -8,16 +6,7 @@ type LibraryLayoutProps = {
   children: React.ReactNode
 }
 
-export default async function LibraryLayout({
-  children,
-}: LibraryLayoutProps) {
-  const supabase = await createClient()
-  const { data, error } = await supabase.auth.getClaims()
-
-  if (error || !data?.claims) {
-    redirect('/auth/login')
-  }
-
+export default function LibraryLayout({ children }: LibraryLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
       <nav className="border-b">

@@ -1,5 +1,3 @@
-import { redirect } from 'next/navigation'
-import { createClient } from '@/supabase/server'
 import { AuthButton } from '@/components/auth-button'
 import { ThemeSwitcher } from '@/components/theme-switcher'
 import Link from 'next/link'
@@ -9,16 +7,7 @@ type DashboardLayoutProps = {
   children: React.ReactNode
 }
 
-export default async function DashboardLayout({
-  children,
-}: DashboardLayoutProps) {
-  const supabase = await createClient()
-  const { data, error } = await supabase.auth.getClaims()
-
-  if (error || !data?.claims) {
-    redirect('/auth/login')
-  }
-
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
       <nav className="border-b">
