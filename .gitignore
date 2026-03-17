@@ -32,6 +32,9 @@ yarn-error.log*
 # uploaded files (local dev only)
 public/uploads/pdfs/
 
+# OpenNext build output
+.open-next
+
 # vercel
 .vercel
 
