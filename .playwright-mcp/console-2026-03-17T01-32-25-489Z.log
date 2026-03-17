@@ -1,0 +1,14 @@
+[    1204ms] [ERROR] Error: Route "/read/[slug]": Uncached data or `connection()` was accessed outside of `<Suspense>`. This delays the entire page from rendering, resulting in a slow user experience. Learn more: https://nextjs.org/docs/messages/blocking-route
+    at Promise.then (<anonymous>:1:21)
+    at PostgrestFilterBuilder.then (about://React/Server/file:///Users/mauro/Projects/flipbooks/.next/dev/server/chunks/ssr/58472__pnpm_6a5d43e6._.js?29:984:12)
+    at resolveErrorDev (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:1881:106)
+    at getOutlinedModel (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:1434:28)
+    at parseModelString (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:1548:50)
+    at Array.<anonymous> (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:2472:51)
+    at JSON.parse (<anonymous>)
+    at initializeModelChunk (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:1053:30)
+    at resolveModelChunk (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:958:43)
+    at processFullStringRow (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:2428:126)
+    at processFullBinaryRow (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:2348:9)
+    at processBinaryChunk (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:2457:221)
+    at progress (http://localhost:3000/_next/static/chunks/370ed_next_dist_compiled_react-server-dom-turbopack_78141cbc._.js:2625:13) @ http://localhost:3000/_next/static/chunks/370ed_next_dist_437cb55c._.js:3127

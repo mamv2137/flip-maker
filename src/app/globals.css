@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -119,4 +120,17 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* StPageFlip overrides — ensure pages have solid backgrounds during flip */
+.stf__wrapper {
+  overflow: hidden;
+}
+
+.stf__item {
+  background-color: #ffffff !important;
+}
+
+.dark .stf__item {
+  background-color: #1a1a1a !important;
 }
