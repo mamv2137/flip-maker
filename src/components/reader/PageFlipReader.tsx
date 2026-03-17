@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useRef, useCallback, useState, type MutableRefObject } from 'react'
-import { PageFlip } from 'page-flip'
+import { useEffect, useRef, useCallback, type MutableRefObject } from 'react'
+import HTMLFlipBook from 'react-pageflip'
+import { forwardRef } from 'react'
 import type { BookPage, FlipControl } from './FlipbookReader'
 
 type Props = {
@@ -10,18 +11,43 @@ type Props = {
   controlRef: MutableRefObject<FlipControl | null>
 }
 
+// react-pageflip requires forwardRef children
+const Page = forwardRef<HTMLDivElement, { page: BookPage }>(
+  function Page({ page }, ref) {
+    return (
+      <div
+        ref={ref}
+        style={{
+          overflow: 'hidden',
+          backgroundColor: '#ffffff',
+          height: '100%',
+          width: '100%',
+        }}
+      >
+        {page.type === 'html' ? (
+          <div
+            className="prose prose-sm max-w-none p-8 sm:p-10"
+            style={{ color: '#1a1a1a' }}
+            dangerouslySetInnerHTML={{ __html: page.content }}
+          />
+        ) : (
+          <img
+            src={page.content}
+            alt={`Page ${page.pageNumber}`}
+            className="h-full w-full object-contain"
+          />
+        )}
+      </div>
+    )
+  },
+)
+
 export default function PageFlipReader({
   pages,
   onPageChange,
   controlRef,
 }: Props) {
-  const bookRef = useRef<HTMLDivElement>(null)
-  const pageFlipRef = useRef<PageFlip | null>(null)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true) // eslint-disable-line react-hooks/set-state-in-effect
-  }, [])
+  const flipBookRef = useRef<HTMLFlipBook>(null)
 
   const handleFlip = useCallback(
     (e: { data: number }) => {
@@ -33,72 +59,32 @@ export default function PageFlipReader({
   // Expose controls to parent
   useEffect(() => {
     controlRef.current = {
-      next: () => pageFlipRef.current?.turnToNextPage(),
-      prev: () => pageFlipRef.current?.turnToPrevPage(),
-      goTo: (page: number) => pageFlipRef.current?.turnToPage(page),
+      next: () => flipBookRef.current?.pageFlip()?.flipNext(),
+      prev: () => flipBookRef.current?.pageFlip()?.flipPrev(),
+      goTo: (page: number) => flipBookRef.current?.pageFlip()?.turnToPage(page),
     }
     return () => {
       controlRef.current = null
     }
   }, [controlRef])
 
-  useEffect(() => {
-    if (!mounted || !bookRef.current || pageFlipRef.current) return
-
-    const pageElements = bookRef.current.querySelectorAll('.flip-page')
-    if (pageElements.length === 0) return
-
-    const pageFlip = new PageFlip(bookRef.current, {
-      width: 500,
-      height: 700,
-      size: 'stretch',
-      minWidth: 280,
-      maxWidth: 800,
-      minHeight: 400,
-      maxHeight: 1100,
-      maxShadowOpacity: 0.3,
-      showCover: false,
-      mobileScrollSupport: false,
-      drawShadow: true,
-      flippingTime: 800,
-      usePortrait: true,
-      startZIndex: 0,
-      autoSize: true,
-      clickEventForward: false,
-      useMouseEvents: true,
-      swipeDistance: 30,
-      showPageCorners: false,
-      disableFlipByClick: false,
-    })
-
-    pageFlip.loadFromHTML(pageElements as NodeListOf<HTMLElement>)
-    pageFlip.on('flip', handleFlip)
-    pageFlipRef.current = pageFlip
-
-    return () => {
-      if (pageFlipRef.current) {
-        pageFlipRef.current.destroy()
-        pageFlipRef.current = null
-      }
-    }
-  }, [mounted, pages, handleFlip])
-
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (!pageFlipRef.current) return
+      const pf = flipBookRef.current?.pageFlip()
+      if (!pf) return
       switch (e.key) {
         case 'ArrowRight':
-          pageFlipRef.current.turnToNextPage()
+          pf.flipNext()
           break
         case 'ArrowLeft':
-          pageFlipRef.current.turnToPrevPage()
+          pf.flipPrev()
           break
         case 'Home':
-          pageFlipRef.current.turnToPage(0)
+          pf.turnToPage(0)
           break
         case 'End':
-          pageFlipRef.current.turnToPage(pages.length - 1)
+          pf.turnToPage(pages.length - 1)
           break
       }
     }
@@ -108,53 +94,43 @@ export default function PageFlipReader({
   }, [pages.length])
 
   return (
-    <div className="flex h-full w-full items-center justify-center overflow-hidden px-8 py-4">
-      <div
-        ref={bookRef}
-        className="overflow-hidden rounded-sm"
+    <div
+      className="flex h-full w-full items-center justify-center overflow-hidden px-4 py-2"
+      style={{ maxHeight: 'calc(100vh - 7rem)' }}
+    >
+      <HTMLFlipBook
+        ref={flipBookRef}
+        width={450}
+        height={600}
+        size="stretch"
+        minWidth={250}
+        maxWidth={600}
+        minHeight={350}
+        maxHeight={800}
+        maxShadowOpacity={0.3}
+        showCover={false}
+        mobileScrollSupport={false}
+        drawShadow={true}
+        flippingTime={800}
+        usePortrait={true}
+        startZIndex={0}
+        autoSize={true}
+        clickEventForward={false}
+        useMouseEvents={true}
+        swipeDistance={30}
+        showPageCorners={false}
+        disableFlipByClick={false}
+        onFlip={handleFlip}
+        className="flipbook-container"
         style={{
-          width: '100%',
-          maxWidth: '960px',
-          height: 'calc(100vh - 8rem)',
           boxShadow: '0 4px 24px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08)',
+          maxHeight: 'calc(100vh - 8rem)',
         }}
       >
         {pages.map((page, i) => (
-          <div
-            key={i}
-            className="flip-page"
-            data-density="soft"
-            style={{
-              overflow: 'hidden',
-              backgroundColor: '#ffffff',
-              borderRight: '1px solid rgba(0, 0, 0, 0.06)',
-            }}
-          >
-            <div
-              style={{
-                height: '100%',
-                width: '100%',
-                overflow: 'hidden',
-                backgroundColor: '#ffffff',
-              }}
-            >
-              {page.type === 'html' ? (
-                <div
-                  className="prose prose-sm max-w-none p-8 sm:p-10"
-                  style={{ color: '#1a1a1a' }}
-                  dangerouslySetInnerHTML={{ __html: page.content }}
-                />
-              ) : (
-                <img
-                  src={page.content}
-                  alt={`Page ${page.pageNumber}`}
-                  className="h-full w-full object-contain"
-                />
-              )}
-            </div>
-          </div>
+          <Page key={i} page={page} />
         ))}
-      </div>
+      </HTMLFlipBook>
     </div>
   )
 }

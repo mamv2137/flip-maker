@@ -31,6 +31,7 @@ yarn-error.log*
 
 # uploaded files (local dev only)
 public/uploads/pdfs/
+public/uploads/covers/
 
 # OpenNext build output
 .open-next

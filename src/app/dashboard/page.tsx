@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Plus } from 'lucide-react'
+import { Plus, BookOpen } from 'lucide-react'
 import Link from 'next/link'
 
 export default async function DashboardPage() {
@@ -54,8 +54,21 @@ export default async function DashboardPage() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {books.map((book) => (
             <Link key={book.id} href={`/dashboard/books/${book.id}`}>
-              <Card className="hover:border-foreground/20 transition-colors">
-                <CardHeader>
+              <Card className="hover:border-foreground/20 overflow-hidden transition-colors">
+                {book.cover_image_url ? (
+                  <div className="bg-muted aspect-[3/2] w-full overflow-hidden">
+                    <img
+                      src={book.cover_image_url}
+                      alt={book.title}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="bg-muted flex aspect-[3/2] w-full items-center justify-center">
+                    <BookOpen className="text-muted-foreground h-10 w-10" />
+                  </div>
+                )}
+                <CardHeader className="pb-2">
                   <div className="flex items-start justify-between">
                     <CardTitle className="text-lg">{book.title}</CardTitle>
                     <Badge

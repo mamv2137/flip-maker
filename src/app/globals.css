@@ -122,9 +122,14 @@
   }
 }
 
-/* StPageFlip overrides — ensure pages have solid backgrounds during flip */
+/* StPageFlip overrides */
 .stf__wrapper {
   overflow: hidden;
+  max-height: calc(100vh - 8rem) !important;
+}
+
+.stf__parent {
+  max-height: calc(100vh - 8rem) !important;
 }
 
 .stf__item {

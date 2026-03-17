@@ -1,5 +1,7 @@
-declare module 'page-flip' {
-  interface PageFlipOptions {
+declare module 'react-pageflip' {
+  import { Component, ReactNode, CSSProperties } from 'react'
+
+  interface HTMLFlipBookProps {
     width: number
     height: number
     size?: 'fixed' | 'stretch'
@@ -21,18 +23,23 @@ declare module 'page-flip' {
     showPageCorners?: boolean
     disableFlipByClick?: boolean
     startPage?: number
+    className?: string
+    style?: CSSProperties
+    children: ReactNode
+    onFlip?: (e: { data: number }) => void
+    onChangeOrientation?: (e: { data: string }) => void
+    onChangeState?: (e: { data: string }) => void
+    onInit?: (e: { data: unknown }) => void
+    onUpdate?: (e: { data: unknown }) => void
   }
 
-  class PageFlip {
-    constructor(element: HTMLElement, options: PageFlipOptions)
-    loadFromHTML(elements: NodeListOf<HTMLElement>): void
-    loadFromImages(images: string[]): void
-    turnToPage(page: number): void
-    turnToNextPage(): void
-    turnToPrevPage(): void
-    getCurrentPageIndex(): number
-    getPageCount(): number
-    on(event: string, callback: (e: { data: number }) => void): void
-    destroy(): void
+  export default class HTMLFlipBook extends Component<HTMLFlipBookProps> {
+    pageFlip(): {
+      flipNext(): void
+      flipPrev(): void
+      turnToPage(page: number): void
+      getCurrentPageIndex(): number
+      getPageCount(): number
+    }
   }
 }

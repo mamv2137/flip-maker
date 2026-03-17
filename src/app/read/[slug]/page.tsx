@@ -59,12 +59,20 @@ export default async function ReaderPage({ params, searchParams }: Props) {
     notFound()
   }
 
+  // Build cover page if cover image exists
+  const coverPage: BookPage | null = book.cover_image_url
+    ? { type: 'image', content: book.cover_image_url, pageNumber: 0 }
+    : null
+
   if (book.content_type === 'pdf' && book.pdf_r2_key) {
     return (
       <PdfReaderWrapper
         title={book.title}
+        bookId={book.id}
         pdfUrl={book.pdf_r2_key}
         flipEnabled={book.flip_effect_enabled}
+        coverPage={coverPage}
+        skipFirstPage={book.pdf_first_page_is_cover && !!coverPage}
       />
     )
   }
@@ -76,11 +84,13 @@ export default async function ReaderPage({ params, searchParams }: Props) {
     .eq('book_id', book.id)
     .order('page_number', { ascending: true })
 
-  const pages: BookPage[] = (bookPages ?? []).map((p) => ({
+  const contentPages: BookPage[] = (bookPages ?? []).map((p) => ({
     type: 'html' as const,
     content: p.content_html ?? '',
     pageNumber: p.page_number,
   }))
+
+  const pages = coverPage ? [coverPage, ...contentPages] : contentPages
 
   if (pages.length === 0) {
     return (

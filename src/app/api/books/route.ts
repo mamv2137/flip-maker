@@ -127,6 +127,7 @@ export async function POST(request: Request) {
   }
 
   const publicUrl = `/uploads/pdfs/${bookId}/${safeFileName}`
+  const useFirstPageAsCover = formData.get('useFirstPageAsCover') === 'true'
 
   const { data: book, error: bookError } = await supabase
     .from('books')
@@ -138,8 +139,9 @@ export async function POST(request: Request) {
       description: description?.trim() || null,
       content_type: contentType,
       pdf_r2_key: publicUrl,
+      pdf_first_page_is_cover: useFirstPageAsCover,
       status: 'ready',
-      page_count: 0, // Determined client-side by pdf.js
+      page_count: 0,
       is_published: false,
     })
     .select()

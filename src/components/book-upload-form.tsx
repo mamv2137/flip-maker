@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Checkbox } from '@/components/ui/checkbox'
 import {
   Card,
   CardContent,
@@ -11,9 +12,9 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { cn } from '@/utils/tailwind'
-import { Upload, FileText, X } from 'lucide-react'
+import { Upload, FileText, X, FileImage } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 const ACCEPTED_TYPES = ['.md', '.markdown', '.pdf']
 const MAX_FILE_SIZE = 50 * 1024 * 1024 // 50 MB
@@ -25,8 +26,12 @@ export function BookUploadForm() {
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [isDragOver, setIsDragOver] = useState(false)
+  const [useFirstPageAsCover, setUseFirstPageAsCover] = useState(true)
+  const [pdfPreview, setPdfPreview] = useState<string | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
+
+  const isPdf = file?.name.toLowerCase().endsWith('.pdf')
 
   const validateFile = useCallback((f: File): string | null => {
     const name = f.name.toLowerCase()
@@ -45,6 +50,8 @@ export function BookUploadForm() {
       }
       setError(null)
       setFile(f)
+      setPdfPreview(null)
+      setUseFirstPageAsCover(true)
 
       // Auto-fill title from filename if empty
       if (!title) {
@@ -54,6 +61,46 @@ export function BookUploadForm() {
     },
     [title, validateFile],
   )
+
+  // Generate preview of first PDF page
+  useEffect(() => {
+    if (!file || !isPdf) {
+      setPdfPreview(null)
+      return
+    }
+
+    let cancelled = false
+
+    async function generatePreview() {
+      try {
+        const pdfjsLib = await import('pdfjs-dist')
+        pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
+          'pdfjs-dist/build/pdf.worker.min.mjs',
+          import.meta.url,
+        ).toString()
+
+        const arrayBuffer = await file!.arrayBuffer()
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise
+        const page = await pdf.getPage(1)
+        const viewport = page.getViewport({ scale: 1 })
+
+        const canvas = document.createElement('canvas')
+        canvas.width = viewport.width
+        canvas.height = viewport.height
+        const context = canvas.getContext('2d')!
+        await page.render({ canvasContext: context, viewport }).promise
+
+        if (!cancelled) {
+          setPdfPreview(canvas.toDataURL('image/webp', 0.8))
+        }
+      } catch {
+        // Silently fail — preview is optional
+      }
+    }
+
+    generatePreview()
+    return () => { cancelled = true }
+  }, [file, isPdf])
 
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
@@ -77,6 +124,9 @@ export function BookUploadForm() {
       formData.set('title', title.trim())
       if (description.trim()) formData.set('description', description.trim())
       formData.set('file', file)
+      if (isPdf) {
+        formData.set('useFirstPageAsCover', useFirstPageAsCover ? 'true' : 'false')
+      }
 
       const res = await fetch('/api/books', {
         method: 'POST',
@@ -89,6 +139,18 @@ export function BookUploadForm() {
       }
 
       const book = await res.json()
+
+      // If using first page as cover, upload the preview as cover image
+      if (isPdf && useFirstPageAsCover && pdfPreview) {
+        const coverBlob = await fetch(pdfPreview).then((r) => r.blob())
+        const coverForm = new FormData()
+        coverForm.set('cover', new File([coverBlob], 'cover.webp', { type: 'image/webp' }))
+        await fetch(`/api/books/${book.id}/cover`, {
+          method: 'POST',
+          body: coverForm,
+        })
+      }
+
       router.push(`/dashboard/books/${book.id}`)
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'An error occurred')
@@ -96,8 +158,6 @@ export function BookUploadForm() {
       setIsLoading(false)
     }
   }
-
-  const isPdf = file?.name.toLowerCase().endsWith('.pdf')
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -124,7 +184,6 @@ export function BookUploadForm() {
                 <p className="font-medium">{file.name}</p>
                 <p className="text-muted-foreground text-sm">
                   {(file.size / 1024).toFixed(1)} KB
-                  {isPdf && ' — PDF processing available after upload'}
                 </p>
               </div>
               <Button
@@ -134,6 +193,7 @@ export function BookUploadForm() {
                 onClick={(e) => {
                   e.stopPropagation()
                   setFile(null)
+                  setPdfPreview(null)
                 }}
               >
                 <X className="h-4 w-4" />
@@ -163,6 +223,61 @@ export function BookUploadForm() {
           if (f) handleFileSelect(f)
         }}
       />
+
+      {/* PDF cover option */}
+      {isPdf && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <FileImage className="h-5 w-5" />
+              Cover Image
+            </CardTitle>
+            <CardDescription>
+              Choose how to set the cover for your flipbook
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex items-start gap-3">
+              <Checkbox
+                id="use-first-page"
+                checked={useFirstPageAsCover}
+                onCheckedChange={(checked) =>
+                  setUseFirstPageAsCover(checked === true)
+                }
+              />
+              <div className="grid gap-1">
+                <Label htmlFor="use-first-page" className="font-normal">
+                  Use first page of PDF as cover
+                </Label>
+                <p className="text-muted-foreground text-xs">
+                  The first page will be extracted and set as the book cover. You can change it later.
+                </p>
+              </div>
+            </div>
+
+            {pdfPreview && useFirstPageAsCover && (
+              <div className="flex items-start gap-4">
+                <div className="bg-muted aspect-[2/3] w-[120px] overflow-hidden rounded-md border">
+                  <img
+                    src={pdfPreview}
+                    alt="First page preview"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <p className="text-muted-foreground text-xs">
+                  Preview of the first page
+                </p>
+              </div>
+            )}
+
+            {!useFirstPageAsCover && (
+              <p className="text-muted-foreground text-xs">
+                You can upload a custom cover image from the book detail page after creation.
+              </p>
+            )}
+          </CardContent>
+        </Card>
+      )}
 
       {/* Book details */}
       <Card>
