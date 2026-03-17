@@ -1,8 +1,25 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { BookOpen, Layers, Maximize, Minimize, ArrowLeft } from 'lucide-react'
+import {
+  BookOpen,
+  Layers,
+  Maximize,
+  Minimize,
+  ArrowLeft,
+  List,
+  Settings,
+} from 'lucide-react'
 import Link from 'next/link'
+import { FontSizeControl } from './FontSizeControl'
+import { ZoomControls } from './ZoomControls'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from '@/components/ui/dropdown-menu'
 
 type Props = {
   title: string
@@ -10,6 +27,14 @@ type Props = {
   isFullscreen: boolean
   onToggleFlip: () => void
   onToggleFullscreen: () => void
+  fontSize: number
+  onFontSizeChange: (size: number) => void
+  zoom: number
+  onZoomChange: (zoom: number) => void
+  hasHtmlPages: boolean
+  tocOpen: boolean
+  onToggleToc: () => void
+  hasHeadings: boolean
 }
 
 export function ReaderToolbar({
@@ -18,6 +43,14 @@ export function ReaderToolbar({
   isFullscreen,
   onToggleFlip,
   onToggleFullscreen,
+  fontSize,
+  onFontSizeChange,
+  zoom,
+  onZoomChange,
+  hasHtmlPages,
+  tocOpen,
+  onToggleToc,
+  hasHeadings,
 }: Props) {
   return (
     <div className="border-b">
@@ -28,12 +61,59 @@ export function ReaderToolbar({
               <ArrowLeft className="h-4 w-4" />
             </Link>
           </Button>
+
+          {hasHeadings && (
+            <Button
+              variant={tocOpen ? 'secondary' : 'ghost'}
+              size="icon"
+              className="h-8 w-8"
+              onClick={onToggleToc}
+              title="Table of Contents"
+            >
+              <List className="h-4 w-4" />
+            </Button>
+          )}
+
           <h1 className="max-w-[200px] truncate text-sm font-medium sm:max-w-md">
             {title}
           </h1>
         </div>
 
         <div className="flex items-center gap-1">
+          {/* Desktop controls */}
+          <div className="hidden items-center gap-1 md:flex">
+            {hasHtmlPages && (
+              <FontSizeControl fontSize={fontSize} onFontSizeChange={onFontSizeChange} />
+            )}
+            <ZoomControls zoom={zoom} onZoomChange={onZoomChange} />
+          </div>
+
+          {/* Mobile dropdown for font size + zoom */}
+          <div className="md:hidden">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-8 w-8">
+                  <Settings className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                {hasHtmlPages && (
+                  <>
+                    <DropdownMenuLabel className="text-xs">Font Size</DropdownMenuLabel>
+                    <div className="flex justify-center px-2 py-1">
+                      <FontSizeControl fontSize={fontSize} onFontSizeChange={onFontSizeChange} />
+                    </div>
+                    <DropdownMenuSeparator />
+                  </>
+                )}
+                <DropdownMenuLabel className="text-xs">Zoom</DropdownMenuLabel>
+                <div className="flex justify-center px-2 py-1">
+                  <ZoomControls zoom={zoom} onZoomChange={onZoomChange} />
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+
           <Button
             variant="ghost"
             size="sm"

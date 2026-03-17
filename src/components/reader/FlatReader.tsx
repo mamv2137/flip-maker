@@ -9,9 +9,11 @@ type Props = {
   pages: BookPage[]
   currentPage: number
   onPageChange: (page: number) => void
+  fontSize: number
+  zoom: number
 }
 
-export function FlatReader({ pages, currentPage, onPageChange }: Props) {
+export function FlatReader({ pages, currentPage, onPageChange, fontSize, zoom }: Props) {
   const page = pages[currentPage]
 
   const goNext = useCallback(() => {
@@ -61,10 +63,14 @@ export function FlatReader({ pages, currentPage, onPageChange }: Props) {
       </Button>
 
       {/* Page content */}
-      <div className="bg-card mx-16 h-full max-h-[calc(100vh-8rem)] w-full max-w-3xl overflow-auto rounded-lg border shadow-lg">
+      <div
+        className="bg-card mx-16 h-full max-h-[calc(100vh-8rem)] w-full max-w-3xl overflow-auto rounded-lg border shadow-lg"
+        style={{ transform: zoom !== 1 ? `scale(${zoom})` : undefined, transformOrigin: 'top center' }}
+      >
         {page.type === 'html' ? (
           <div
             className="prose dark:prose-invert max-w-none p-8 md:p-12"
+            style={{ fontSize: `${fontSize}%` }}
             dangerouslySetInnerHTML={{ __html: page.content }}
           />
         ) : (

@@ -1,10 +1,15 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { FlatReader } from './FlatReader'
 import { ReaderToolbar } from './ReaderToolbar'
 import { PageNavigator } from './PageNavigator'
+import { ReadingProgressBar } from './ReadingProgressBar'
+import { TableOfContents } from './TableOfContents'
+import { PageThumbnails } from './PageThumbnails'
+import { useReadingPosition } from '@/hooks/useReadingPosition'
+import { extractHeadings } from '@/lib/extract-headings'
 
 const PageFlipReader = dynamic(() => import('./PageFlipReader'), {
   ssr: false,
@@ -31,13 +36,52 @@ type Props = {
   title: string
   pages: BookPage[]
   defaultFlipEnabled: boolean
+  bookSlug?: string
 }
 
-export function FlipbookReader({ title, pages, defaultFlipEnabled }: Props) {
+export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug }: Props) {
   const [flipEnabled, setFlipEnabled] = useState(defaultFlipEnabled)
   const [currentPage, setCurrentPage] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
+  const [fontSize, setFontSize] = useState(100)
+  const [zoom, setZoom] = useState(1)
+  const [tocOpen, setTocOpen] = useState(false)
+  const [thumbnailsOpen, setThumbnailsOpen] = useState(false)
   const flipControlRef = useRef<FlipControl | null>(null)
+
+  const { savedPage, savePosition, clearPosition } = useReadingPosition(bookSlug)
+  const [resumeDismissed, setResumeDismissed] = useState(false)
+
+  const showResumePrompt =
+    !resumeDismissed &&
+    savedPage !== null &&
+    savedPage > 0 &&
+    savedPage < pages.length
+
+  const hasHtmlPages = useMemo(() => pages.some((p) => p.type === 'html'), [pages])
+  const headings = useMemo(() => extractHeadings(pages), [pages])
+
+  // Save position on page change
+  useEffect(() => {
+    if (currentPage > 0) {
+      savePosition(currentPage)
+    }
+  }, [currentPage, savePosition])
+
+  const handleResume = useCallback(() => {
+    if (savedPage !== null) {
+      setCurrentPage(savedPage)
+      if (flipEnabled && flipControlRef.current) {
+        flipControlRef.current.goTo(savedPage)
+      }
+    }
+    setResumeDismissed(true)
+  }, [savedPage, flipEnabled])
+
+  const handleDismissResume = useCallback(() => {
+    setResumeDismissed(true)
+    clearPosition()
+  }, [clearPosition])
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -48,6 +92,17 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled }: Props) {
       setIsFullscreen(false)
     }
   }
+
+  const goToPage = useCallback(
+    (page: number) => {
+      const clamped = Math.max(0, Math.min(page, pages.length - 1))
+      setCurrentPage(clamped)
+      if (flipEnabled && flipControlRef.current) {
+        flipControlRef.current.goTo(clamped)
+      }
+    },
+    [flipEnabled, pages.length],
+  )
 
   const goNext = useCallback(() => {
     if (flipEnabled && flipControlRef.current) {
@@ -67,35 +122,88 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled }: Props) {
 
   return (
     <div className="bg-background flex h-screen flex-col">
+      <ReadingProgressBar currentPage={currentPage} totalPages={pages.length} />
+
       <ReaderToolbar
         title={title}
         flipEnabled={flipEnabled}
         isFullscreen={isFullscreen}
         onToggleFlip={() => setFlipEnabled(!flipEnabled)}
         onToggleFullscreen={toggleFullscreen}
+        fontSize={fontSize}
+        onFontSizeChange={setFontSize}
+        zoom={zoom}
+        onZoomChange={setZoom}
+        hasHtmlPages={hasHtmlPages}
+        tocOpen={tocOpen}
+        onToggleToc={() => setTocOpen(!tocOpen)}
+        hasHeadings={headings.length > 0}
       />
 
       <div className="relative flex flex-1 items-center justify-center overflow-hidden">
+        {tocOpen && (
+          <TableOfContents
+            headings={headings}
+            currentPage={currentPage}
+            onNavigate={goToPage}
+            onClose={() => setTocOpen(false)}
+          />
+        )}
+
+        {showResumePrompt && (
+          <div className="absolute top-4 z-40 flex items-center gap-3 rounded-lg border bg-background px-4 py-3 shadow-lg">
+            <p className="text-sm">
+              Continue from page {(savedPage ?? 0) + 1}?
+            </p>
+            <button
+              onClick={handleResume}
+              className="rounded-md bg-emerald-500 px-3 py-1 text-sm font-medium text-white hover:bg-emerald-600"
+            >
+              Resume
+            </button>
+            <button
+              onClick={handleDismissResume}
+              className="text-muted-foreground text-sm hover:underline"
+            >
+              Start over
+            </button>
+          </div>
+        )}
+
         {flipEnabled ? (
           <PageFlipReader
             pages={pages}
             onPageChange={setCurrentPage}
             controlRef={flipControlRef}
+            fontSize={fontSize}
+            zoom={zoom}
           />
         ) : (
           <FlatReader
             pages={pages}
             currentPage={currentPage}
             onPageChange={setCurrentPage}
+            fontSize={fontSize}
+            zoom={zoom}
           />
         )}
       </div>
+
+      {thumbnailsOpen && (
+        <PageThumbnails
+          pages={pages}
+          currentPage={currentPage}
+          onNavigate={goToPage}
+        />
+      )}
 
       <PageNavigator
         currentPage={currentPage}
         totalPages={pages.length}
         onNext={goNext}
         onPrev={goPrev}
+        thumbnailsOpen={thumbnailsOpen}
+        onToggleThumbnails={() => setThumbnailsOpen(!thumbnailsOpen)}
       />
     </div>
   )

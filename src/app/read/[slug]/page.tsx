@@ -73,6 +73,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
         flipEnabled={book.flip_effect_enabled}
         coverPage={coverPage}
         skipFirstPage={book.pdf_first_page_is_cover && !!coverPage}
+        bookSlug={slug}
       />
     )
   }
@@ -105,6 +106,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
       title={book.title}
       pages={pages}
       flipEnabled={book.flip_effect_enabled}
+      bookSlug={slug}
     />
   )
 }

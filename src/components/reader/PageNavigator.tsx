@@ -1,13 +1,15 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, LayoutGrid } from 'lucide-react'
 
 type Props = {
   currentPage: number
   totalPages: number
   onNext: () => void
   onPrev: () => void
+  thumbnailsOpen: boolean
+  onToggleThumbnails: () => void
 }
 
 export function PageNavigator({
@@ -15,10 +17,22 @@ export function PageNavigator({
   totalPages,
   onNext,
   onPrev,
+  thumbnailsOpen,
+  onToggleThumbnails,
 }: Props) {
   return (
     <div className="border-t">
       <div className="flex h-12 items-center justify-center gap-4 px-4">
+        <Button
+          variant={thumbnailsOpen ? 'secondary' : 'ghost'}
+          size="icon"
+          className="h-8 w-8"
+          onClick={onToggleThumbnails}
+          title="Page thumbnails"
+        >
+          <LayoutGrid className="h-4 w-4" />
+        </Button>
+
         <Button
           variant="ghost"
           size="icon"

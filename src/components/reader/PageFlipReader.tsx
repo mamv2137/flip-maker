@@ -9,11 +9,13 @@ type Props = {
   pages: BookPage[]
   onPageChange: (page: number) => void
   controlRef: MutableRefObject<FlipControl | null>
+  fontSize?: number
+  zoom?: number
 }
 
 // react-pageflip requires forwardRef children
-const Page = forwardRef<HTMLDivElement, { page: BookPage }>(
-  function Page({ page }, ref) {
+const Page = forwardRef<HTMLDivElement, { page: BookPage; fontSize?: number }>(
+  function Page({ page, fontSize }, ref) {
     return (
       <div
         ref={ref}
@@ -27,7 +29,7 @@ const Page = forwardRef<HTMLDivElement, { page: BookPage }>(
         {page.type === 'html' ? (
           <div
             className="prose prose-sm max-w-none p-8 sm:p-10"
-            style={{ color: '#1a1a1a' }}
+            style={{ color: '#1a1a1a', fontSize: fontSize ? `${fontSize}%` : undefined }}
             dangerouslySetInnerHTML={{ __html: page.content }}
           />
         ) : (
@@ -46,6 +48,8 @@ export default function PageFlipReader({
   pages,
   onPageChange,
   controlRef,
+  fontSize = 100,
+  zoom = 1,
 }: Props) {
   const flipBookRef = useRef<HTMLFlipBook>(null)
 
@@ -96,7 +100,11 @@ export default function PageFlipReader({
   return (
     <div
       className="flex h-full w-full items-center justify-center overflow-hidden px-4 py-2"
-      style={{ maxHeight: 'calc(100vh - 7rem)' }}
+      style={{
+        maxHeight: 'calc(100vh - 7rem)',
+        transform: zoom !== 1 ? `scale(${zoom})` : undefined,
+        transformOrigin: 'center center',
+      }}
     >
       <HTMLFlipBook
         ref={flipBookRef}
@@ -128,7 +136,7 @@ export default function PageFlipReader({
         }}
       >
         {pages.map((page, i) => (
-          <Page key={i} page={page} />
+          <Page key={i} page={page} fontSize={fontSize} />
         ))}
       </HTMLFlipBook>
     </div>

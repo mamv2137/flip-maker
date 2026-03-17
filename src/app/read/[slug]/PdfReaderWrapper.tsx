@@ -12,9 +12,10 @@ type Props = {
   flipEnabled: boolean
   coverPage: BookPage | null
   skipFirstPage: boolean
+  bookSlug: string
 }
 
-export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage }: Props) {
+export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug }: Props) {
   const [pages, setPages] = useState<BookPage[] | null>(null)
 
   const handlePagesLoaded = useCallback((loadedPages: BookPage[]) => {
@@ -52,6 +53,7 @@ export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage
       title={title}
       pages={pages}
       defaultFlipEnabled={flipEnabled}
+      bookSlug={bookSlug}
     />
   )
 }
