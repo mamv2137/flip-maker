@@ -1,5 +1,6 @@
 
 import { createClient } from '@/supabase/server'
+import { resolveFileUrl } from '@/lib/storage'
 import { notFound } from 'next/navigation'
 import { Badge } from '@/components/ui/badge'
 import {
@@ -70,7 +71,7 @@ export default async function BookDetailPage({ params }: Props) {
           <CardContent>
             <CoverUpload
               bookId={book.id}
-              currentCover={book.cover_image_url}
+              currentCover={book.cover_image_url ? resolveFileUrl(book.cover_image_url) : null}
             />
           </CardContent>
         </Card>

@@ -1,5 +1,6 @@
 
 import { createClient } from '@/supabase/server'
+import { resolveFileUrl } from '@/lib/storage'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -58,7 +59,7 @@ export default async function DashboardPage() {
                 {book.cover_image_url ? (
                   <div className="bg-muted aspect-[3/2] w-full overflow-hidden">
                     <img
-                      src={book.cover_image_url}
+                      src={resolveFileUrl(book.cover_image_url)}
                       alt={book.title}
                       className="h-full w-full object-cover"
                     />

@@ -37,9 +37,10 @@ type Props = {
   pages: BookPage[]
   defaultFlipEnabled: boolean
   bookSlug?: string
+  showBackButton?: boolean
 }
 
-export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug }: Props) {
+export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, showBackButton = true }: Props) {
   const [flipEnabled, setFlipEnabled] = useState(defaultFlipEnabled)
   const [currentPage, setCurrentPage] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -138,6 +139,7 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug }: P
         tocOpen={tocOpen}
         onToggleToc={() => setTocOpen(!tocOpen)}
         hasHeadings={headings.length > 0}
+        showBackButton={showBackButton}
       />
 
       <div className="relative flex flex-1 items-center justify-center overflow-hidden">

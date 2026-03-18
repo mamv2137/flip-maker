@@ -1,4 +1,5 @@
 import { createClient } from '@/supabase/server'
+import { uploadFile } from '@/lib/storage'
 import { NextResponse } from 'next/server'
 
 type Context = {
@@ -42,24 +43,16 @@ export async function POST(request: Request, context: Context) {
     )
   }
 
-  // Save locally (same approach as PDFs)
   try {
-    const { writeFile, mkdir } = await import('fs/promises')
-    const { join } = await import('path')
-    const uploadDir = join(process.cwd(), 'public', 'uploads', 'covers')
-    await mkdir(uploadDir, { recursive: true })
-
     const ext = file.name.split('.').pop() || 'jpg'
     const fileName = `${id}.${ext}`
-    const buffer = Buffer.from(await file.arrayBuffer())
-    await writeFile(join(uploadDir, fileName), buffer)
-
-    const coverUrl = `/uploads/covers/${fileName}`
+    const buffer = await file.arrayBuffer()
+    const storagePath = await uploadFile('/covers', fileName, buffer)
 
     // Update book record
     const { data: updated, error } = await supabase
       .from('books')
-      .update({ cover_image_url: coverUrl })
+      .update({ cover_image_url: storagePath })
       .eq('id', id)
       .select()
       .single()
@@ -69,10 +62,10 @@ export async function POST(request: Request, context: Context) {
     }
 
     return NextResponse.json(updated)
-  } catch {
+  } catch (err) {
     return NextResponse.json(
-      { error: 'Cover upload requires file system (not available on edge)' },
-      { status: 501 },
+      { error: err instanceof Error ? err.message : 'Failed to upload cover' },
+      { status: 500 },
     )
   }
 }

@@ -13,9 +13,10 @@ type Props = {
   coverPage: BookPage | null
   skipFirstPage: boolean
   bookSlug: string
+  showBackButton?: boolean
 }
 
-export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug }: Props) {
+export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug, showBackButton }: Props) {
   const [pages, setPages] = useState<BookPage[] | null>(null)
 
   const handlePagesLoaded = useCallback((loadedPages: BookPage[]) => {
@@ -54,6 +55,7 @@ export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage
       pages={pages}
       defaultFlipEnabled={flipEnabled}
       bookSlug={bookSlug}
+      showBackButton={showBackButton}
     />
   )
 }

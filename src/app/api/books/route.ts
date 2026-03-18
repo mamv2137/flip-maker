@@ -1,6 +1,7 @@
 import { createClient } from '@/supabase/server'
 import { processMarkdown } from '@/lib/markdown/processor'
 import { generateSlug } from '@/lib/utils/slug'
+import { uploadFile } from '@/lib/storage'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
@@ -106,50 +107,43 @@ export async function POST(request: Request) {
     return NextResponse.json(book, { status: 201 })
   }
 
-  // PDF: save locally for dev, replace with R2 in production
+  // PDF: upload to Seafile
   const bookId = crypto.randomUUID()
   const safeFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_')
 
-  // Dynamic import of fs — only works in Node.js (local dev), not on Cloudflare Workers
   try {
-    const { writeFile, mkdir } = await import('fs/promises')
-    const { join } = await import('path')
-    const uploadDir = join(process.cwd(), 'public', 'uploads', 'pdfs', bookId)
-    await mkdir(uploadDir, { recursive: true })
-    const buffer = Buffer.from(await file.arrayBuffer())
-    await writeFile(join(uploadDir, safeFileName), buffer)
-  } catch {
-    // On Cloudflare Workers, fs is not available — TODO: use R2
+    const buffer = await file.arrayBuffer()
+    const storagePath = await uploadFile(`/pdfs/${bookId}`, safeFileName, buffer)
+
+    const useFirstPageAsCover = formData.get('useFirstPageAsCover') === 'true'
+
+    const { data: book, error: bookError } = await supabase
+      .from('books')
+      .insert({
+        id: bookId,
+        creator_id: user.id,
+        title: title.trim(),
+        slug,
+        description: description?.trim() || null,
+        content_type: contentType,
+        pdf_r2_key: storagePath,
+        pdf_first_page_is_cover: useFirstPageAsCover,
+        status: 'ready',
+        page_count: 0,
+        is_published: false,
+      })
+      .select()
+      .single()
+
+    if (bookError) {
+      return NextResponse.json({ error: bookError.message }, { status: 500 })
+    }
+
+    return NextResponse.json(book, { status: 201 })
+  } catch (err) {
     return NextResponse.json(
-      { error: 'PDF upload requires R2 storage (not configured yet)' },
-      { status: 501 },
+      { error: err instanceof Error ? err.message : 'Failed to upload PDF' },
+      { status: 500 },
     )
   }
-
-  const publicUrl = `/uploads/pdfs/${bookId}/${safeFileName}`
-  const useFirstPageAsCover = formData.get('useFirstPageAsCover') === 'true'
-
-  const { data: book, error: bookError } = await supabase
-    .from('books')
-    .insert({
-      id: bookId,
-      creator_id: user.id,
-      title: title.trim(),
-      slug,
-      description: description?.trim() || null,
-      content_type: contentType,
-      pdf_r2_key: publicUrl,
-      pdf_first_page_is_cover: useFirstPageAsCover,
-      status: 'ready',
-      page_count: 0,
-      is_published: false,
-    })
-    .select()
-    .single()
-
-  if (bookError) {
-    return NextResponse.json({ error: bookError.message }, { status: 500 })
-  }
-
-  return NextResponse.json(book, { status: 201 })
 }

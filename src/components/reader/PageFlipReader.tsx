@@ -116,7 +116,7 @@ export default function PageFlipReader({
         minHeight={350}
         maxHeight={800}
         maxShadowOpacity={0.3}
-        showCover={false}
+        showCover={true}
         mobileScrollSupport={false}
         drawShadow={true}
         flippingTime={800}

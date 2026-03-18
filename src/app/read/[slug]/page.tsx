@@ -7,6 +7,7 @@ import { PdfReaderWrapper } from './PdfReaderWrapper'
 import { AccessDenied } from './AccessDenied'
 import type { Metadata } from 'next'
 import type { BookPage } from '@/components/reader/FlipbookReader'
+import { resolveFileUrl } from '@/lib/storage'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -63,30 +64,25 @@ export default async function ReaderPage({ params, searchParams }: Props) {
     notFound()
   }
 
-  // Access control for private books
-  if (book.visibility === 'private' && !hasValidToken) {
-    // Check if the current user is the creator
-    const { data } = await supabase.auth.getClaims()
-    const userId = data?.claims?.sub as string | undefined
+  // Check if the current user is the creator (used for back button + access control)
+  const { data: authData } = await supabase.auth.getClaims()
+  const userId = authData?.claims?.sub as string | undefined
+  const isCreator = !!userId && userId === book.creator_id
 
+  // Access control for private books
+  if (book.visibility === 'private' && !hasValidToken && !isCreator) {
     let hasAccess = false
 
     if (userId) {
-      // Creator always has access
-      if (userId === book.creator_id) {
-        hasAccess = true
-      } else {
-        // Check if user has an access grant
-        const { data: grant } = await supabase
-          .from('access_grants')
-          .select('id')
-          .eq('book_id', book.id)
-          .eq('buyer_id', userId)
-          .limit(1)
-          .maybeSingle()
+      const { data: grant } = await supabase
+        .from('access_grants')
+        .select('id')
+        .eq('book_id', book.id)
+        .eq('buyer_id', userId)
+        .limit(1)
+        .maybeSingle()
 
-        hasAccess = !!grant
-      }
+      hasAccess = !!grant
     }
 
     if (!hasAccess) {
@@ -96,7 +92,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
 
   // Build cover page if cover image exists
   const coverPage: BookPage | null = book.cover_image_url
-    ? { type: 'image', content: book.cover_image_url, pageNumber: 0 }
+    ? { type: 'image', content: resolveFileUrl(book.cover_image_url), pageNumber: 0 }
     : null
 
   if (book.content_type === 'pdf' && book.pdf_r2_key) {
@@ -104,11 +100,12 @@ export default async function ReaderPage({ params, searchParams }: Props) {
       <PdfReaderWrapper
         title={book.title}
         bookId={book.id}
-        pdfUrl={book.pdf_r2_key}
+        pdfUrl={resolveFileUrl(book.pdf_r2_key)}
         flipEnabled={book.flip_effect_enabled}
         coverPage={coverPage}
         skipFirstPage={book.pdf_first_page_is_cover && !!coverPage}
         bookSlug={slug}
+        showBackButton={isCreator}
       />
     )
   }
@@ -142,6 +139,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
       pages={pages}
       flipEnabled={book.flip_effect_enabled}
       bookSlug={slug}
+      showBackButton={isCreator}
     />
   )
 }

@@ -35,6 +35,7 @@ type Props = {
   tocOpen: boolean
   onToggleToc: () => void
   hasHeadings: boolean
+  showBackButton?: boolean
 }
 
 export function ReaderToolbar({
@@ -51,16 +52,19 @@ export function ReaderToolbar({
   tocOpen,
   onToggleToc,
   hasHeadings,
+  showBackButton = true,
 }: Props) {
   return (
     <div className="border-b">
       <div className="flex h-12 items-center justify-between px-4">
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-            <Link href="/dashboard">
-              <ArrowLeft className="h-4 w-4" />
-            </Link>
-          </Button>
+          {showBackButton && (
+            <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
+              <Link href="/dashboard">
+                <ArrowLeft className="h-4 w-4" />
+              </Link>
+            </Button>
+          )}
 
           {hasHeadings && (
             <Button
