@@ -132,10 +132,32 @@
   max-height: calc(100vh - 8rem) !important;
 }
 
+/* Book pages are always white like real paper, even in dark mode */
 .stf__item {
   background-color: #ffffff !important;
 }
 
-.dark .stf__item {
-  background-color: #1a1a1a !important;
+/* Fix flip animation glitch: ensure backface is hidden during 3D transforms */
+.stf__block {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Smooth the shadow transition during flips */
+.stf__wrapper canvas {
+  pointer-events: none;
+}
+
+/* Force light mode inside flipbook pages — books are always printed on white paper */
+.flipbook-page,
+.flipbook-page * {
+  color-scheme: light !important;
+}
+
+.dark .flipbook-page .prose {
+  --tw-prose-body: #374151 !important;
+  --tw-prose-headings: #111827 !important;
+  --tw-prose-links: #111827 !important;
+  --tw-prose-bold: #111827 !important;
+  --tw-prose-code: #111827 !important;
 }

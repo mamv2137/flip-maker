@@ -45,14 +45,17 @@ export default async function BookDetailPage({ params }: Props) {
           <ChevronLeft className="mr-1 h-4 w-4" />
           Back to Books
         </Link>
-        <div className="flex items-center gap-3">
-          <h1 className="text-3xl font-bold tracking-tight">{book.title}</h1>
-          <Badge variant={book.status === 'ready' ? 'default' : 'secondary'}>
-            {book.status}
-          </Badge>
-          {book.is_published && (
-            <Badge variant="outline">Published</Badge>
-          )}
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <h1 className="text-3xl font-bold tracking-tight">{book.title}</h1>
+            <Badge variant={book.status === 'ready' ? 'default' : 'secondary'}>
+              {book.status}
+            </Badge>
+            {book.is_published && (
+              <Badge variant="outline">Published</Badge>
+            )}
+          </div>
+          <BookActions book={book} variant="inline" />
         </div>
         {book.description && (
           <p className="text-muted-foreground mt-1">{book.description}</p>
@@ -135,7 +138,6 @@ export default async function BookDetailPage({ params }: Props) {
         </CardContent>
       </Card>
 
-      <BookActions book={book} />
     </div>
   )
 }

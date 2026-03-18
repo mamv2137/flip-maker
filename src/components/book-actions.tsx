@@ -25,7 +25,12 @@ type Book = {
   is_published: boolean
 }
 
-export function BookActions({ book }: { book: Book }) {
+type Props = {
+  book: Book
+  variant?: 'default' | 'inline'
+}
+
+export function BookActions({ book, variant = 'default' }: Props) {
   const router = useRouter()
   const [isPublishing, setIsPublishing] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
@@ -64,23 +69,31 @@ export function BookActions({ book }: { book: Book }) {
     setTimeout(() => setCopied(false), 2000)
   }
 
+  const isInline = variant === 'inline'
+  const btnSize = isInline ? 'sm' as const : 'default' as const
+
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="flex flex-wrap items-center gap-2">
       {book.status === 'ready' && (
         <Button
           variant="outline"
+          size={btnSize}
           onClick={togglePublish}
           disabled={isPublishing}
         >
           {book.is_published ? (
             <>
-              <GlobeLock className="mr-2 h-4 w-4" />
-              {isPublishing ? 'Unpublishing...' : 'Unpublish'}
+              <GlobeLock className="mr-1.5 h-4 w-4" />
+              <span className={isInline ? 'hidden sm:inline' : ''}>
+                {isPublishing ? 'Unpublishing...' : 'Unpublish'}
+              </span>
             </>
           ) : (
             <>
-              <Globe className="mr-2 h-4 w-4" />
-              {isPublishing ? 'Publishing...' : 'Publish'}
+              <Globe className="mr-1.5 h-4 w-4" />
+              <span className={isInline ? 'hidden sm:inline' : ''}>
+                {isPublishing ? 'Publishing...' : 'Publish'}
+              </span>
             </>
           )}
         </Button>
@@ -88,23 +101,23 @@ export function BookActions({ book }: { book: Book }) {
 
       {book.is_published && book.status === 'ready' && (
         <>
-          <Button variant="outline" onClick={copyLink}>
+          <Button variant="outline" size={btnSize} onClick={copyLink}>
             {copied ? (
               <>
-                <Check className="mr-2 h-4 w-4" />
-                Copied!
+                <Check className="mr-1.5 h-4 w-4" />
+                <span className={isInline ? 'hidden sm:inline' : ''}>Copied!</span>
               </>
             ) : (
               <>
-                <Copy className="mr-2 h-4 w-4" />
-                Copy Link
+                <Copy className="mr-1.5 h-4 w-4" />
+                <span className={isInline ? 'hidden sm:inline' : ''}>Copy Link</span>
               </>
             )}
           </Button>
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" size={btnSize}>
             <Link href={readerUrl} target="_blank">
-              <ExternalLink className="mr-2 h-4 w-4" />
-              Open Reader
+              <ExternalLink className="mr-1.5 h-4 w-4" />
+              <span className={isInline ? 'hidden sm:inline' : ''}>Open Reader</span>
             </Link>
           </Button>
         </>
@@ -112,9 +125,11 @@ export function BookActions({ book }: { book: Book }) {
 
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Button variant="destructive" disabled={isDeleting}>
-            <Trash2 className="mr-2 h-4 w-4" />
-            {isDeleting ? 'Deleting...' : 'Delete'}
+          <Button variant="destructive" size={btnSize} disabled={isDeleting}>
+            <Trash2 className={isInline ? 'h-4 w-4' : 'mr-2 h-4 w-4'} />
+            <span className={isInline ? 'hidden sm:inline sm:ml-1.5' : ''}>
+              {isDeleting ? 'Deleting...' : 'Delete'}
+            </span>
           </Button>
         </AlertDialogTrigger>
         <AlertDialogContent>

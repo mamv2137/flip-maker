@@ -19,17 +19,32 @@ const Page = forwardRef<HTMLDivElement, { page: BookPage; fontSize?: number }>(
     return (
       <div
         ref={ref}
+        className="flipbook-page"
         style={{
           overflow: 'hidden',
           backgroundColor: '#ffffff',
           height: '100%',
           width: '100%',
+          colorScheme: 'light',
         }}
       >
         {page.type === 'html' ? (
           <div
             className="prose prose-sm max-w-none p-8 sm:p-10"
-            style={{ color: '#1a1a1a', fontSize: fontSize ? `${fontSize}%` : undefined }}
+            style={{
+              color: '#1a1a1a',
+              fontSize: fontSize ? `${fontSize}%` : undefined,
+              '--tw-prose-body': '#374151',
+              '--tw-prose-headings': '#111827',
+              '--tw-prose-links': '#111827',
+              '--tw-prose-bold': '#111827',
+              '--tw-prose-counters': '#6b7280',
+              '--tw-prose-bullets': '#6b7280',
+              '--tw-prose-quotes': '#374151',
+              '--tw-prose-code': '#111827',
+              '--tw-prose-th-borders': '#d1d5db',
+              '--tw-prose-td-borders': '#e5e7eb',
+            } as React.CSSProperties}
             dangerouslySetInnerHTML={{ __html: page.content }}
           />
         ) : (
@@ -115,18 +130,18 @@ export default function PageFlipReader({
         maxWidth={600}
         minHeight={350}
         maxHeight={800}
-        maxShadowOpacity={0.3}
+        maxShadowOpacity={0.2}
         showCover={true}
         mobileScrollSupport={false}
         drawShadow={true}
-        flippingTime={800}
+        flippingTime={600}
         usePortrait={true}
         startZIndex={0}
         autoSize={true}
         clickEventForward={false}
         useMouseEvents={true}
-        swipeDistance={30}
-        showPageCorners={false}
+        swipeDistance={20}
+        showPageCorners={true}
         disableFlipByClick={false}
         onFlip={handleFlip}
         className="flipbook-container"
