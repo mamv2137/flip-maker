@@ -49,6 +49,7 @@ export default async function ProfilePage() {
               email={user.email || ''}
               displayName={profile?.display_name || ''}
               avatarUrl={profile?.avatar_url || ''}
+              bio={profile?.bio || ''}
             />
           </CardContent>
         </Card>

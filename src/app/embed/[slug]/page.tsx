@@ -7,7 +7,7 @@ import { PdfReaderWrapper } from '@/app/read/[slug]/PdfReaderWrapper'
 import { AccessDenied } from '@/app/read/[slug]/AccessDenied'
 import type { Metadata } from 'next'
 import type { BookPage } from '@/components/reader/FlipbookReader'
-import { resolveFileUrl } from '@/lib/storage'
+import { resolveFileUrl, resolvePdfUrl } from '@/lib/storage'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -71,12 +71,13 @@ export default async function EmbedReaderPage({ params, searchParams }: Props) {
     ? { type: 'image', content: resolveFileUrl(book.cover_image_url), pageNumber: 0 }
     : null
 
-  if (book.content_type === 'pdf' && book.pdf_r2_key) {
+  const pdfUrl = resolvePdfUrl(book)
+  if (book.content_type === 'pdf' && pdfUrl) {
     return (
       <PdfReaderWrapper
         title={book.title}
         bookId={book.id}
-        pdfUrl={resolveFileUrl(book.pdf_r2_key)}
+        pdfUrl={pdfUrl}
         flipEnabled={book.flip_effect_enabled}
         coverPage={coverPage}
         skipFirstPage={book.pdf_first_page_is_cover && !!coverPage}

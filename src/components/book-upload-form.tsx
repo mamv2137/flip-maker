@@ -11,27 +11,64 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { cn } from '@/utils/tailwind'
-import { Upload, FileText, X, FileImage } from 'lucide-react'
+import { Upload, FileText, X, FileImage, AlertCircle, Link2, Check, Loader2, ShieldCheck } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { motion, AnimatePresence } from 'motion/react'
+import { useCategories } from '@/hooks/use-categories'
+import { UploadProgress } from '@/components/upload-progress'
 
 const ACCEPTED_TYPES = ['.md', '.markdown', '.pdf']
 const MAX_FILE_SIZE = 50 * 1024 * 1024 // 50 MB
 
 export function BookUploadForm() {
+  const [inputMode, setInputMode] = useState<'upload' | 'drive'>('upload')
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [file, setFile] = useState<File | null>(null)
+  const [driveUrl, setDriveUrl] = useState('')
+  const [driveFileId, setDriveFileId] = useState<string | null>(null)
+  const [driveValidating, setDriveValidating] = useState(false)
+  const [driveValid, setDriveValid] = useState<boolean | null>(null)
+  const [driveError, setDriveError] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [uploadComplete, setUploadComplete] = useState(false)
+  const [createdBookId, setCreatedBookId] = useState<string | null>(null)
   const [isDragOver, setIsDragOver] = useState(false)
+  const [categoryId, setCategoryId] = useState<string>('')
   const [useFirstPageAsCover, setUseFirstPageAsCover] = useState(true)
   const [pdfPreview, setPdfPreview] = useState<string | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const driveDebounceRef = useRef<NodeJS.Timeout>(null)
   const router = useRouter()
+  const { data: categories } = useCategories()
 
   const isPdf = file?.name.toLowerCase().endsWith('.pdf')
+
+  // Clear other mode's state when switching tabs
+  const handleTabChange = (value: string) => {
+    setInputMode(value as 'upload' | 'drive')
+    setError(null)
+    if (value === 'drive') {
+      setFile(null)
+      setPdfPreview(null)
+    } else {
+      setDriveUrl('')
+      setDriveFileId(null)
+      setDriveValid(null)
+      setDriveError(null)
+    }
+  }
 
   const validateFile = useCallback((f: File): string | null => {
     const name = f.name.toLowerCase()
@@ -53,7 +90,6 @@ export function BookUploadForm() {
       setPdfPreview(null)
       setUseFirstPageAsCover(true)
 
-      // Auto-fill title from filename if empty
       if (!title) {
         const name = f.name.replace(/\.(md|markdown|pdf)$/i, '')
         setTitle(name.replace(/[-_]/g, ' '))
@@ -102,6 +138,44 @@ export function BookUploadForm() {
     return () => { cancelled = true }
   }, [file, isPdf])
 
+  // Debounced Drive URL validation
+  useEffect(() => {
+    if (!driveUrl.trim()) {
+      setDriveValid(null)
+      setDriveError(null)
+      setDriveFileId(null)
+      return
+    }
+
+    if (driveDebounceRef.current) clearTimeout(driveDebounceRef.current)
+    setDriveValidating(true)
+    setDriveValid(null)
+    setDriveError(null)
+
+    driveDebounceRef.current = setTimeout(async () => {
+      try {
+        const res = await fetch('/api/drive/validate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url: driveUrl }),
+        })
+        const data = await res.json()
+        setDriveValid(data.valid)
+        setDriveFileId(data.fileId || null)
+        setDriveError(data.valid ? null : data.error)
+      } catch {
+        setDriveError('Failed to validate URL')
+        setDriveValid(false)
+      } finally {
+        setDriveValidating(false)
+      }
+    }, 600)
+
+    return () => {
+      if (driveDebounceRef.current) clearTimeout(driveDebounceRef.current)
+    }
+  }, [driveUrl])
+
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
       e.preventDefault()
@@ -112,9 +186,14 @@ export function BookUploadForm() {
     [handleFileSelect],
   )
 
+  const canSubmit =
+    title.trim() &&
+    !isLoading &&
+    ((inputMode === 'upload' && file) || (inputMode === 'drive' && driveValid))
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!file || !title.trim()) return
+    if (!canSubmit) return
 
     setIsLoading(true)
     setError(null)
@@ -123,9 +202,15 @@ export function BookUploadForm() {
       const formData = new FormData()
       formData.set('title', title.trim())
       if (description.trim()) formData.set('description', description.trim())
-      formData.set('file', file)
-      if (isPdf) {
-        formData.set('useFirstPageAsCover', useFirstPageAsCover ? 'true' : 'false')
+      if (categoryId) formData.set('category_id', categoryId)
+
+      if (inputMode === 'drive' && driveUrl) {
+        formData.set('drive_url', driveUrl)
+      } else if (file) {
+        formData.set('file', file)
+        if (isPdf) {
+          formData.set('useFirstPageAsCover', useFirstPageAsCover ? 'true' : 'false')
+        }
       }
 
       const res = await fetch('/api/books', {
@@ -140,8 +225,8 @@ export function BookUploadForm() {
 
       const book = await res.json()
 
-      // If using first page as cover, upload the preview as cover image
-      if (isPdf && useFirstPageAsCover && pdfPreview) {
+      // If using first page as cover (upload mode only)
+      if (inputMode === 'upload' && isPdf && useFirstPageAsCover && pdfPreview) {
         const coverBlob = await fetch(pdfPreview).then((r) => r.blob())
         const coverForm = new FormData()
         coverForm.set('cover', new File([coverBlob], 'cover.webp', { type: 'image/webp' }))
@@ -151,133 +236,235 @@ export function BookUploadForm() {
         })
       }
 
-      router.push(`/dashboard/books/${book.id}`)
+      setCreatedBookId(book.id)
+      setUploadComplete(true)
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'An error occurred')
-    } finally {
       setIsLoading(false)
     }
   }
 
   return (
+    <>
+    <UploadProgress
+      isActive={isLoading || uploadComplete}
+      isComplete={uploadComplete}
+      bookId={createdBookId}
+    />
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* File drop zone */}
-      <Card
-        className={cn(
-          'cursor-pointer border-2 border-dashed transition-colors',
-          isDragOver && 'border-primary bg-primary/5',
-          file && 'border-solid',
-        )}
-        onDragOver={(e) => {
-          e.preventDefault()
-          setIsDragOver(true)
-        }}
-        onDragLeave={() => setIsDragOver(false)}
-        onDrop={handleDrop}
-        onClick={() => !file && fileInputRef.current?.click()}
-      >
-        <CardContent className="flex flex-col items-center justify-center py-10">
-          {file ? (
-            <div className="flex items-center gap-3">
-              <FileText className="text-muted-foreground h-8 w-8" />
-              <div>
-                <p className="font-medium">{file.name}</p>
-                <p className="text-muted-foreground text-sm">
-                  {(file.size / 1024).toFixed(1)} KB
-                </p>
-              </div>
-              <Button
-                type="button"
-                variant="ghost"
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  setFile(null)
-                  setPdfPreview(null)
-                }}
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-          ) : (
-            <>
-              <Upload className="text-muted-foreground mb-3 h-10 w-10" />
-              <p className="text-sm font-medium">
-                Drop your file here or click to browse
-              </p>
-              <p className="text-muted-foreground mt-1 text-xs">
-                Markdown (.md) or PDF (.pdf) — max 50 MB
-              </p>
-            </>
-          )}
-        </CardContent>
-      </Card>
+      {/* Source selection tabs */}
+      <Tabs value={inputMode} onValueChange={handleTabChange}>
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="upload" className="gap-1.5">
+            <Upload className="h-4 w-4" />
+            Upload File
+          </TabsTrigger>
+          <TabsTrigger value="drive" className="gap-1.5">
+            <Link2 className="h-4 w-4" />
+            Google Drive URL
+          </TabsTrigger>
+        </TabsList>
 
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept={ACCEPTED_TYPES.join(',')}
-        className="hidden"
-        onChange={(e) => {
-          const f = e.target.files?.[0]
-          if (f) handleFileSelect(f)
-        }}
-      />
+        <TabsContent value="upload" className="mt-4">
+          {/* File drop zone */}
+          <Card
+            className={cn(
+              'cursor-pointer border-2 border-dashed transition-colors',
+              isDragOver && 'border-primary bg-primary/5',
+              file && 'border-solid',
+            )}
+            onDragOver={(e) => {
+              e.preventDefault()
+              setIsDragOver(true)
+            }}
+            onDragLeave={() => setIsDragOver(false)}
+            onDrop={handleDrop}
+            onClick={() => !file && fileInputRef.current?.click()}
+          >
+            <CardContent className="flex flex-col items-center justify-center py-10">
+              <AnimatePresence mode="wait">
+                {file ? (
+                  <motion.div
+                    key="file-selected"
+                    className="flex items-center gap-3"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <FileText className="text-muted-foreground h-8 w-8" />
+                    <div>
+                      <p className="font-medium">{file.name}</p>
+                      <p className="text-muted-foreground text-sm">
+                        {(file.size / 1024).toFixed(1)} KB
+                      </p>
+                    </div>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setFile(null)
+                        setPdfPreview(null)
+                      }}
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="drop-zone"
+                    className="flex flex-col items-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Upload className="text-muted-foreground mb-3 h-10 w-10" />
+                    <p className="text-sm font-medium">
+                      Drop your file here or click to browse
+                    </p>
+                    <p className="text-muted-foreground mt-1 text-xs">
+                      Markdown (.md) or PDF (.pdf) — max 50 MB
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </CardContent>
+          </Card>
 
-      {/* PDF cover option */}
-      {isPdf && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <FileImage className="h-5 w-5" />
-              Cover Image
-            </CardTitle>
-            <CardDescription>
-              Choose how to set the cover for your flipbook
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-start gap-3">
-              <Checkbox
-                id="use-first-page"
-                checked={useFirstPageAsCover}
-                onCheckedChange={(checked) =>
-                  setUseFirstPageAsCover(checked === true)
-                }
-              />
-              <div className="grid gap-1">
-                <Label htmlFor="use-first-page" className="font-normal">
-                  Use first page of PDF as cover
-                </Label>
-                <p className="text-muted-foreground text-xs">
-                  The first page will be extracted and set as the book cover. You can change it later.
-                </p>
-              </div>
-            </div>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept={ACCEPTED_TYPES.join(',')}
+            className="hidden"
+            onChange={(e) => {
+              const f = e.target.files?.[0]
+              if (f) handleFileSelect(f)
+            }}
+          />
+        </TabsContent>
 
-            {pdfPreview && useFirstPageAsCover && (
-              <div className="flex items-start gap-4">
-                <div className="bg-muted aspect-[2/3] w-[120px] overflow-hidden rounded-md border">
-                  <img
-                    src={pdfPreview}
-                    alt="First page preview"
-                    className="h-full w-full object-cover"
+        <TabsContent value="drive" className="mt-4">
+          <Card>
+            <CardContent className="space-y-4 pt-6">
+              <div className="grid gap-2">
+                <Label htmlFor="drive-url">Google Drive PDF Link</Label>
+                <div className="relative">
+                  <Input
+                    id="drive-url"
+                    placeholder="https://drive.google.com/file/d/.../view"
+                    value={driveUrl}
+                    onChange={(e) => setDriveUrl(e.target.value)}
+                    className="pr-10"
                   />
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                    {driveValidating && (
+                      <Loader2 className="text-muted-foreground h-4 w-4 animate-spin" />
+                    )}
+                    {!driveValidating && driveValid === true && (
+                      <Check className="h-4 w-4 text-green-500" />
+                    )}
+                    {!driveValidating && driveValid === false && (
+                      <X className="h-4 w-4 text-red-500" />
+                    )}
+                  </div>
                 </div>
                 <p className="text-muted-foreground text-xs">
-                  Preview of the first page
+                  Paste a public Google Drive link. The file must be shared as &quot;Anyone with the link&quot;.
                 </p>
+                {driveError && (
+                  <p className="text-xs text-red-500">{driveError}</p>
+                )}
+                {driveValid && (
+                  <p className="text-xs text-green-600 dark:text-green-400">
+                    File verified and accessible. The PDF will be read directly from Google Drive.
+                  </p>
+                )}
               </div>
-            )}
 
-            {!useFirstPageAsCover && (
-              <p className="text-muted-foreground text-xs">
-                You can upload a custom cover image from the book detail page after creation.
-              </p>
-            )}
-          </CardContent>
-        </Card>
-      )}
+              {/* Security disclaimer */}
+              <div className="flex items-start gap-3 rounded-lg border border-emerald-200 bg-emerald-50 p-3 dark:border-emerald-900/50 dark:bg-emerald-950/30">
+                <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                <div className="space-y-1">
+                  <p className="text-xs font-medium text-emerald-800 dark:text-emerald-300">
+                    Your content is protected
+                  </p>
+                  <p className="text-xs text-emerald-700/80 dark:text-emerald-400/70">
+                    Your PDF is served through our secure reader only. Readers can view it but cannot download, copy, or share the original file. Your content stays yours.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+
+      {/* PDF cover option — only for file uploads */}
+      <AnimatePresence>
+        {inputMode === 'upload' && isPdf && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="overflow-hidden"
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <FileImage className="h-5 w-5" />
+                  Cover Image
+                </CardTitle>
+                <CardDescription>
+                  Choose how to set the cover for your flipbook
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="use-first-page"
+                    checked={useFirstPageAsCover}
+                    onCheckedChange={(checked) =>
+                      setUseFirstPageAsCover(checked === true)
+                    }
+                  />
+                  <div className="grid gap-1">
+                    <Label htmlFor="use-first-page" className="font-normal">
+                      Use first page of PDF as cover
+                    </Label>
+                    <p className="text-muted-foreground text-xs">
+                      The first page will be extracted and set as the book cover. You can change it later.
+                    </p>
+                  </div>
+                </div>
+
+                {pdfPreview && useFirstPageAsCover && (
+                  <div className="flex items-start gap-4">
+                    <div className="bg-muted aspect-[2/3] w-[120px] overflow-hidden rounded-md border">
+                      <img
+                        src={pdfPreview}
+                        alt="First page preview"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <p className="text-muted-foreground text-xs">
+                      Preview of the first page
+                    </p>
+                  </div>
+                )}
+
+                {!useFirstPageAsCover && (
+                  <p className="text-muted-foreground text-xs">
+                    You can upload a custom cover image from the book detail page after creation.
+                  </p>
+                )}
+              </CardContent>
+            </Card>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Book details */}
       <Card>
@@ -307,12 +494,39 @@ export function BookUploadForm() {
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
+          <div className="grid gap-2">
+            <Label htmlFor="category">Category (optional)</Label>
+            <Select value={categoryId} onValueChange={setCategoryId}>
+              <SelectTrigger id="category">
+                <SelectValue placeholder="Select a category" />
+              </SelectTrigger>
+              <SelectContent>
+                {categories?.map((cat) => (
+                  <SelectItem key={cat.id} value={cat.id}>
+                    {cat.emoji} {cat.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
         </CardContent>
       </Card>
 
-      {error && (
-        <p className="text-sm text-red-500">{error}</p>
-      )}
+      <AnimatePresence>
+        {error && (
+          <motion.div
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            transition={{ duration: 0.2 }}
+            className="flex items-start gap-2 rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-950/50 dark:text-red-400"
+            role="alert"
+          >
+            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+            <span>{error}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div className="flex gap-3">
         <Button
@@ -322,10 +536,11 @@ export function BookUploadForm() {
         >
           Cancel
         </Button>
-        <Button type="submit" disabled={isLoading || !file || !title.trim()}>
+        <Button type="submit" disabled={!canSubmit}>
           {isLoading ? 'Creating...' : 'Create Book'}
         </Button>
       </div>
     </form>
+    </>
   )
 }

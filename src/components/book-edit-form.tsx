@@ -5,9 +5,17 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Badge } from '@/components/ui/badge'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Save, Check, X, Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCategories } from '@/hooks/use-categories'
 
 type Book = {
   id: string
@@ -15,6 +23,7 @@ type Book = {
   slug: string
   description: string | null
   flip_effect_enabled: boolean
+  category_id: string | null
 }
 
 type SlugCheck = {
@@ -29,6 +38,8 @@ export function BookEditForm({ book }: { book: Book }) {
   const [slug, setSlug] = useState(book.slug)
   const [description, setDescription] = useState(book.description || '')
   const [flipEnabled, setFlipEnabled] = useState(book.flip_effect_enabled)
+  const [categoryId, setCategoryId] = useState(book.category_id || '')
+  const { data: categories } = useCategories()
   const [isLoading, setIsLoading] = useState(false)
   const [saved, setSaved] = useState(false)
   const [slugCheck, setSlugCheck] = useState<SlugCheck | null>(null)
@@ -41,7 +52,8 @@ export function BookEditForm({ book }: { book: Book }) {
     title !== book.title ||
     slug !== book.slug ||
     description !== (book.description || '') ||
-    flipEnabled !== book.flip_effect_enabled
+    flipEnabled !== book.flip_effect_enabled ||
+    categoryId !== (book.category_id || '')
 
   const slugIsValid = slug === book.slug || (slugCheck?.available === true)
 
@@ -112,6 +124,7 @@ export function BookEditForm({ book }: { book: Book }) {
           slug: slug.trim(),
           description: description.trim() || null,
           flip_effect_enabled: flipEnabled,
+          category_id: categoryId || null,
         }),
       })
 
@@ -196,6 +209,22 @@ export function BookEditForm({ book }: { book: Book }) {
           onChange={(e) => setDescription(e.target.value)}
           placeholder="A brief description of your book"
         />
+      </div>
+
+      <div className="grid gap-2">
+        <Label htmlFor="edit-category">Category</Label>
+        <Select value={categoryId} onValueChange={setCategoryId}>
+          <SelectTrigger id="edit-category">
+            <SelectValue placeholder="Select a category" />
+          </SelectTrigger>
+          <SelectContent>
+            {categories?.map((cat) => (
+              <SelectItem key={cat.id} value={cat.id}>
+                {cat.emoji} {cat.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <div className="flex items-center gap-2">

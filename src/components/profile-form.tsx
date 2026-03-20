@@ -3,6 +3,8 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Save, Check } from 'lucide-react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
@@ -12,17 +14,38 @@ type Props = {
   email: string
   displayName: string
   avatarUrl: string
+  bio: string
 }
 
-export function ProfileForm({ userId, email, displayName: initialName, avatarUrl: initialAvatar }: Props) {
+function getInitials(name: string, email: string): string {
+  const source = name || email
+  return source
+    .split(/[\s@]/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((s) => s[0].toUpperCase())
+    .join('')
+}
+
+export function ProfileForm({
+  userId,
+  email,
+  displayName: initialName,
+  avatarUrl: initialAvatar,
+  bio: initialBio,
+}: Props) {
   const [displayName, setDisplayName] = useState(initialName)
   const [avatarUrl, setAvatarUrl] = useState(initialAvatar)
+  const [bio, setBio] = useState(initialBio)
   const [isLoading, setIsLoading] = useState(false)
   const [saved, setSaved] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
 
-  const hasChanges = displayName !== initialName || avatarUrl !== initialAvatar
+  const hasChanges =
+    displayName !== initialName ||
+    avatarUrl !== initialAvatar ||
+    bio !== initialBio
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -39,6 +62,7 @@ export function ProfileForm({ userId, email, displayName: initialName, avatarUrl
           userId,
           display_name: displayName.trim() || null,
           avatar_url: avatarUrl.trim() || null,
+          bio: bio.trim() || null,
         }),
       })
 
@@ -55,8 +79,22 @@ export function ProfileForm({ userId, email, displayName: initialName, avatarUrl
     }
   }
 
+  const initials = getInitials(displayName, email)
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Avatar preview */}
+      <div className="flex items-center gap-4">
+        <Avatar className="h-16 w-16">
+          {avatarUrl && <AvatarImage src={avatarUrl} alt={displayName || 'Avatar'} />}
+          <AvatarFallback className="text-lg">{initials}</AvatarFallback>
+        </Avatar>
+        <div>
+          <p className="font-medium">{displayName || 'Your Name'}</p>
+          <p className="text-muted-foreground text-sm">{email}</p>
+        </div>
+      </div>
+
       <div className="grid gap-2">
         <Label htmlFor="email">Email</Label>
         <Input id="email" value={email} disabled className="bg-muted" />
@@ -74,6 +112,21 @@ export function ProfileForm({ userId, email, displayName: initialName, avatarUrl
       </div>
 
       <div className="grid gap-2">
+        <Label htmlFor="bio">Bio</Label>
+        <Textarea
+          id="bio"
+          value={bio}
+          onChange={(e) => setBio(e.target.value)}
+          placeholder="Tell readers a bit about yourself..."
+          rows={3}
+          maxLength={280}
+        />
+        <p className="text-muted-foreground text-xs">
+          {bio.length}/280 characters
+        </p>
+      </div>
+
+      <div className="grid gap-2">
         <Label htmlFor="avatar-url">Avatar URL</Label>
         <Input
           id="avatar-url"
@@ -82,7 +135,7 @@ export function ProfileForm({ userId, email, displayName: initialName, avatarUrl
           placeholder="https://example.com/avatar.jpg"
         />
         <p className="text-muted-foreground text-xs">
-          Paste a URL to an image for your profile picture
+          Paste a URL to an image. Your initials will show until you add one.
         </p>
       </div>
 

@@ -118,6 +118,22 @@ export function resolveFileUrl(storagePath: string): string {
 }
 
 /**
+ * Resolve the PDF URL for a book — supports both Seafile and Google Drive.
+ */
+export function resolvePdfUrl(book: {
+  pdf_r2_key?: string | null
+  drive_file_id?: string | null
+}): string | null {
+  if (book.drive_file_id) {
+    return `/api/drive/proxy/${book.drive_file_id}`
+  }
+  if (book.pdf_r2_key) {
+    return resolveFileUrl(book.pdf_r2_key)
+  }
+  return null
+}
+
+/**
  * Delete a file from Seafile.
  */
 export async function deleteFile(filePath: string): Promise<void> {

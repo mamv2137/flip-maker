@@ -13,7 +13,7 @@ export async function PATCH(request: Request) {
 
   const body = await request.json()
 
-  const allowedFields = ['display_name', 'avatar_url']
+  const allowedFields = ['display_name', 'avatar_url', 'bio']
   const updates: Record<string, unknown> = {}
   for (const field of allowedFields) {
     if (field in body) {

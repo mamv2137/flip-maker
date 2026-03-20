@@ -22,7 +22,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -39,6 +39,7 @@ import { createClient } from '@/supabase/client'
 type Props = {
   userEmail: string
   displayName: string | null
+  avatarUrl: string | null
 }
 
 const navLinks = [
@@ -46,7 +47,7 @@ const navLinks = [
   { name: 'Library', href: '/library', icon: Library },
 ]
 
-export function DashboardNavbar({ userEmail, displayName }: Props) {
+export function DashboardNavbar({ userEmail, displayName, avatarUrl }: Props) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
@@ -131,6 +132,7 @@ export function DashboardNavbar({ userEmail, displayName }: Props) {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative hidden h-9 w-9 rounded-full md:inline-flex">
                 <Avatar className="h-9 w-9">
+                  {avatarUrl && <AvatarImage src={avatarUrl} alt={displayName || 'User'} />}
                   <AvatarFallback className="text-xs">{initials}</AvatarFallback>
                 </Avatar>
               </Button>

@@ -15,14 +15,14 @@ export function LandingNavbar({ isAuthenticated }: Props) {
           <span>Flipbooks</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm text-neutral-400 md:flex">
-          <Link href="#features" className="transition-colors hover:text-white">
+        <nav className="hidden items-center gap-6 text-sm text-neutral-400 md:flex" aria-label="Main navigation">
+          <Link href="#features" className="rounded-sm transition-colors hover:text-white focus-visible:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2">
             Features
           </Link>
-          <Link href="#process" className="transition-colors hover:text-white">
+          <Link href="#process" className="rounded-sm transition-colors hover:text-white focus-visible:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2">
             How it works
           </Link>
-          <Link href="#demo" className="transition-colors hover:text-white">
+          <Link href="#demo" className="rounded-sm transition-colors hover:text-white focus-visible:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2">
             Demo
           </Link>
         </nav>

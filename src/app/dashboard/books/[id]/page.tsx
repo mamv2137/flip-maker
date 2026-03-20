@@ -1,4 +1,3 @@
-
 import { createClient } from '@/supabase/server'
 import { resolveFileUrl } from '@/lib/storage'
 import { notFound } from 'next/navigation'
@@ -10,12 +9,19 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { ChevronLeft } from 'lucide-react'
+import {
+  ChevronLeft,
+  FileText,
+  File,
+  BookOpen,
+  ExternalLink,
+} from 'lucide-react'
 import Link from 'next/link'
 import { BookActions } from '@/components/book-actions'
 import { ShareBookForm } from '@/components/share-book-form'
 import { BookEditForm } from '@/components/book-edit-form'
 import { CoverUpload } from '@/components/cover-upload'
+import { Separator } from '@/components/ui/separator'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -27,7 +33,7 @@ export default async function BookDetailPage({ params }: Props) {
 
   const { data: book } = await supabase
     .from('books')
-    .select('*')
+    .select('*, categories(name, emoji)')
     .eq('id', id)
     .single()
 
@@ -35,8 +41,11 @@ export default async function BookDetailPage({ params }: Props) {
     notFound()
   }
 
+  const category = book.categories as { name: string; emoji: string } | null
+
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-6">
+      {/* Header */}
       <div>
         <Link
           href="/dashboard"
@@ -52,7 +61,9 @@ export default async function BookDetailPage({ params }: Props) {
               {book.status}
             </Badge>
             {book.is_published && (
-              <Badge variant="outline">Published</Badge>
+              <Badge variant="outline" className="border-emerald-500/30 text-emerald-600 dark:text-emerald-400">
+                Published
+              </Badge>
             )}
           </div>
           <BookActions book={book} variant="inline" />
@@ -62,82 +73,133 @@ export default async function BookDetailPage({ params }: Props) {
         )}
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {/* Cover */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Cover</CardTitle>
-            <CardDescription>
-              Upload a cover image for your book
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <CoverUpload
-              bookId={book.id}
-              currentCover={book.cover_image_url ? resolveFileUrl(book.cover_image_url) : null}
-            />
-          </CardContent>
-        </Card>
-
-        {/* Edit Details */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Edit Details</CardTitle>
-            <CardDescription>
-              Update your book&apos;s title, description, and settings
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <BookEditForm book={book} />
-          </CardContent>
-        </Card>
-
-        {/* Share */}
-        <Card className="sm:col-span-2 lg:col-span-3">
-          <CardHeader>
-            <CardTitle className="text-base">Share & Access</CardTitle>
-            <CardDescription>
-              {book.is_published
-                ? 'Control who can access your book and share it with readers.'
-                : 'Publish your book first to share it.'}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            {book.is_published && book.status === 'ready' ? (
-              <ShareBookForm
+      {/* Two-column layout: Preview (sticky) | Edit (scrollable) */}
+      <div className="grid gap-6 lg:grid-cols-[minmax(280px,340px)_1fr]">
+        {/* LEFT: Cover + Quick Info — sticky on desktop */}
+        <div className="flex flex-col gap-6 lg:sticky lg:top-20 lg:self-start">
+          {/* Cover */}
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-base">Cover</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CoverUpload
                 bookId={book.id}
-                bookSlug={book.slug}
-                visibility={book.visibility ?? 'public'}
+                currentCover={book.cover_image_url ? resolveFileUrl(book.cover_image_url) : null}
               />
-            ) : (
-              <p className="text-muted-foreground text-sm">
-                Publish this book to enable sharing.
-              </p>
-            )}
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+
+          {/* Quick Info */}
+          <Card>
+            <CardContent className="pt-6">
+              <dl className="space-y-3 text-sm">
+                <div className="flex items-center justify-between">
+                  <dt className="text-muted-foreground">Type</dt>
+                  <dd className="flex items-center gap-1.5 font-medium">
+                    {book.content_type === 'pdf' ? (
+                      <File className="h-3.5 w-3.5" />
+                    ) : (
+                      <FileText className="h-3.5 w-3.5" />
+                    )}
+                    {book.content_type === 'pdf' ? 'PDF' : 'Markdown'}
+                  </dd>
+                </div>
+                <Separator />
+                <div className="flex items-center justify-between">
+                  <dt className="text-muted-foreground">Pages</dt>
+                  <dd className="font-medium">{book.page_count}</dd>
+                </div>
+                <Separator />
+                <div className="flex items-center justify-between">
+                  <dt className="text-muted-foreground">Source</dt>
+                  <dd className="font-medium">
+                    {book.drive_file_id ? 'Google Drive' : 'Uploaded'}
+                  </dd>
+                </div>
+                {category && (
+                  <>
+                    <Separator />
+                    <div className="flex items-center justify-between">
+                      <dt className="text-muted-foreground">Category</dt>
+                      <dd className="font-medium">
+                        {category.emoji} {category.name}
+                      </dd>
+                    </div>
+                  </>
+                )}
+                <Separator />
+                <div className="flex items-center justify-between">
+                  <dt className="text-muted-foreground">Slug</dt>
+                  <dd className="font-mono text-xs">{book.slug}</dd>
+                </div>
+                {book.is_published && (
+                  <>
+                    <Separator />
+                    <div className="flex items-center justify-between">
+                      <dt className="text-muted-foreground">Reader URL</dt>
+                      <dd>
+                        <Link
+                          href={`/read/${book.slug}`}
+                          target="_blank"
+                          className="text-primary inline-flex items-center gap-1 text-xs hover:underline"
+                        >
+                          /read/{book.slug}
+                          <ExternalLink className="h-3 w-3" />
+                        </Link>
+                      </dd>
+                    </div>
+                  </>
+                )}
+              </dl>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* RIGHT: Edit Details + Share & Access */}
+        <div className="flex min-w-0 flex-col gap-6">
+          {/* Edit Details */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">Edit Details</CardTitle>
+              <CardDescription>
+                Update your book&apos;s title, description, and settings
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <BookEditForm book={book} />
+            </CardContent>
+          </Card>
+
+          {/* Share & Access */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">Share & Access</CardTitle>
+              <CardDescription>
+                {book.is_published
+                  ? 'Control who can access your book and share it with readers.'
+                  : 'Publish your book first to share it.'}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {book.is_published && book.status === 'ready' ? (
+                <ShareBookForm
+                  bookId={book.id}
+                  bookSlug={book.slug}
+                  visibility={book.visibility ?? 'public'}
+                />
+              ) : (
+                <div className="flex flex-col items-center gap-2 py-6 text-center">
+                  <BookOpen className="text-muted-foreground h-8 w-8" />
+                  <p className="text-muted-foreground text-sm">
+                    Publish this book to enable sharing and access controls.
+                  </p>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </div>
       </div>
-
-      {/* Info row */}
-      <Card>
-        <CardContent className="py-4">
-          <dl className="flex flex-wrap gap-x-8 gap-y-2 text-sm">
-            <div className="flex gap-2">
-              <dt className="text-muted-foreground">Type</dt>
-              <dd className="font-medium">{book.content_type}</dd>
-            </div>
-            <div className="flex gap-2">
-              <dt className="text-muted-foreground">Pages</dt>
-              <dd className="font-medium">{book.page_count}</dd>
-            </div>
-            <div className="flex gap-2">
-              <dt className="text-muted-foreground">Slug</dt>
-              <dd className="font-mono text-xs">{book.slug}</dd>
-            </div>
-          </dl>
-        </CardContent>
-      </Card>
-
     </div>
   )
 }
