@@ -5,6 +5,7 @@ import { FeaturesSection } from '@/components/landing/FeaturesSection'
 import { ProcessSection } from '@/components/landing/ProcessSection'
 import { DemoSection } from '@/components/landing/DemoSection'
 import { CtaSection } from '@/components/landing/CtaSection'
+import { LogoCloud } from '@/components/landing/LogoCloud'
 import { Footer } from '@/components/landing/Footer'
 
 export default async function Home() {
@@ -16,6 +17,7 @@ export default async function Home() {
     <div className="dark bg-black min-h-screen text-white">
       <LandingNavbar isAuthenticated={isAuthenticated} />
       <HeroSection isAuthenticated={isAuthenticated} />
+      <LogoCloud />
       <FeaturesSection />
       <ProcessSection />
       <DemoSection />

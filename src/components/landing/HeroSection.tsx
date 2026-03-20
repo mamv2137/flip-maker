@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { motion } from 'motion/react'
 import { BorderBeam } from '@/components/ui/border-beam'
+import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
 
 type Props = {
   isAuthenticated: boolean
@@ -33,16 +34,20 @@ export function HeroSection({ isAuthenticated }: Props) {
       />
 
       <div className="relative mx-auto max-w-4xl px-4 pb-8 pt-24 text-center sm:px-6 sm:pt-32">
-        {/* Badge pill */}
+        {/* Badge pill with shiny text */}
         <motion.div
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-neutral-300 backdrop-blur-sm"
+          className="mb-8 inline-flex"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
-          <span>Free to use — no credit card needed</span>
-          <ArrowRight className="h-3 w-3 text-neutral-500" />
+          <div className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
+            <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
+            <AnimatedShinyText shimmerWidth={70}>
+              Free to use — no credit card needed
+            </AnimatedShinyText>
+            <ArrowRight className="h-3 w-3 text-neutral-500 transition-transform group-hover:translate-x-0.5" />
+          </div>
         </motion.div>
 
         {/* Headline — word-by-word reveal */}
@@ -53,7 +58,11 @@ export function HeroSection({ isAuthenticated }: Props) {
               className="mr-3 inline-block"
               initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 0.3, delay: 0.3 + index * 0.1, ease: 'easeInOut' }}
+              transition={{
+                duration: 0.3,
+                delay: 0.3 + index * 0.1,
+                ease: 'easeInOut',
+              }}
             >
               {word}
             </motion.span>
@@ -122,7 +131,7 @@ export function HeroSection({ isAuthenticated }: Props) {
         </motion.p>
       </div>
 
-      {/* Dashboard preview with border beam */}
+      {/* Dashboard preview with Magic UI Border Beam */}
       <motion.div
         className="relative mx-auto max-w-5xl px-4 sm:px-6"
         initial={{ opacity: 0, y: 30 }}
@@ -130,12 +139,19 @@ export function HeroSection({ isAuthenticated }: Props) {
         transition={{ duration: 0.7, delay: 1.4, ease: 'easeOut' }}
       >
         <div className="relative overflow-hidden rounded-t-xl border border-white/10 bg-neutral-900/50 shadow-2xl shadow-emerald-500/5">
-          <BorderBeam duration={8} lightWidth={300} lightColor="#10b981" />
+          <BorderBeam
+            duration={8}
+            size={300}
+            colorFrom="#10b981"
+            colorTo="#34d399"
+          />
           <div className="flex items-center gap-1.5 border-b border-white/5 px-4 py-3">
             <div className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
             <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
             <div className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
-            <span className="ml-3 text-xs text-neutral-600">flipbooks.app/dashboard</span>
+            <span className="ml-3 text-xs text-neutral-600">
+              flipbooks.app/dashboard
+            </span>
           </div>
           <div className="grid grid-cols-4 gap-3 p-6">
             <div className="col-span-1 space-y-3">

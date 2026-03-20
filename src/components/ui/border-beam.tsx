@@ -1,77 +1,105 @@
-'use client'
+"use client"
 
-import { CSSProperties, useEffect, useRef } from 'react'
-import { motion } from 'motion/react'
-import { cn } from '@/utils/tailwind'
+import { motion, MotionStyle, Transition } from "motion/react"
+
+import { cn } from "@/utils/tailwind"
 
 interface BorderBeamProps {
-  lightWidth?: number
+  /**
+   * The size of the border beam.
+   */
+  size?: number
+  /**
+   * The duration of the border beam.
+   */
   duration?: number
-  lightColor?: string
-  borderWidth?: number
+  /**
+   * The delay of the border beam.
+   */
+  delay?: number
+  /**
+   * The color of the border beam from.
+   */
+  colorFrom?: string
+  /**
+   * The color of the border beam to.
+   */
+  colorTo?: string
+  /**
+   * The motion transition of the border beam.
+   */
+  transition?: Transition
+  /**
+   * The class name of the border beam.
+   */
   className?: string
+  /**
+   * The style of the border beam.
+   */
+  style?: React.CSSProperties
+  /**
+   * Whether to reverse the animation direction.
+   */
+  reverse?: boolean
+  /**
+   * The initial offset position (0-100).
+   */
+  initialOffset?: number
+  /**
+   * The border width of the beam.
+   */
+  borderWidth?: number
 }
 
-export function BorderBeam({
-  lightWidth = 200,
-  duration = 10,
-  lightColor = '#10b981',
-  borderWidth = 1,
+export const BorderBeam = ({
   className,
-}: BorderBeamProps) {
-  const pathRef = useRef<HTMLDivElement>(null)
-
-  const updatePath = () => {
-    if (pathRef.current) {
-      const div = pathRef.current
-      div.style.setProperty(
-        '--path',
-        `path("M 0 0 H ${div.offsetWidth} V ${div.offsetHeight} H 0 V 0")`
-      )
-    }
-  }
-
-  useEffect(() => {
-    updatePath()
-    window.addEventListener('resize', updatePath)
-    return () => window.removeEventListener('resize', updatePath)
-  }, [])
-
+  size = 50,
+  delay = 0,
+  duration = 6,
+  colorFrom = "#ffaa40",
+  colorTo = "#9c40ff",
+  transition,
+  style,
+  reverse = false,
+  initialOffset = 0,
+  borderWidth = 1,
+}: BorderBeamProps) => {
   return (
     <div
+      className="pointer-events-none absolute inset-0 rounded-[inherit] border-(length:--border-beam-width) border-transparent mask-[linear-gradient(transparent,transparent),linear-gradient(#000,#000)] mask-intersect [mask-clip:padding-box,border-box]"
       style={
         {
-          '--duration': duration,
-          '--border-width': `${borderWidth}px`,
-        } as CSSProperties
+          "--border-beam-width": `${borderWidth}px`,
+        } as React.CSSProperties
       }
-      ref={pathRef}
-      className={cn(
-        'absolute z-0 h-full w-full rounded-[inherit]',
-        "after:absolute after:inset-[var(--border-width)] after:rounded-[inherit] after:content-['']",
-        'border-[length:var(--border-width)] ![mask-clip:padding-box,border-box]',
-        '![mask-composite:intersect] [mask:linear-gradient(transparent,transparent),linear-gradient(red,red)]',
-        'before:absolute before:inset-0 before:z-[-1] before:rounded-[inherit] before:border-[length:var(--border-width)] before:border-white/10',
-        className
-      )}
     >
       <motion.div
-        className="absolute inset-0 aspect-square bg-[radial-gradient(ellipse_at_center,var(--light-color),transparent,transparent)]"
+        className={cn(
+          "absolute aspect-square",
+          "bg-linear-to-l from-(--color-from) via-(--color-to) to-transparent",
+          className
+        )}
         style={
           {
-            '--light-color': lightColor,
-            '--light-width': `${lightWidth}px`,
-            width: 'var(--light-width)',
-            offsetPath: 'var(--path)',
-          } as CSSProperties
+            width: size,
+            offsetPath: `rect(0 auto auto 0 round ${size}px)`,
+            "--color-from": colorFrom,
+            "--color-to": colorTo,
+            ...style,
+          } as MotionStyle
         }
+        initial={{ offsetDistance: `${initialOffset}%` }}
         animate={{
-          offsetDistance: ['0%', '100%'],
+          offsetDistance: reverse
+            ? [`${100 - initialOffset}%`, `${-initialOffset}%`]
+            : [`${initialOffset}%`, `${100 + initialOffset}%`],
         }}
         transition={{
-          duration: duration,
           repeat: Infinity,
-          ease: 'linear',
+          ease: "linear",
+          duration,
+          delay: -delay,
+          ...transition,
         }}
       />
     </div>

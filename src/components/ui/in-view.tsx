@@ -1,7 +1,13 @@
 'use client'
 
 import { ReactNode, useRef } from 'react'
-import { motion, useInView, type Variant, type Transition, type UseInViewOptions } from 'motion/react'
+import {
+  motion,
+  useInView,
+  type Variant,
+  type Transition,
+  type UseInViewOptions,
+} from 'motion/react'
 
 interface InViewProps {
   children: ReactNode
