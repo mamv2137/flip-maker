@@ -8,25 +8,46 @@ type Props = {
 
 export function LandingNavbar({ isAuthenticated }: Props) {
   return (
-    <header className="border-b">
+    <header className="sticky top-0 z-50 border-b border-white/5 bg-black/60 backdrop-blur-xl">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2 font-semibold">
-          <BookOpen className="h-5 w-5" />
+        <Link href="/" className="flex items-center gap-2 font-semibold text-white">
+          <BookOpen className="h-5 w-5 text-emerald-400" />
           <span>Flipbooks</span>
         </Link>
 
+        <nav className="hidden items-center gap-6 text-sm text-neutral-400 md:flex">
+          <Link href="#features" className="transition-colors hover:text-white">
+            Features
+          </Link>
+          <Link href="#process" className="transition-colors hover:text-white">
+            How it works
+          </Link>
+          <Link href="#demo" className="transition-colors hover:text-white">
+            Demo
+          </Link>
+        </nav>
+
         <div className="flex items-center gap-2">
           {isAuthenticated ? (
-            <Button asChild size="sm">
+            <Button asChild size="sm" className="bg-emerald-500 text-white hover:bg-emerald-600">
               <Link href="/dashboard">Dashboard</Link>
             </Button>
           ) : (
             <>
-              <Button variant="ghost" size="sm" asChild>
-                <Link href="/auth/login">Log in</Link>
+              <Button
+                variant="ghost"
+                size="sm"
+                asChild
+                className="text-neutral-300 hover:bg-white/5 hover:text-white"
+              >
+                <Link href="/auth/login">Sign In</Link>
               </Button>
-              <Button size="sm" asChild>
-                <Link href="/auth/signup">Sign up</Link>
+              <Button
+                size="sm"
+                asChild
+                className="bg-white text-black hover:bg-neutral-200"
+              >
+                <Link href="/auth/sign-up">Get Started</Link>
               </Button>
             </>
           )}

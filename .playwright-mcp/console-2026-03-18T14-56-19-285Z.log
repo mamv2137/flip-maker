@@ -1,0 +1,112 @@
+[   57144ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/dashboard..." tree={[...]} params={{id:"cd66d2..."}} cacheNode={{rsc:<Fragment>, ...}} ...>
+            <SegmentViewNode type="page" pagePath="/Projects/...">
+              <SegmentTrieNode>
+              <BookDetailPage>
+                <div className="flex flex-...">
+                  <div>
+                  <div className="grid gap-4...">
+                    <div>
+                    <div>
+                    <Card>
+                      <div className="bg-card te...">
+                        <div>
+                        <CardContent>
+                          <div className="p-6 pt-0">
+                            <ShareBookForm bookId="cd66d2db-5..." bookSlug="deisng-pat..." visibility="public">
+                              <div className="space-y-6">
+                                <div>
+                                <div className="space-y-2">
+                                  <_c>
+                                  <div className="flex items...">
+                                    <code className="bg-muted flex-1 truncate rounded px-3 py-2 text-xs">
++                                     http://localhost:3000/read/deisng-patterns
+-                                     /read/deisng-patterns
+                                    ...
+                                ...
+                  ...
+            ...
+          ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:3402:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:9627:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_42332c1c._.js:2647:64)
+[ 2869697ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/dashboard..." tree={[...]} params={{id:"cd66d2..."}} cacheNode={{rsc:<Fragment>, ...}} ...>
+            <SegmentViewNode type="page" pagePath="/Projects/...">
+              <SegmentTrieNode>
+              <BookDetailPage>
+                <div className="flex flex-...">
+                  <div>
+                  <div className="grid gap-4...">
+                    <div>
+                    <div>
+                    <Card>
+                      <div className="bg-card te...">
+                        <div>
+                        <CardContent>
+                          <div className="p-6 pt-0">
+                            <ShareBookForm bookId="cd66d2db-5..." bookSlug="deisng-pat..." visibility="public">
+                              <div className="space-y-6">
+                                <div>
+                                <div className="space-y-2">
+                                  <_c>
+                                  <div className="flex items...">
+                                    <code className="bg-muted flex-1 truncate rounded px-3 py-2 text-xs">
++                                     http://localhost:3000/read/deisng-patterns
+-                                     /read/deisng-patterns
+                                    ...
+                                ...
+                  ...
+            ...
+          ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:3402:23)
+    at completeWork (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:965:74)
+    at completeUnitOfWork (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:9627:23)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_react-dom_7268a154._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/1c996_next_dist_compiled_42332c1c._.js:2647:64)

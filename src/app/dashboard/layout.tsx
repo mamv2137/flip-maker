@@ -1,39 +1,30 @@
-import { AuthButton } from '@/components/auth-button'
-import { ThemeSwitcher } from '@/components/theme-switcher'
-import Link from 'next/link'
-import { Suspense } from 'react'
+import { createClient } from '@/supabase/server'
+import { DashboardNavbar } from '@/components/dashboard-navbar'
 
 type DashboardLayoutProps = {
   children: React.ReactNode
 }
 
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
+export default async function DashboardLayout({ children }: DashboardLayoutProps) {
+  const supabase = await createClient()
+  const { data } = await supabase.auth.getClaims()
+  const email = (data?.claims?.email as string) || ''
+
+  // Fetch display name from profile
+  let displayName: string | null = null
+  if (data?.claims?.sub) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('display_name')
+      .eq('id', data.claims.sub as string)
+      .single()
+    displayName = profile?.display_name ?? null
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
-      <nav className="border-b">
-        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-          <div className="flex items-center gap-6">
-            <Link href="/dashboard" className="text-lg font-semibold">
-              Flipbooks
-            </Link>
-            <div className="flex items-center gap-4 text-sm">
-              <Link
-                href="/dashboard"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Books
-              </Link>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <ThemeSwitcher />
-            <Suspense>
-              <AuthButton />
-            </Suspense>
-          </div>
-        </div>
-      </nav>
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8">
+      <DashboardNavbar userEmail={email} displayName={displayName} />
+      <main className="mx-auto w-full max-w-6xl flex-1 overflow-x-hidden px-4 py-8">
         {children}
       </main>
     </div>
