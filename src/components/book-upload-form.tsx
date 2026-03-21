@@ -20,7 +20,7 @@ import {
 } from '@/components/ui/select'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { cn } from '@/utils/tailwind'
-import { Upload, FileText, X, FileImage, AlertCircle, Link2, Check, Loader2, ShieldCheck } from 'lucide-react'
+import { Upload, FileText, X, FileImage, AlertCircle, Link2, Check, Loader2, ShieldCheck, ImagePlus } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
@@ -44,21 +44,41 @@ export function BookUploadForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [uploadComplete, setUploadComplete] = useState(false)
   const [createdBookId, setCreatedBookId] = useState<string | null>(null)
+  const [coverFile, setCoverFile] = useState<File | null>(null)
+  const [coverPreview, setCoverPreview] = useState<string | null>(null)
   const [isDragOver, setIsDragOver] = useState(false)
   const [categoryId, setCategoryId] = useState<string>('')
   const [useFirstPageAsCover, setUseFirstPageAsCover] = useState(true)
   const [pdfPreview, setPdfPreview] = useState<string | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const coverInputRef = useRef<HTMLInputElement>(null)
   const driveDebounceRef = useRef<NodeJS.Timeout>(null)
   const router = useRouter()
   const { data: categories } = useCategories()
 
   const isPdf = file?.name.toLowerCase().endsWith('.pdf')
 
+  const handleCoverSelect = (f: File) => {
+    const validTypes = ['image/jpeg', 'image/png', 'image/webp']
+    if (!validTypes.includes(f.type)) {
+      setError('Cover must be a JPG, PNG, or WebP image')
+      return
+    }
+    if (f.size > 5 * 1024 * 1024) {
+      setError('Cover must be under 5 MB')
+      return
+    }
+    setError(null)
+    setCoverFile(f)
+    setCoverPreview(URL.createObjectURL(f))
+  }
+
   // Clear other mode's state when switching tabs
   const handleTabChange = (value: string) => {
     setInputMode(value as 'upload' | 'drive')
     setError(null)
+    setCoverFile(null)
+    setCoverPreview(null)
     if (value === 'drive') {
       setFile(null)
       setPdfPreview(null)
@@ -225,11 +245,20 @@ export function BookUploadForm() {
 
       const book = await res.json()
 
-      // If using first page as cover (upload mode only)
+      // Upload cover image
       if (inputMode === 'upload' && isPdf && useFirstPageAsCover && pdfPreview) {
+        // Auto-extract first page as cover
         const coverBlob = await fetch(pdfPreview).then((r) => r.blob())
         const coverForm = new FormData()
         coverForm.set('cover', new File([coverBlob], 'cover.webp', { type: 'image/webp' }))
+        await fetch(`/api/books/${book.id}/cover`, {
+          method: 'POST',
+          body: coverForm,
+        })
+      } else if (coverFile) {
+        // Manual cover upload (Drive mode or upload without first-page cover)
+        const coverForm = new FormData()
+        coverForm.set('cover', coverFile)
         await fetch(`/api/books/${book.id}/cover`, {
           method: 'POST',
           body: coverForm,
@@ -396,6 +425,69 @@ export function BookUploadForm() {
                   </p>
                 </div>
               </div>
+
+              {/* Cover upload for Drive books */}
+              <AnimatePresence>
+                {driveValid && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    className="overflow-hidden"
+                  >
+                    <div className="space-y-3">
+                      <Label>Cover Image (optional)</Label>
+                      {coverPreview ? (
+                        <div className="flex items-start gap-4">
+                          <div className="bg-muted aspect-[2/3] w-[100px] overflow-hidden rounded-md border">
+                            <img
+                              src={coverPreview}
+                              alt="Cover preview"
+                              className="h-full w-full object-cover"
+                            />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <p className="text-xs font-medium">{coverFile?.name}</p>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              onClick={() => {
+                                setCoverFile(null)
+                                setCoverPreview(null)
+                              }}
+                            >
+                              <X className="mr-1 h-3 w-3" />
+                              Remove
+                            </Button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div
+                          className="flex cursor-pointer flex-col items-center gap-2 rounded-lg border-2 border-dashed p-6 transition-colors hover:border-primary/50 hover:bg-muted/50"
+                          onClick={() => coverInputRef.current?.click()}
+                        >
+                          <ImagePlus className="text-muted-foreground h-8 w-8" />
+                          <p className="text-muted-foreground text-xs">
+                            Click to upload a cover image (JPG, PNG, WebP)
+                          </p>
+                        </div>
+                      )}
+                      <input
+                        ref={coverInputRef}
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                        className="hidden"
+                        onChange={(e) => {
+                          const f = e.target.files?.[0]
+                          if (f) handleCoverSelect(f)
+                        }}
+                      />
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </CardContent>
           </Card>
         </TabsContent>

@@ -2,12 +2,64 @@
 
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { HardDrive, ExternalLink } from 'lucide-react'
+import { HardDrive, ExternalLink, Check, Loader2 } from 'lucide-react'
+import { createClient } from '@/supabase/client'
+import { useState, useEffect } from 'react'
+
+const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.readonly'
 
 export function GoogleDriveConnect() {
-  // TODO: Implement Google Drive OAuth flow
-  // For now, show the integration card with a "coming soon" state
-  const isConnected = false
+  const [isConnected, setIsConnected] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [checking, setChecking] = useState(true)
+
+  // Check if user already has Drive scope by looking at provider token
+  useEffect(() => {
+    async function checkConnection() {
+      const supabase = createClient()
+      const { data: { session } } = await supabase.auth.getSession()
+      const provider = session?.user?.app_metadata?.provider
+      const providerToken = session?.provider_token
+
+      // User logged in with Google and has a provider token
+      if (provider === 'google' && providerToken) {
+        setIsConnected(true)
+      }
+      setChecking(false)
+    }
+    checkConnection()
+  }, [])
+
+  const handleConnect = async () => {
+    setIsLoading(true)
+    const supabase = createClient()
+
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback?next=/dashboard/profile`,
+          scopes: DRIVE_SCOPE,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          },
+        },
+      })
+      if (error) throw error
+    } catch {
+      setIsLoading(false)
+    }
+  }
+
+  if (checking) {
+    return (
+      <div className="flex items-center gap-2 p-4 text-sm text-muted-foreground">
+        <Loader2 className="h-4 w-4 animate-spin" />
+        Checking connection...
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-4">
@@ -20,6 +72,7 @@ export function GoogleDriveConnect() {
             <h3 className="text-sm font-medium">Google Drive</h3>
             {isConnected ? (
               <Badge variant="default" className="bg-emerald-500 text-[10px] hover:bg-emerald-600">
+                <Check className="mr-1 h-2.5 w-2.5" />
                 Connected
               </Badge>
             ) : (
@@ -29,24 +82,31 @@ export function GoogleDriveConnect() {
             )}
           </div>
           <p className="text-muted-foreground mt-1 text-xs">
-            Import PDFs and Markdown files directly from your Google Drive.
-            Export your flipbooks back to Drive for backup.
+            {isConnected
+              ? 'Your Google Drive is connected. You can import PDFs directly from your Drive when creating flipbooks.'
+              : 'Connect your Google Drive to import PDFs directly and keep your flipbooks in sync.'}
           </p>
           <div className="mt-3">
             {isConnected ? (
-              <Button variant="outline" size="sm" disabled>
-                Disconnect
-              </Button>
+              <p className="text-xs text-emerald-600 dark:text-emerald-400">
+                Ready to use — select &quot;Google Drive URL&quot; when creating a new book.
+              </p>
             ) : (
-              <Button size="sm" disabled>
-                <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
-                Connect Google Drive
+              <Button size="sm" onClick={handleConnect} disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-1.5 h-3.5 w-3.5 animate-spin" />
+                    Connecting...
+                  </>
+                ) : (
+                  <>
+                    <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
+                    Connect Google Drive
+                  </>
+                )}
               </Button>
             )}
           </div>
-          <p className="text-muted-foreground mt-2 text-[11px]">
-            Coming soon — Google Drive integration is under development.
-          </p>
         </div>
       </div>
     </div>
