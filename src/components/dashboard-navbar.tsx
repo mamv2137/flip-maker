@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'motion/react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import {
   Menu,
   BookOpen,
   Library,
+  BarChart3,
   User,
   LogOut,
   Moon,
@@ -44,6 +46,7 @@ type Props = {
 
 const navLinks = [
   { name: 'Books', href: '/dashboard', icon: BookOpen },
+  { name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
   { name: 'Library', href: '/library', icon: Library },
 ]
 
@@ -60,13 +63,64 @@ export function DashboardNavbar({ userEmail, displayName, avatarUrl }: Props) {
     .map((s) => s[0].toUpperCase())
     .join('')
 
+  const [isLoggingOut, setIsLoggingOut] = useState(false)
+
   const handleLogout = async () => {
+    setIsLoggingOut(true)
     const supabase = createClient()
+    // Small delay so the user sees the animation
+    await new Promise((r) => setTimeout(r, 1500))
     await supabase.auth.signOut()
     router.push('/auth/login')
   }
 
   return (
+    <>
+    {/* Logout overlay */}
+    <AnimatePresence>
+      {isLoggingOut && (
+        <motion.div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.div
+            className="flex flex-col items-center gap-5"
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.15, type: 'spring', stiffness: 150 }}
+          >
+            <motion.div
+              className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10"
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <LogOut className="h-7 w-7 text-primary" />
+            </motion.div>
+            <div className="text-center">
+              <motion.p
+                className="text-lg font-semibold"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                Signing you out...
+              </motion.p>
+              <motion.p
+                className="text-muted-foreground mt-1 text-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                See you next time!
+              </motion.p>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
     <nav className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
         {/* Left: Logo + Nav */}
@@ -260,5 +314,6 @@ export function DashboardNavbar({ userEmail, displayName, avatarUrl }: Props) {
         </div>
       </div>
     </nav>
+    </>
   )
 }

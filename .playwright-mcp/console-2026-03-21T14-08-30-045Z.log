@@ -1,0 +1,3990 @@
+[ 1538420ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1538653ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1538698ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1538749ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1538800ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1538850ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1538899ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1538948ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539037ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539086ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539134ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539184ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539233ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539284ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539333ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539383ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539433ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539483ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539531ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539580ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539631ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539680ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539731ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539781ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539830ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539880ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539930ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1539999ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540048ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540096ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540143ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540192ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540242ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540293ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540342ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540391ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540442ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540490ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540595ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540638ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540688ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540735ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540784ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540831ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540886ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1540965ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541010ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541059ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541107ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541157ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541206ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541255ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541303ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541353ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541404ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541452ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541501ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541552ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541601ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541653ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541703ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541754ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541806ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541855ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541924ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1541973ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542021ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542070ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542120ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542169ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542219ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542271ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542322ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542372ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542423ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542472ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542522ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542576ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542626ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542675ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542781ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542873ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542920ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1542968ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543016ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543068ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543116ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543165ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543213ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543264ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543312ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543364ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543414ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543464ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543514ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543566ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543615ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543665ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543715ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543845ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543892ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543940ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1543988ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544034ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544086ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544135ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544184ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544235ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544284ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544335ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544387ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544440ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544492ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544543ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544594ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544646ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544691ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544809ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544858ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544945ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1544997ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545052ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545093ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545141ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545191ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545240ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545288ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545338ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545388ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545436ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545485ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545534ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545585ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545636ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545688ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545784ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545832ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545881ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545927ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1545976ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546021ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546071ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546122ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546172ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546222ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546272ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546321ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546372ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546422ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546472ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546527ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546576ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546628ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546754ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546802ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546850ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546889ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546939ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1546988ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547038ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547132ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547180ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547228ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547318ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547368ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547419ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547459ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547509ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547559ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547608ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547732ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547780ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547828ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547876ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547926ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1547975ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548026ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548076ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548126ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548176ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548226ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548276ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548327ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548376ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548425ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548476ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548525ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548575ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548625ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548709ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548756ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548804ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548852ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548902ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1548952ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549001ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549050ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549099ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549147ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549195ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549244ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549303ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549353ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549403ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549453ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549502ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549554ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549680ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549728ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549776ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549824ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549873ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549912ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1549961ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550011ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550061ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550109ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550160ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550210ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550261ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550311ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550363ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550413ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550464ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550511ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550571ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550652ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550700ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550750ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550798ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550847ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550896ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550946ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1550995ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551047ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551097ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551147ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551197ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551248ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551297ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551347ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551397ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551490ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551538ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551606ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551654ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551701ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551749ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551799ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551848ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551897ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551946ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1551997ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552048ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552099ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552149ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552198ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552247ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552297ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552347ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552397ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552448ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552565ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552613ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552659ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552700ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552747ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552797ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552846ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552895ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552944ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1552994ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553045ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553095ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553146ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553195ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553247ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553299ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553348ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553398ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553454ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553532ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553580ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553655ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
+[ 1553703ms] [ERROR] ./Projects/flipbooks/src/components/dashboard-navbar.tsx:317:1
+Parsing ecmascript source code failed
+  315 |     </nav>
+  316 |   )
+> 317 | }
+      | ^
+  318 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./Projects/flipbooks/src/components/dashboard-navbar.tsx
+    ./Projects/flipbooks/src/app/dashboard/layout.tsx @ http://localhost:3000/_next/static/chunks/1c996_next_dist_e7800553._.js:3127
