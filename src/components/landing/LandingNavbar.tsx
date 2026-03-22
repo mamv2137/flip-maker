@@ -29,6 +29,9 @@ export function LandingNavbar({ isAuthenticated, t, lang }: Props) {
           <Link href="#demo" className="rounded-sm transition-colors hover:text-white focus-visible:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2">
             {t.demo}
           </Link>
+          <Link href="#pricing" className="rounded-sm transition-colors hover:text-white focus-visible:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400 focus-visible:outline-offset-2">
+            {t.pricing}
+          </Link>
           {/* Language switcher */}
           <div className="flex items-center gap-1 text-xs">
             <Link

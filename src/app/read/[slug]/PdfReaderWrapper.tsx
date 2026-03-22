@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react'
 import { FlipbookReader } from '@/components/reader/FlipbookReader'
 import { PdfPageRenderer } from '@/components/reader/PdfPageRenderer'
 import { SignupBanner } from '@/components/reader/signup-banner'
+import { UpgradeBanner } from '@/components/reader/upgrade-banner'
 import type { BookPage } from '@/components/reader/FlipbookReader'
 
 type Props = {
@@ -16,9 +17,10 @@ type Props = {
   bookSlug: string
   showBackButton?: boolean
   showSignupBanner?: boolean
+  showUpgradeBanner?: boolean
 }
 
-export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug, showBackButton, showSignupBanner }: Props) {
+export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug, showBackButton, showSignupBanner, showUpgradeBanner }: Props) {
   const [pages, setPages] = useState<BookPage[] | null>(null)
 
   const handlePagesLoaded = useCallback((loadedPages: BookPage[]) => {
@@ -39,6 +41,7 @@ export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage
   if (!pages) {
     return (
       <div className="bg-background flex h-screen flex-col">
+        {showUpgradeBanner && <UpgradeBanner />}
         {showSignupBanner && <SignupBanner />}
         <div className="border-b">
           <div className="flex h-12 items-center px-4">

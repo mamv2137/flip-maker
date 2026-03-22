@@ -2,6 +2,7 @@ import { createClient } from '@/supabase/server'
 import { redirect } from 'next/navigation'
 import { ProfileForm } from '@/components/profile-form'
 import { GoogleDriveConnect } from '@/components/google-drive-connect'
+import { PlanCard } from '@/components/plan-card'
 import {
   Card,
   CardContent,
@@ -54,17 +55,23 @@ export default async function ProfilePage() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Integrations</CardTitle>
-            <CardDescription>
-              Connect external services to your account
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <GoogleDriveConnect />
-          </CardContent>
-        </Card>
+        <div className="flex flex-col gap-6">
+          {/* Plan */}
+          <PlanCard plan={profile?.plan || 'free'} />
+
+          {/* Integrations */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">Integrations</CardTitle>
+              <CardDescription>
+                Connect external services to your account
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <GoogleDriveConnect />
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   )

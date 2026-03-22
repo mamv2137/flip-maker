@@ -10,6 +10,10 @@ import { BookNotFound } from './BookNotFound'
 import type { Metadata } from 'next'
 import type { BookPage } from '@/components/reader/FlipbookReader'
 import { resolveFileUrl, resolvePdfUrl } from '@/lib/storage'
+import { checkCanViewBook } from '@/lib/check-plan-limits'
+import { ViewCounter } from '@/components/reader/view-counter'
+import { Watermark } from '@/components/reader/watermark'
+import { getPlanLimits, type Plan } from '@/lib/plans'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -149,7 +153,35 @@ export default async function ReaderPage({ params, searchParams }: Props) {
     }
   }
 
-  // === Render the book ===
+  // === Check view limits + creator plan ===
+  const viewCheck = await checkCanViewBook(book.creator_id)
+
+  // Get creator's plan to determine banner type
+  let creatorPlan: Plan = 'free'
+  if (isCreator) {
+    const { data: creatorProfile } = await supabase
+      .from('profiles')
+      .select('plan')
+      .eq('id', book.creator_id)
+      .single()
+    creatorPlan = (creatorProfile?.plan || 'free') as Plan
+  }
+
+  // Determine which banner to show:
+  // - Not logged in → signup banner
+  // - Creator on free plan → upgrade banner
+  // - Otherwise → no banner
+  const showSignupBanner = !isLoggedIn
+  const showUpgradeBanner = isCreator && creatorPlan === 'free'
+
+  if (!viewCheck.allowed && !isCreator) {
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-4 text-center">
+        <h1 className="text-xl font-semibold">View limit reached</h1>
+        <p className="text-muted-foreground max-w-md text-sm">{viewCheck.reason}</p>
+      </div>
+    )
+  }
 
   const coverPage: BookPage | null = book.cover_image_url
     ? { type: 'image', content: resolveFileUrl(book.cover_image_url), pageNumber: 0 }
@@ -158,17 +190,22 @@ export default async function ReaderPage({ params, searchParams }: Props) {
   const pdfUrl = resolvePdfUrl(book)
   if (book.content_type === 'pdf' && pdfUrl) {
     return (
-      <PdfReaderWrapper
-        title={book.title}
-        bookId={book.id}
-        pdfUrl={pdfUrl}
-        flipEnabled={book.flip_effect_enabled}
-        coverPage={coverPage}
-        skipFirstPage={book.pdf_first_page_is_cover && !!coverPage}
-        bookSlug={slug}
-        showBackButton={isCreator}
-        showSignupBanner={!isLoggedIn}
-      />
+      <>
+        <ViewCounter bookId={book.id} />
+        {viewCheck.showWatermark && <Watermark />}
+        <PdfReaderWrapper
+          title={book.title}
+          bookId={book.id}
+          pdfUrl={pdfUrl}
+          flipEnabled={book.flip_effect_enabled}
+          coverPage={coverPage}
+          skipFirstPage={book.pdf_first_page_is_cover && !!coverPage}
+          bookSlug={slug}
+          showBackButton={isCreator}
+          showSignupBanner={showSignupBanner}
+          showUpgradeBanner={showUpgradeBanner}
+        />
+      </>
     )
   }
 
@@ -196,13 +233,18 @@ export default async function ReaderPage({ params, searchParams }: Props) {
   }
 
   return (
-    <MarkdownReader
-      title={book.title}
-      pages={pages}
-      flipEnabled={book.flip_effect_enabled}
-      bookSlug={slug}
-      showBackButton={isCreator}
-      showSignupBanner={!isLoggedIn}
-    />
+    <>
+      <ViewCounter bookId={book.id} />
+      {viewCheck.showWatermark && <Watermark />}
+      <MarkdownReader
+        title={book.title}
+        pages={pages}
+        flipEnabled={book.flip_effect_enabled}
+        bookSlug={slug}
+        showBackButton={isCreator}
+        showSignupBanner={showSignupBanner}
+        showUpgradeBanner={showUpgradeBanner}
+      />
+    </>
   )
 }

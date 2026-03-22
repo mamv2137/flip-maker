@@ -46,7 +46,7 @@ export function FeaturesSection({ t }: Props) {
           <p className="mt-4 text-lg leading-relaxed text-neutral-400">{t.subtitle}</p>
         </InView>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-4 md:auto-rows-[180px]">
+        <div className="mt-16 grid gap-4 md:grid-cols-4 md:auto-rows-[minmax(180px,auto)]">
           {t.items.map((item, index) => {
             const Icon = featureIcons[index]
             return (

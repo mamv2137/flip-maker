@@ -3,6 +3,7 @@ import { processMarkdown } from '@/lib/markdown/processor'
 import { generateSlug } from '@/lib/utils/slug'
 import { uploadFile } from '@/lib/storage'
 import { parseDriveFileId, validateDriveFile } from '@/lib/google-drive'
+import { checkCanCreateBook } from '@/lib/check-plan-limits'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
@@ -32,6 +33,12 @@ export async function POST(request: Request) {
 
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
+  // Check plan limits
+  const planCheck = await checkCanCreateBook(user.id)
+  if (!planCheck.allowed) {
+    return NextResponse.json({ error: planCheck.reason }, { status: 403 })
   }
 
   const formData = await request.formData()

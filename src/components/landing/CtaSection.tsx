@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
 import { InView } from '@/components/ui/in-view'
 import { motion } from 'motion/react'
+import { ShimmerButton } from '@/components/ui/shimmer-button'
 import type { Dictionary } from '@/i18n/get-dictionary'
 
 type Props = {
@@ -40,12 +41,17 @@ export function CtaSection({ isAuthenticated, t }: Props) {
               </Link>
             </Button>
           ) : (
-            <Button size="lg" asChild className="bg-white px-8 text-black hover:bg-neutral-200">
-              <Link href="/auth/sign-up">
+            <Link href="/auth/sign-up">
+              <ShimmerButton
+                shimmerColor="#10b981"
+                shimmerSize="0.1em"
+                background="rgba(16, 185, 129, 0.1)"
+                className="px-8 py-3 text-base font-semibold"
+              >
                 {t.button}
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+              </ShimmerButton>
+            </Link>
           )}
         </div>
         <p className="mt-4 text-sm text-neutral-600">{t.footnote}</p>

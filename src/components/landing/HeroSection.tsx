@@ -6,6 +6,7 @@ import { ArrowRight, HardDrive } from 'lucide-react'
 import { motion } from 'motion/react'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
+import { ShimmerButton } from '@/components/ui/shimmer-button'
 import type { Dictionary } from '@/i18n/get-dictionary'
 
 type Props = {
@@ -91,12 +92,17 @@ export function HeroSection({ isAuthenticated, t }: Props) {
               </Link>
             </Button>
           ) : (
-            <Button size="lg" asChild className="bg-white px-8 text-black hover:bg-neutral-200">
-              <Link href="/auth/sign-up">
+            <Link href="/auth/sign-up">
+              <ShimmerButton
+                shimmerColor="#10b981"
+                shimmerSize="0.1em"
+                background="rgba(16, 185, 129, 0.1)"
+                className="px-8 py-3 text-base font-semibold"
+              >
                 {t.cta}
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+              </ShimmerButton>
+            </Link>
           )}
         </motion.div>
 
