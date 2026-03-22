@@ -1,49 +1,48 @@
 import Link from 'next/link'
 import { BookOpen } from 'lucide-react'
+import type { Dictionary } from '@/i18n/get-dictionary'
 
-const footerLinks = {
-  Product: [
-    { label: 'Features', href: '#features' },
-    { label: 'How it works', href: '#process' },
-    { label: 'Demo', href: '#demo' },
-  ],
-  Resources: [
-    { label: 'Dashboard', href: '/dashboard' },
-    { label: 'Sign Up', href: '/auth/sign-up' },
-  ],
-  Legal: [
-    { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Terms of Service', href: '/terms' },
-  ],
+type Props = {
+  t: Dictionary['landing']['footer']
+  brand: string
 }
 
-export function Footer() {
+export function Footer({ t, brand }: Props) {
+  const footerLinks = {
+    [t.product]: [
+      { label: t.product, href: '#features' },
+      { label: t.resources, href: '#process' },
+      { label: 'Demo', href: '#demo' },
+    ],
+    [t.resources]: [
+      { label: 'Dashboard', href: '/dashboard' },
+      { label: t.signUp, href: '/auth/sign-up' },
+    ],
+    [t.legal]: [
+      { label: t.privacy, href: '/privacy' },
+      { label: t.terms, href: '/terms' },
+    ],
+  }
+
   return (
     <footer className="border-t border-white/5">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-8 md:grid-cols-4">
-          {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 font-semibold text-white">
               <BookOpen className="h-5 w-5 text-emerald-400" />
-              <span>Flipbooks</span>
+              <span>{brand}</span>
             </Link>
-            <p className="mt-3 text-sm leading-relaxed text-neutral-500">
-              Transform your content into premium interactive flipbooks.
-            </p>
+            <p className="mt-3 text-sm leading-relaxed text-neutral-500">{t.description}</p>
           </div>
 
-          {/* Link columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
               <h3 className="text-sm font-semibold text-white">{title}</h3>
               <ul className="mt-3 space-y-2">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-neutral-500 transition-colors hover:text-white"
-                    >
+                    <Link href={link.href} className="text-sm text-neutral-500 transition-colors hover:text-white">
                       {link.label}
                     </Link>
                   </li>
@@ -53,18 +52,16 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
         <div className="mt-12 border-t border-white/5 pt-6">
           <p className="text-center text-sm text-neutral-600">
-            &copy; {new Date().getFullYear()} Flipbooks. All rights reserved.
+            {t.copyright.replace('{year}', new Date().getFullYear().toString())}
           </p>
         </div>
       </div>
 
-      {/* Large watermark text like Linkify */}
       <div className="overflow-hidden border-t border-white/5 py-8">
         <p className="text-center text-6xl font-bold tracking-widest text-white/[0.03] sm:text-8xl">
-          FLIPBOOKS
+          {brand.toUpperCase()}
         </p>
       </div>
     </footer>

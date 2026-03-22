@@ -4,6 +4,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 // Routes that don't require authentication
 const PUBLIC_ROUTES = [
   '/',
+  '/en',
   '/auth/login',
   '/auth/sign-up',
   '/auth/sign-up-success',
@@ -74,6 +75,10 @@ export async function middleware(request: NextRequest) {
     url.pathname = '/dashboard'
     return NextResponse.redirect(url)
   }
+
+  // Set locale header for root layout
+  const locale = pathname.startsWith('/en') ? 'en' : 'es'
+  supabaseResponse.headers.set('x-locale', locale)
 
   return supabaseResponse
 }

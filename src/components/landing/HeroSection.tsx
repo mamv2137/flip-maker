@@ -6,17 +6,16 @@ import { ArrowRight, HardDrive } from 'lucide-react'
 import { motion } from 'motion/react'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
+import type { Dictionary } from '@/i18n/get-dictionary'
 
 type Props = {
   isAuthenticated: boolean
+  t: Dictionary['landing']['hero']
 }
 
-export function HeroSection({ isAuthenticated }: Props) {
-  const headline = 'Your Google Drive,'
-
+export function HeroSection({ isAuthenticated, t }: Props) {
   return (
     <section className="relative overflow-hidden pb-0">
-      {/* Grid background */}
       <div
         className="pointer-events-none absolute inset-0 opacity-20"
         style={{
@@ -26,7 +25,6 @@ export function HeroSection({ isAuthenticated }: Props) {
         }}
       />
 
-      {/* Gradient glow */}
       <motion.div
         className="pointer-events-none absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-[120px]"
         animate={{ opacity: [0.6, 1, 0.6], scale: [1, 1.05, 1] }}
@@ -34,7 +32,6 @@ export function HeroSection({ isAuthenticated }: Props) {
       />
 
       <div className="relative mx-auto max-w-4xl px-4 pb-8 pt-24 text-center sm:px-6 sm:pt-32">
-        {/* Badge */}
         <motion.div
           className="mb-8 inline-flex"
           initial={{ opacity: 0, y: -20 }}
@@ -43,16 +40,13 @@ export function HeroSection({ isAuthenticated }: Props) {
         >
           <div className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
             <HardDrive className="h-3.5 w-3.5 text-emerald-400" />
-            <AnimatedShinyText shimmerWidth={70}>
-              Powered by Google Drive — zero uploads needed
-            </AnimatedShinyText>
+            <AnimatedShinyText shimmerWidth={70}>{t.badge}</AnimatedShinyText>
             <ArrowRight className="h-3 w-3 text-neutral-500 transition-transform group-hover:translate-x-0.5" />
           </div>
         </motion.div>
 
-        {/* Headline */}
         <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-7xl">
-          {headline.split(' ').map((word, index) => (
+          {t.headline.split(' ').map((word, index) => (
             <motion.span
               key={index}
               className="mr-3 inline-block"
@@ -70,22 +64,19 @@ export function HeroSection({ isAuthenticated }: Props) {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.4, delay: 0.7, ease: 'easeInOut' }}
           >
-            Your Interactive Flipbook
+            {t.headlineAccent}
           </motion.span>
         </h1>
 
-        {/* Subtitle */}
         <motion.p
           className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-neutral-400 sm:text-xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          Connect your Google Drive, pick a PDF, and get a premium 3D flipbook
-          reader you can share with anyone — in seconds.
+          {t.subtitle}
         </motion.p>
 
-        {/* CTA */}
         <motion.div
           className="mt-10 flex items-center justify-center gap-4"
           initial={{ opacity: 0, y: 10 }}
@@ -93,24 +84,16 @@ export function HeroSection({ isAuthenticated }: Props) {
           transition={{ duration: 0.5, delay: 1.1 }}
         >
           {isAuthenticated ? (
-            <Button
-              size="lg"
-              asChild
-              className="bg-emerald-500 px-8 text-white hover:bg-emerald-600"
-            >
+            <Button size="lg" asChild className="bg-emerald-500 px-8 text-white hover:bg-emerald-600">
               <Link href="/dashboard">
-                Go to Dashboard
+                {t.ctaAuth}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           ) : (
-            <Button
-              size="lg"
-              asChild
-              className="bg-white px-8 text-black hover:bg-neutral-200"
-            >
+            <Button size="lg" asChild className="bg-white px-8 text-black hover:bg-neutral-200">
               <Link href="/auth/sign-up">
-                Start for free with Google
+                {t.cta}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -123,11 +106,10 @@ export function HeroSection({ isAuthenticated }: Props) {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3 }}
         >
-          No file uploads needed — your PDFs stay in your Drive
+          {t.footnote}
         </motion.p>
       </div>
 
-      {/* Dashboard preview */}
       <motion.div
         className="relative mx-auto max-w-5xl px-4 sm:px-6"
         initial={{ opacity: 0, y: 30 }}
@@ -150,30 +132,16 @@ export function HeroSection({ isAuthenticated }: Props) {
               <div className="h-3 w-14 rounded bg-white/5" />
             </div>
             <div className="col-span-3 space-y-4">
-              <div className="flex gap-3">
-                <div className="h-20 w-20 rounded-lg bg-emerald-500/10" />
-                <div className="flex-1 space-y-2 py-1">
-                  <div className="h-4 w-48 rounded bg-white/10" />
-                  <div className="h-3 w-64 rounded bg-white/5" />
-                  <div className="h-3 w-32 rounded bg-white/5" />
+              {['emerald', 'violet', 'amber'].map((color) => (
+                <div key={color} className="flex gap-3">
+                  <div className={`h-20 w-20 rounded-lg bg-${color}-500/10`} />
+                  <div className="flex-1 space-y-2 py-1">
+                    <div className="h-4 w-48 rounded bg-white/10" />
+                    <div className="h-3 w-64 rounded bg-white/5" />
+                    <div className="h-3 w-32 rounded bg-white/5" />
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-3">
-                <div className="h-20 w-20 rounded-lg bg-violet-500/10" />
-                <div className="flex-1 space-y-2 py-1">
-                  <div className="h-4 w-40 rounded bg-white/10" />
-                  <div className="h-3 w-56 rounded bg-white/5" />
-                  <div className="h-3 w-28 rounded bg-white/5" />
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <div className="h-20 w-20 rounded-lg bg-amber-500/10" />
-                <div className="flex-1 space-y-2 py-1">
-                  <div className="h-4 w-44 rounded bg-white/10" />
-                  <div className="h-3 w-60 rounded bg-white/5" />
-                  <div className="h-3 w-36 rounded bg-white/5" />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

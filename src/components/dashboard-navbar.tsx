@@ -10,6 +10,7 @@ import {
   BookOpen,
   Library,
   BarChart3,
+  Plug,
   User,
   LogOut,
   Moon,
@@ -47,8 +48,9 @@ type Props = {
 
 const navLinks = [
   { name: 'Books', href: '/dashboard', icon: BookOpen },
-  { name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
   { name: 'Library', href: '/library', icon: Library },
+  { name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
+  { name: 'Integrations', href: '/dashboard/integrations', icon: Plug },
 ]
 
 export function DashboardNavbar({ userEmail, displayName, avatarUrl }: Props) {

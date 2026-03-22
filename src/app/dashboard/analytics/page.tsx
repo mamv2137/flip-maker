@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
+import { NotifyButton } from '@/components/notify-button'
 import {
   Card,
   CardContent,
@@ -75,9 +76,9 @@ export default function AnalyticsPage() {
   const maxBar = Math.max(...chartBars)
 
   return (
-    <div className="relative">
+    <div className="relative min-h-[calc(100vh-10rem)]">
       {/* Analytics content (blurred) */}
-      <div className="pointer-events-none select-none blur-[2px]" aria-hidden="true">
+      <div className="pointer-events-none max-h-[calc(100vh-10rem)] select-none overflow-hidden blur-[2px]" aria-hidden="true">
         <div className="flex flex-col gap-6">
           {/* Header */}
           <div>
@@ -243,10 +244,7 @@ export default function AnalyticsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.4 }}
           >
-            <Button disabled className="gap-2">
-              <Bell className="h-4 w-4" />
-              Notify me when it&apos;s ready
-            </Button>
+            <NotifyButton feature="analytics" />
             <p className="text-muted-foreground text-xs">
               You&apos;ll be the first to know.
             </p>

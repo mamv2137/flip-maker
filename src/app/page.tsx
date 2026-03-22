@@ -1,28 +1,15 @@
-import { createClient } from '@/supabase/server'
-import { LandingNavbar } from '@/components/landing/LandingNavbar'
-import { HeroSection } from '@/components/landing/HeroSection'
-import { FeaturesSection } from '@/components/landing/FeaturesSection'
-import { ProcessSection } from '@/components/landing/ProcessSection'
-import { DemoSection } from '@/components/landing/DemoSection'
-import { CtaSection } from '@/components/landing/CtaSection'
-import { LogoCloud } from '@/components/landing/LogoCloud'
-import { Footer } from '@/components/landing/Footer'
+import { LandingPage } from '@/components/landing/LandingPage'
+import type { Metadata } from 'next'
 
-export default async function Home() {
-  const supabase = await createClient()
-  const { data } = await supabase.auth.getClaims()
-  const isAuthenticated = !!data?.claims
+export const metadata: Metadata = {
+  title: 'Flipbooks - Tu Google Drive, tu flipbook interactivo',
+  description: 'Conecta tu Google Drive, elige un PDF y comparte un flipbook interactivo premium — gratis, en segundos.',
+  alternates: {
+    canonical: '/',
+    languages: { es: '/', en: '/en' },
+  },
+}
 
-  return (
-    <div className="dark bg-black min-h-screen text-white">
-      <LandingNavbar isAuthenticated={isAuthenticated} />
-      <HeroSection isAuthenticated={isAuthenticated} />
-      <LogoCloud />
-      <FeaturesSection />
-      <ProcessSection />
-      <DemoSection />
-      <CtaSection isAuthenticated={isAuthenticated} />
-      <Footer />
-    </div>
-  )
+export default function Home() {
+  return <LandingPage lang="es" />
 }
