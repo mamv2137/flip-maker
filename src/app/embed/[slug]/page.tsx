@@ -64,7 +64,7 @@ export default async function EmbedReaderPage({ params, searchParams }: Props) {
 
   // Access control for private books
   if (book.visibility === 'private' && !hasValidToken) {
-    return <AccessDenied bookTitle={book.title} />
+    return <AccessDenied bookTitle={book.title} bookSlug={slug} isLoggedIn={false} />
   }
 
   const coverPage: BookPage | null = book.cover_image_url

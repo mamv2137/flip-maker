@@ -1,36 +1,36 @@
 'use client'
 
-import { BookOpen, FileText, Share2, Lock, Smartphone, Zap } from 'lucide-react'
+import { HardDrive, BookOpen, Share2, Lock, Smartphone, ShieldCheck } from 'lucide-react'
 import { InView } from '@/components/ui/in-view'
 import { motion } from 'motion/react'
 
 const features = [
   {
-    icon: BookOpen,
-    title: 'Realistic 3D Page Flip',
+    icon: HardDrive,
+    title: 'Straight from Google Drive',
     description:
-      'Smooth, physics-based page turning animation that feels like reading a real book.',
+      'Paste a Drive link and your flipbook is ready. No uploads, no storage limits. Your PDF stays in your Drive.',
     className: 'md:col-span-2 md:row-span-2',
     iconColor: 'text-emerald-400 bg-emerald-400/10',
   },
   {
-    icon: FileText,
-    title: 'PDF & Markdown',
-    description: 'Upload a PDF or write in Markdown — auto-paginated.',
+    icon: BookOpen,
+    title: 'Realistic 3D Page Flip',
+    description: 'Smooth, physics-based page turning that feels like a real book.',
     className: 'md:col-span-1',
     iconColor: 'text-blue-400 bg-blue-400/10',
   },
   {
     icon: Share2,
     title: 'Share with a Link',
-    description: 'Unique link for each book. Share via email, socials, or embed.',
+    description: 'Every book gets a unique URL. Share via email, socials, or embed anywhere.',
     className: 'md:col-span-1',
     iconColor: 'text-violet-400 bg-violet-400/10',
   },
   {
     icon: Lock,
     title: 'Public or Private',
-    description: 'Control access with a toggle. Invite readers with magic links.',
+    description: 'Control who sees your content. Invite readers with magic links.',
     className: 'md:col-span-1',
     iconColor: 'text-amber-400 bg-amber-400/10',
   },
@@ -42,9 +42,9 @@ const features = [
     iconColor: 'text-rose-400 bg-rose-400/10',
   },
   {
-    icon: Zap,
-    title: 'Instant Setup',
-    description: 'Upload, publish, share. Live in under a minute.',
+    icon: ShieldCheck,
+    title: 'Content Protection',
+    description: 'Readers view through our secure reader. No downloads, no copies. Your content stays yours.',
     className: 'md:col-span-2',
     iconColor: 'text-cyan-400 bg-cyan-400/10',
   },
@@ -54,7 +54,6 @@ export function FeaturesSection() {
   return (
     <section id="features" className="py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Section header */}
         <InView
           variants={{
             hidden: { opacity: 0, y: 30, filter: 'blur(4px)' },
@@ -67,14 +66,13 @@ export function FeaturesSection() {
             Features
           </div>
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Everything You Need to Publish
+            Your Drive, Supercharged
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-neutral-400">
-            Create, customize, and share beautiful flipbooks in minutes.
+            Turn any Google Drive PDF into a premium interactive flipbook. No uploads, no friction.
           </p>
         </InView>
 
-        {/* Bento grid */}
         <div className="mt-16 grid gap-4 md:grid-cols-4 md:auto-rows-[180px]">
           {features.map((feature, index) => (
             <InView
@@ -91,19 +89,12 @@ export function FeaturesSection() {
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
                 <div>
-                  <div
-                    className={`inline-flex h-10 w-10 items-center justify-center rounded-lg ${feature.iconColor}`}
-                  >
+                  <div className={`inline-flex h-10 w-10 items-center justify-center rounded-lg ${feature.iconColor}`}>
                     <feature.icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-white">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-400">
-                    {feature.description}
-                  </p>
+                  <h3 className="mt-4 text-lg font-semibold text-white">{feature.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-400">{feature.description}</p>
                 </div>
-                {/* Hover glow */}
                 <div className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity group-hover:opacity-100">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent" />
                 </div>

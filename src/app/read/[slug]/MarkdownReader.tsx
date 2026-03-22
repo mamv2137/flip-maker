@@ -1,4 +1,5 @@
 import { FlipbookReader } from '@/components/reader/FlipbookReader'
+import { SignupBanner } from '@/components/reader/signup-banner'
 import type { BookPage } from '@/components/reader/FlipbookReader'
 
 type Props = {
@@ -7,16 +8,20 @@ type Props = {
   flipEnabled: boolean
   bookSlug: string
   showBackButton?: boolean
+  showSignupBanner?: boolean
 }
 
-export function MarkdownReader({ title, pages, flipEnabled, bookSlug, showBackButton }: Props) {
+export function MarkdownReader({ title, pages, flipEnabled, bookSlug, showBackButton, showSignupBanner }: Props) {
   return (
-    <FlipbookReader
-      title={title}
-      pages={pages}
-      defaultFlipEnabled={flipEnabled}
-      bookSlug={bookSlug}
-      showBackButton={showBackButton}
-    />
+    <>
+      {showSignupBanner && <SignupBanner />}
+      <FlipbookReader
+        title={title}
+        pages={pages}
+        defaultFlipEnabled={flipEnabled}
+        bookSlug={bookSlug}
+        showBackButton={showBackButton}
+      />
+    </>
   )
 }

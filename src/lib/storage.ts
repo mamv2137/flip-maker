@@ -123,9 +123,11 @@ export function resolveFileUrl(storagePath: string): string {
 export function resolvePdfUrl(book: {
   pdf_r2_key?: string | null
   drive_file_id?: string | null
+  creator_id?: string | null
 }): string | null {
   if (book.drive_file_id) {
-    return `/api/drive/proxy/${book.drive_file_id}`
+    const params = book.creator_id ? `?creator=${book.creator_id}` : ''
+    return `/api/drive/proxy/${book.drive_file_id}${params}`
   }
   if (book.pdf_r2_key) {
     return resolveFileUrl(book.pdf_r2_key)

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useSaveGoogleTokens } from '@/hooks/use-save-google-tokens'
 import { motion, AnimatePresence } from 'motion/react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
@@ -55,6 +56,9 @@ export function DashboardNavbar({ userEmail, displayName, avatarUrl }: Props) {
   const pathname = usePathname()
   const router = useRouter()
   const { theme, setTheme } = useTheme()
+
+  // Capture Google tokens on first render after OAuth login
+  useSaveGoogleTokens()
 
   const initials = (displayName || userEmail)
     .split(/[\s@]/)

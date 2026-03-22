@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight, HardDrive } from 'lucide-react'
 import { motion } from 'motion/react'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
@@ -12,7 +12,7 @@ type Props = {
 }
 
 export function HeroSection({ isAuthenticated }: Props) {
-  const headline = 'Turn Content Into'
+  const headline = 'Your Google Drive,'
 
   return (
     <section className="relative overflow-hidden pb-0">
@@ -26,7 +26,7 @@ export function HeroSection({ isAuthenticated }: Props) {
         }}
       />
 
-      {/* Gradient glow behind hero */}
+      {/* Gradient glow */}
       <motion.div
         className="pointer-events-none absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-[120px]"
         animate={{ opacity: [0.6, 1, 0.6], scale: [1, 1.05, 1] }}
@@ -34,7 +34,7 @@ export function HeroSection({ isAuthenticated }: Props) {
       />
 
       <div className="relative mx-auto max-w-4xl px-4 pb-8 pt-24 text-center sm:px-6 sm:pt-32">
-        {/* Badge pill with shiny text */}
+        {/* Badge */}
         <motion.div
           className="mb-8 inline-flex"
           initial={{ opacity: 0, y: -20 }}
@@ -42,15 +42,15 @@ export function HeroSection({ isAuthenticated }: Props) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <div className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
-            <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
+            <HardDrive className="h-3.5 w-3.5 text-emerald-400" />
             <AnimatedShinyText shimmerWidth={70}>
-              Free to use — no credit card needed
+              Powered by Google Drive — zero uploads needed
             </AnimatedShinyText>
             <ArrowRight className="h-3 w-3 text-neutral-500 transition-transform group-hover:translate-x-0.5" />
           </div>
         </motion.div>
 
-        {/* Headline — word-by-word reveal */}
+        {/* Headline */}
         <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-7xl">
           {headline.split(' ').map((word, index) => (
             <motion.span
@@ -58,11 +58,7 @@ export function HeroSection({ isAuthenticated }: Props) {
               className="mr-3 inline-block"
               initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{
-                duration: 0.3,
-                delay: 0.3 + index * 0.1,
-                ease: 'easeInOut',
-              }}
+              transition={{ duration: 0.3, delay: 0.3 + index * 0.1, ease: 'easeInOut' }}
             >
               {word}
             </motion.span>
@@ -74,7 +70,7 @@ export function HeroSection({ isAuthenticated }: Props) {
             animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             transition={{ duration: 0.4, delay: 0.7, ease: 'easeInOut' }}
           >
-            Interactive Flipbooks
+            Your Interactive Flipbook
           </motion.span>
         </h1>
 
@@ -85,8 +81,8 @@ export function HeroSection({ isAuthenticated }: Props) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          Upload a PDF or write in Markdown. Get a premium 3D flipbook reader you
-          can share instantly with anyone.
+          Connect your Google Drive, pick a PDF, and get a premium 3D flipbook
+          reader you can share with anyone — in seconds.
         </motion.p>
 
         {/* CTA */}
@@ -114,7 +110,7 @@ export function HeroSection({ isAuthenticated }: Props) {
               className="bg-white px-8 text-black hover:bg-neutral-200"
             >
               <Link href="/auth/sign-up">
-                Start creating for free
+                Start for free with Google
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -127,11 +123,11 @@ export function HeroSection({ isAuthenticated }: Props) {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3 }}
         >
-          No account required to try the demo below
+          No file uploads needed — your PDFs stay in your Drive
         </motion.p>
       </div>
 
-      {/* Dashboard preview with Magic UI Border Beam */}
+      {/* Dashboard preview */}
       <motion.div
         className="relative mx-auto max-w-5xl px-4 sm:px-6"
         initial={{ opacity: 0, y: 30 }}
@@ -139,19 +135,12 @@ export function HeroSection({ isAuthenticated }: Props) {
         transition={{ duration: 0.7, delay: 1.4, ease: 'easeOut' }}
       >
         <div className="relative overflow-hidden rounded-t-xl border border-white/10 bg-neutral-900/50 shadow-2xl shadow-emerald-500/5">
-          <BorderBeam
-            duration={8}
-            size={300}
-            colorFrom="#10b981"
-            colorTo="#34d399"
-          />
+          <BorderBeam duration={8} size={300} colorFrom="#10b981" colorTo="#34d399" />
           <div className="flex items-center gap-1.5 border-b border-white/5 px-4 py-3">
             <div className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
             <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
             <div className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
-            <span className="ml-3 text-xs text-neutral-600">
-              flipbooks.app/dashboard
-            </span>
+            <span className="ml-3 text-xs text-neutral-600">flipbooks.app/dashboard</span>
           </div>
           <div className="grid grid-cols-4 gap-3 p-6">
             <div className="col-span-1 space-y-3">
@@ -188,7 +177,6 @@ export function HeroSection({ isAuthenticated }: Props) {
             </div>
           </div>
         </div>
-        {/* Fade out at bottom */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
       </motion.div>
     </section>

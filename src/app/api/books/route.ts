@@ -40,16 +40,45 @@ export async function POST(request: Request) {
   const categoryId = formData.get('category_id') as string | null
   const file = formData.get('file') as File | null
   const driveUrl = formData.get('drive_url') as string | null
+  const directDriveFileId = formData.get('drive_file_id') as string | null
 
   if (!title?.trim()) {
     return NextResponse.json({ error: 'Title is required' }, { status: 400 })
   }
 
-  if (!file && !driveUrl) {
-    return NextResponse.json({ error: 'File or Google Drive URL is required' }, { status: 400 })
+  if (!file && !driveUrl && !directDriveFileId) {
+    return NextResponse.json({ error: 'File, Google Drive URL, or Drive file is required' }, { status: 400 })
   }
 
-  // Google Drive URL flow
+  // Google Drive picker flow (private file, read with user's token)
+  if (directDriveFileId) {
+    const slug = generateSlug(title)
+
+    const { data: book, error: bookError } = await supabase
+      .from('books')
+      .insert({
+        creator_id: user.id,
+        title: title.trim(),
+        slug,
+        description: description?.trim() || null,
+        content_type: 'pdf',
+        drive_file_id: directDriveFileId,
+        category_id: categoryId || null,
+        status: 'ready',
+        page_count: 0,
+        is_published: false,
+      })
+      .select()
+      .single()
+
+    if (bookError) {
+      return NextResponse.json({ error: bookError.message }, { status: 500 })
+    }
+
+    return NextResponse.json(book, { status: 201 })
+  }
+
+  // Google Drive URL flow (public file, read with proxy)
   if (driveUrl) {
     const fileId = parseDriveFileId(driveUrl)
     if (!fileId) {

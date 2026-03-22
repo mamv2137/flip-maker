@@ -16,6 +16,8 @@ import {
   Link as LinkIcon,
   Code,
   Trash2,
+  Eye,
+  EyeOff,
 } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
@@ -31,12 +33,15 @@ type AccessGrant = {
 type Props = {
   bookId: string
   bookSlug: string
-  visibility: 'public' | 'private'
+  visibility: 'public' | 'private' | 'password'
 }
 
 export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility }: Props) {
   const [visibility, setVisibility] = useState(initialVisibility)
   const [isTogglingVisibility, setIsTogglingVisibility] = useState(false)
+  const [bookPassword, setBookPassword] = useState('')
+  const [passwordSaved, setPasswordSaved] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [sendResult, setSendResult] = useState<{
@@ -74,8 +79,8 @@ export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility 
     fetchGrants()
   }, [fetchGrants])
 
-  const handleToggleVisibility = async () => {
-    const newVisibility = visibility === 'public' ? 'private' : 'public'
+  const handleChangeVisibility = async (newVisibility: 'public' | 'private' | 'password') => {
+    if (newVisibility === visibility) return
     setIsTogglingVisibility(true)
     try {
       const res = await fetch(`/api/books/${bookId}`, {
@@ -85,6 +90,26 @@ export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility 
       })
       if (res.ok) {
         setVisibility(newVisibility)
+        setPasswordSaved(false)
+        router.refresh()
+      }
+    } finally {
+      setIsTogglingVisibility(false)
+    }
+  }
+
+  const handleSavePassword = async () => {
+    if (!bookPassword.trim() || bookPassword.length < 4) return
+    setIsTogglingVisibility(true)
+    try {
+      const res = await fetch(`/api/books/${bookId}/password`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: bookPassword }),
+      })
+      if (res.ok) {
+        setPasswordSaved(true)
+        setVisibility('password')
         router.refresh()
       }
     } finally {
@@ -146,30 +171,99 @@ export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility 
 
   return (
     <div className="space-y-6">
-      {/* Visibility Toggle */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          {visibility === 'public' ? (
-            <Globe className="text-muted-foreground h-5 w-5" />
-          ) : (
-            <Lock className="text-muted-foreground h-5 w-5" />
-          )}
+      {/* Visibility Options */}
+      <div className="space-y-2">
+        <Label className="text-xs">Access level</Label>
+        <div className="grid gap-2">
+          {/* Public */}
+          <button
+            type="button"
+            onClick={() => handleChangeVisibility('public')}
+            disabled={isTogglingVisibility}
+            className={`flex items-center gap-3 rounded-lg border p-3 text-left transition-colors ${
+              visibility === 'public' ? 'border-primary bg-primary/5' : 'hover:bg-muted/50'
+            }`}
+          >
+            <Globe className={`h-4 w-4 shrink-0 ${visibility === 'public' ? 'text-primary' : 'text-muted-foreground'}`} />
+            <div className="flex-1">
+              <p className="text-sm font-medium">Public</p>
+              <p className="text-muted-foreground text-xs">Anyone with the link can read</p>
+            </div>
+            {visibility === 'public' && <Check className="h-4 w-4 shrink-0 text-primary" />}
+          </button>
+
+          {/* Password */}
           <div>
-            <p className="text-sm font-medium">
-              {visibility === 'public' ? 'Public' : 'Private'}
-            </p>
-            <p className="text-muted-foreground text-xs">
-              {visibility === 'public'
-                ? 'Anyone with the link can read'
-                : 'Only people you invite can read'}
-            </p>
+            <button
+              type="button"
+              onClick={() => handleChangeVisibility('password')}
+              disabled={isTogglingVisibility}
+              className={`flex w-full items-center gap-3 rounded-lg border p-3 text-left transition-colors ${
+                visibility === 'password' ? 'border-primary bg-primary/5 rounded-b-none' : 'hover:bg-muted/50'
+              }`}
+            >
+              <Lock className={`h-4 w-4 shrink-0 ${visibility === 'password' ? 'text-primary' : 'text-muted-foreground'}`} />
+              <div className="flex-1">
+                <p className="text-sm font-medium">Password</p>
+                <p className="text-muted-foreground text-xs">Readers need a password to access</p>
+              </div>
+              {visibility === 'password' && <Check className="h-4 w-4 shrink-0 text-primary" />}
+            </button>
+            {visibility === 'password' && (
+              <div className="space-y-2 rounded-b-lg border border-t-0 border-primary bg-primary/5 p-3">
+                <Label htmlFor="book-password" className="text-xs">Set password</Label>
+                <div className="flex gap-2">
+                  <div className="relative flex-1">
+                    <Input
+                      id="book-password"
+                      type={showPassword ? 'text' : 'password'}
+                      placeholder="Min 4 characters"
+                      value={bookPassword}
+                      onChange={(e) => { setBookPassword(e.target.value); setPasswordSaved(false) }}
+                      className="pr-10"
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    </button>
+                  </div>
+                  <Button
+                    size="sm"
+                    onClick={handleSavePassword}
+                    disabled={isTogglingVisibility || bookPassword.length < 4}
+                  >
+                    {passwordSaved ? <Check className="h-4 w-4" /> : 'Save'}
+                  </Button>
+                </div>
+                {passwordSaved && (
+                  <p className="text-xs text-emerald-600 dark:text-emerald-400">
+                    Password saved. Share it with your readers.
+                  </p>
+                )}
+              </div>
+            )}
           </div>
+
+          {/* Private */}
+          <button
+            type="button"
+            onClick={() => handleChangeVisibility('private')}
+            disabled={isTogglingVisibility}
+            className={`flex items-center gap-3 rounded-lg border p-3 text-left transition-colors ${
+              visibility === 'private' ? 'border-primary bg-primary/5' : 'hover:bg-muted/50'
+            }`}
+          >
+            <Lock className={`h-4 w-4 shrink-0 ${visibility === 'private' ? 'text-primary' : 'text-muted-foreground'}`} />
+            <div className="flex-1">
+              <p className="text-sm font-medium">Private</p>
+              <p className="text-muted-foreground text-xs">Only people you invite can read</p>
+            </div>
+            {visibility === 'private' && <Check className="h-4 w-4 shrink-0 text-primary" />}
+          </button>
         </div>
-        <Switch
-          checked={visibility === 'public'}
-          onCheckedChange={handleToggleVisibility}
-          disabled={isTogglingVisibility}
-        />
       </div>
 
       {/* Reader Link */}

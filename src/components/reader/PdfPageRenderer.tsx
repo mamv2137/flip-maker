@@ -32,7 +32,8 @@ export function PdfPageRenderer({ pdfUrl, onPagesLoaded }: Props) {
           if (cancelled) return
 
           const page = await pdf.getPage(i)
-          const scale = 2
+          // Render at 3x for crisp text on all displays including retina
+          const scale = 3
           const viewport = page.getViewport({ scale })
 
           const canvas = document.createElement('canvas')
@@ -42,7 +43,7 @@ export function PdfPageRenderer({ pdfUrl, onPagesLoaded }: Props) {
           const context = canvas.getContext('2d')!
           await page.render({ canvasContext: context, viewport }).promise
 
-          const dataUrl = canvas.toDataURL('image/webp', 0.85)
+          const dataUrl = canvas.toDataURL('image/png')
           pages.push({
             type: 'image',
             content: dataUrl,

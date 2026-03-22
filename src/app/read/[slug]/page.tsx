@@ -1,41 +1,39 @@
 
 import { createClient } from '@/supabase/server'
-import { notFound } from 'next/navigation'
+import { cookies } from 'next/headers'
+import { createHash } from 'crypto'
 import { verifyMagicLinkToken } from '@/lib/magic-link'
 import { MarkdownReader } from './MarkdownReader'
 import { PdfReaderWrapper } from './PdfReaderWrapper'
-import { AccessDenied } from './AccessDenied'
+import { AccessGate } from './AccessGate'
+import { BookNotFound } from './BookNotFound'
 import type { Metadata } from 'next'
 import type { BookPage } from '@/components/reader/FlipbookReader'
 import { resolveFileUrl, resolvePdfUrl } from '@/lib/storage'
 
 type Props = {
   params: Promise<{ slug: string }>
-  searchParams: Promise<{ token?: string }>
+  searchParams: Promise<{ token?: string; preview?: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const supabase = await createClient()
 
-  const { data: book } = await supabase
-    .from('books')
-    .select('title, description')
-    .eq('slug', slug)
-    .eq('is_published', true)
-    .single()
+  const { data } = await supabase.rpc('get_book_access_info', { book_slug: slug })
+  const book = data?.[0]
 
   if (!book) return { title: 'Not Found' }
 
   return {
     title: book.title,
-    description: book.description || `Read ${book.title}`,
+    description: `Read ${book.title}`,
   }
 }
 
 export default async function ReaderPage({ params, searchParams }: Props) {
   const { slug } = await params
-  const { token } = await searchParams
+  const { token, preview } = await searchParams
   const supabase = await createClient()
 
   let hasValidToken = false
@@ -45,7 +43,6 @@ export default async function ReaderPage({ params, searchParams }: Props) {
     const payload = await verifyMagicLinkToken(token)
     if (payload) {
       hasValidToken = true
-      // Mark access grant as accessed
       await supabase
         .from('access_grants')
         .update({ accessed_at: new Date().toISOString() })
@@ -53,44 +50,107 @@ export default async function ReaderPage({ params, searchParams }: Props) {
     }
   }
 
-  const { data: book } = await supabase
-    .from('books')
-    .select('*')
-    .eq('slug', slug)
-    .eq('is_published', true)
-    .single()
+  // Get book info via RPC (bypasses RLS — works for any user including unauthenticated)
+  const { data: bookData } = await supabase.rpc('get_book_access_info', { book_slug: slug })
+  const book = bookData?.[0]
 
-  if (!book || book.status !== 'ready') {
-    notFound()
+  // Book truly doesn't exist
+  if (!book) {
+    return <BookNotFound />
   }
 
-  // Check if the current user is the creator (used for back button + access control)
+  // Check auth
   const { data: authData } = await supabase.auth.getClaims()
   const userId = authData?.claims?.sub as string | undefined
   const isCreator = !!userId && userId === book.creator_id
+  const isLoggedIn = !!userId
 
-  // Access control for private books
-  if (book.visibility === 'private' && !hasValidToken && !isCreator) {
-    let hasAccess = false
+  // Book not ready
+  if (book.status !== 'ready') {
+    if (isCreator) {
+      return <BookNotFound />
+    }
+    return <BookNotFound />
+  }
 
-    if (userId) {
-      const { data: grant } = await supabase
-        .from('access_grants')
-        .select('id')
-        .eq('book_id', book.id)
-        .eq('buyer_id', userId)
-        .limit(1)
-        .maybeSingle()
+  // Book not published — only creator can preview
+  if (!book.is_published && !isCreator) {
+    return (
+      <AccessGate
+        bookId={book.id}
+        bookTitle={book.title}
+        bookSlug={slug}
+        visibility="private"
+        isLoggedIn={isLoggedIn}
+      />
+    )
+  }
 
-      hasAccess = !!grant
+  // Preview mode — creator can see unpublished
+  if (!book.is_published && isCreator && preview !== 'true') {
+    return <BookNotFound />
+  }
+
+  // Access control for non-creators
+  if (!isCreator && !hasValidToken) {
+    // Password-protected
+    if (book.visibility === 'password') {
+      let passwordValid = false
+
+      if (book.password_hash) {
+        const cookieStore = await cookies()
+        const pwCookie = cookieStore.get(`book-pw-${book.id}`)
+        if (pwCookie?.value) {
+          const hash = createHash('sha256').update(pwCookie.value).digest('hex')
+          passwordValid = hash === book.password_hash
+        }
+      }
+
+      if (!passwordValid) {
+        return (
+          <AccessGate
+            bookId={book.id}
+            bookTitle={book.title}
+            bookSlug={slug}
+            visibility="password"
+            isLoggedIn={isLoggedIn}
+          />
+        )
+      }
     }
 
-    if (!hasAccess) {
-      return <AccessDenied bookTitle={book.title} />
+    // Private — check access grants
+    if (book.visibility === 'private') {
+      let hasAccess = false
+
+      if (userId) {
+        const { data: grant } = await supabase
+          .from('access_grants')
+          .select('id')
+          .eq('book_id', book.id)
+          .eq('buyer_id', userId)
+          .limit(1)
+          .maybeSingle()
+
+        hasAccess = !!grant
+      }
+
+      if (!hasAccess) {
+        return (
+          <AccessGate
+            bookId={book.id}
+            bookTitle={book.title}
+            bookSlug={slug}
+            visibility="private"
+            isLoggedIn={isLoggedIn}
+          />
+        )
+      }
     }
   }
 
-  // Build cover page if cover image exists
+  // === Render the book ===
+
   const coverPage: BookPage | null = book.cover_image_url
     ? { type: 'image', content: resolveFileUrl(book.cover_image_url), pageNumber: 0 }
     : null
@@ -107,11 +167,12 @@ export default async function ReaderPage({ params, searchParams }: Props) {
         skipFirstPage={book.pdf_first_page_is_cover && !!coverPage}
         bookSlug={slug}
         showBackButton={isCreator}
+        showSignupBanner={!isLoggedIn}
       />
     )
   }
 
-  // Markdown book — fetch pre-rendered pages
+  // Markdown book
   const { data: bookPages } = await supabase
     .from('book_pages')
     .select('*')
@@ -141,6 +202,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
       flipEnabled={book.flip_effect_enabled}
       bookSlug={slug}
       showBackButton={isCreator}
+      showSignupBanner={!isLoggedIn}
     />
   )
 }

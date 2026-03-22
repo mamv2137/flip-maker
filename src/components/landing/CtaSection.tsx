@@ -13,7 +13,6 @@ type Props = {
 export function CtaSection({ isAuthenticated }: Props) {
   return (
     <section className="relative border-t border-white/5 py-24 sm:py-32">
-      {/* Subtle glow */}
       <motion.div
         className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/5 blur-[100px]"
         animate={{ opacity: [0.3, 0.6, 0.3] }}
@@ -29,30 +28,22 @@ export function CtaSection({ isAuthenticated }: Props) {
         className="relative mx-auto max-w-4xl px-4 text-center sm:px-6"
       >
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
-          Step into the future of content publishing
+          Your PDFs deserve a better reader
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-neutral-400">
-          Transform your PDFs and Markdown into premium interactive flipbooks.
-          Free to start. No credit card required.
+          Connect Google Drive, pick your PDF, and share a beautiful interactive
+          flipbook — free, in seconds. No uploads, no complexity.
         </p>
         <div className="mt-10">
           {isAuthenticated ? (
-            <Button
-              size="lg"
-              asChild
-              className="bg-white px-8 text-black hover:bg-neutral-200"
-            >
+            <Button size="lg" asChild className="bg-white px-8 text-black hover:bg-neutral-200">
               <Link href="/dashboard">
                 Go to Dashboard
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           ) : (
-            <Button
-              size="lg"
-              asChild
-              className="bg-white px-8 text-black hover:bg-neutral-200"
-            >
+            <Button size="lg" asChild className="bg-white px-8 text-black hover:bg-neutral-200">
               <Link href="/auth/sign-up">
                 Get started for free
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -60,7 +51,9 @@ export function CtaSection({ isAuthenticated }: Props) {
             </Button>
           )}
         </div>
-        <p className="mt-4 text-sm text-neutral-600">No credit card required</p>
+        <p className="mt-4 text-sm text-neutral-600">
+          Free forever. No credit card. No file uploads.
+        </p>
       </InView>
     </section>
   )

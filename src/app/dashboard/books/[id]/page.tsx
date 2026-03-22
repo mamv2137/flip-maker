@@ -15,7 +15,9 @@ import {
   File,
   BookOpen,
   ExternalLink,
+  Eye,
 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { BookActions } from '@/components/book-actions'
 import { ShareBookForm } from '@/components/share-book-form'
@@ -66,7 +68,17 @@ export default async function BookDetailPage({ params }: Props) {
               </Badge>
             )}
           </div>
-          <BookActions book={book} variant="inline" />
+          <div className="flex items-center gap-2">
+            {book.status === 'ready' && (
+              <Button variant="outline" size="sm" asChild>
+                <Link href={`/read/${book.slug}?preview=true`} target="_blank">
+                  <Eye className="mr-1.5 h-4 w-4" />
+                  Preview
+                </Link>
+              </Button>
+            )}
+            <BookActions book={book} variant="inline" />
+          </div>
         </div>
         {book.description && (
           <p className="text-muted-foreground mt-1">{book.description}</p>

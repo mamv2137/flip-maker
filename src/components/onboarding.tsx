@@ -1,27 +1,27 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { BookOpen, Upload, Share2, ArrowRight, Sparkles } from 'lucide-react'
+import { BookOpen, HardDrive, Share2, ArrowRight, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
 const steps = [
   {
-    icon: Upload,
-    title: 'Upload your content',
-    description: 'Drag and drop a PDF or paste Markdown. We handle pagination automatically.',
+    icon: HardDrive,
+    title: 'Connect your Drive',
+    description: 'Paste a Google Drive link to your PDF. No uploads needed — your file stays in Drive.',
     color: 'bg-emerald-500/10 text-emerald-500',
   },
   {
     icon: BookOpen,
     title: 'Customize & publish',
-    description: 'Set your book as public or private, add a cover, and publish instantly.',
+    description: 'Add a title, cover, and category. Set it as public or private. Publish instantly.',
     color: 'bg-violet-500/10 text-violet-500',
   },
   {
     icon: Share2,
-    title: 'Share anywhere',
-    description: 'Get a unique link. Embed on any website or share via email.',
+    title: 'Share with the world',
+    description: 'Get a unique link. Embed on any website or invite readers by email.',
     color: 'bg-blue-500/10 text-blue-500',
   },
 ]

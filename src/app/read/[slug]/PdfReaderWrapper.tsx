@@ -3,6 +3,7 @@
 import { useCallback, useState } from 'react'
 import { FlipbookReader } from '@/components/reader/FlipbookReader'
 import { PdfPageRenderer } from '@/components/reader/PdfPageRenderer'
+import { SignupBanner } from '@/components/reader/signup-banner'
 import type { BookPage } from '@/components/reader/FlipbookReader'
 
 type Props = {
@@ -14,9 +15,10 @@ type Props = {
   skipFirstPage: boolean
   bookSlug: string
   showBackButton?: boolean
+  showSignupBanner?: boolean
 }
 
-export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug, showBackButton }: Props) {
+export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug, showBackButton, showSignupBanner }: Props) {
   const [pages, setPages] = useState<BookPage[] | null>(null)
 
   const handlePagesLoaded = useCallback((loadedPages: BookPage[]) => {
@@ -37,6 +39,7 @@ export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage
   if (!pages) {
     return (
       <div className="bg-background flex h-screen flex-col">
+        {showSignupBanner && <SignupBanner />}
         <div className="border-b">
           <div className="flex h-12 items-center px-4">
             <h1 className="text-sm font-medium">{title}</h1>
@@ -50,12 +53,15 @@ export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage
   }
 
   return (
-    <FlipbookReader
-      title={title}
-      pages={pages}
-      defaultFlipEnabled={flipEnabled}
-      bookSlug={bookSlug}
-      showBackButton={showBackButton}
-    />
+    <>
+      {showSignupBanner && <SignupBanner />}
+      <FlipbookReader
+        title={title}
+        pages={pages}
+        defaultFlipEnabled={flipEnabled}
+        bookSlug={bookSlug}
+        showBackButton={showBackButton}
+      />
+    </>
   )
 }
