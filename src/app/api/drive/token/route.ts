@@ -42,6 +42,29 @@ export async function POST(request: Request) {
   return NextResponse.json({ saved: true })
 }
 
+// DELETE: Disconnect Google Drive (clear tokens)
+export async function DELETE() {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
+  await supabase
+    .from('profiles')
+    .update({
+      google_access_token: null,
+      google_refresh_token: null,
+      google_token_expires_at: null,
+    })
+    .eq('id', user.id)
+
+  return NextResponse.json({ disconnected: true })
+}
+
 // GET: Check if we have a valid token that actually works with Drive API
 export async function GET() {
   const token = await getGoogleAccessToken()

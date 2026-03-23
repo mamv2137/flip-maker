@@ -21,6 +21,14 @@ const prices = {
 
 const planKeys = ['free', 'creator', 'pro_seller' /* , 'agency' */] as const
 
+const polarProductIds: Record<string, string> = {
+  // creator: '8c2cbb56-9503-45ad-bf15-e1ee72c50ebe',
+  // pro_seller: '56c2f1d8-6c7d-4ee2-a09a-e24c0612615c',
+  creator: '8f296505-6f50-4b3a-a9b3-0b67b0609901',
+  pro_seller: 'cb1d39c2-895e-4d28-b28c-bd605072d936',
+  // agency: TBD
+}
+
 export function PricingSection({ t }: Props) {
   const [billing, setBilling] = useState<'monthly' | 'yearly'>('monthly')
 
@@ -139,7 +147,11 @@ export function PricingSection({ t }: Props) {
                             : 'bg-white/10 text-white hover:bg-white/20'
                       }`}
                     >
-                      <Link href="/auth/sign-up">
+                      <Link href={
+                        isFree
+                          ? '/auth/sign-up'
+                          : `/api/checkout?products=${polarProductIds[key] || ''}`
+                      }>
                         {isFree ? t.getStarted : t.upgrade}
                       </Link>
                     </Button>

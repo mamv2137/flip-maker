@@ -57,7 +57,7 @@ export default async function ProfilePage() {
 
         <div className="flex flex-col gap-6">
           {/* Plan */}
-          <PlanCard plan={profile?.plan || 'free'} />
+          <PlanCard plan={profile?.plan || 'free'} userEmail={user.email || ''} />
 
           {/* Integrations */}
           <Card>

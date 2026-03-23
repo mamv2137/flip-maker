@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { HardDrive, ExternalLink, Check, Loader2 } from 'lucide-react'
+import { HardDrive, ExternalLink, Check, Loader2, Unplug } from 'lucide-react'
 import { createClient } from '@/supabase/client'
 import { useState, useEffect } from 'react'
 
@@ -67,11 +67,27 @@ export function GoogleDriveConnect() {
               ? 'Your Google Drive is connected. You can browse and select PDFs directly when creating flipbooks.'
               : 'Connect your Google Drive to browse and import PDFs directly into your flipbooks.'}
           </p>
-          <div className="mt-3">
+          <div className="mt-3 flex items-center gap-2">
             {status === 'connected' ? (
-              <p className="text-xs text-emerald-600 dark:text-emerald-400">
-                Ready to use — select &quot;Google Drive&quot; when creating a new book.
-              </p>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={async () => {
+                  setIsLoading(true)
+                  await fetch('/api/drive/token', { method: 'DELETE' })
+                  setStatus('not-connected')
+                  setIsLoading(false)
+                }}
+                disabled={isLoading}
+                className="text-destructive hover:text-destructive"
+              >
+                {isLoading ? (
+                  <Loader2 className="mr-1.5 h-3.5 w-3.5 animate-spin" />
+                ) : (
+                  <Unplug className="mr-1.5 h-3.5 w-3.5" />
+                )}
+                Disconnect
+              </Button>
             ) : status !== 'checking' ? (
               <Button size="sm" onClick={handleConnect} disabled={isLoading}>
                 {isLoading ? (

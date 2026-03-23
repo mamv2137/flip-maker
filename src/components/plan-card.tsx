@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Zap, Check, ArrowRight } from 'lucide-react'
+import { Zap, Check, ArrowRight, Settings } from 'lucide-react'
 import Link from 'next/link'
 import { getPlanLimits, PLAN_PRICES, type Plan } from '@/lib/plans'
 
@@ -27,7 +27,7 @@ const planColors: Record<Plan, string> = {
   agency: 'bg-violet-500',
 }
 
-export function PlanCard({ plan }: { plan: string }) {
+export function PlanCard({ plan, userEmail }: { plan: string; userEmail: string }) {
   const currentPlan = (plan || 'free') as Plan
   const limits = getPlanLimits(currentPlan)
   const price = PLAN_PRICES[currentPlan]
@@ -80,12 +80,19 @@ export function PlanCard({ plan }: { plan: string }) {
           </div>
         </div>
 
-        {isFree && (
+        {isFree ? (
           <Button className="btn-cta w-full gap-2" asChild>
-            <Link href="/#pricing">
+            <Link href={`/api/checkout?products=8c2cbb56-9503-45ad-bf15-e1ee72c50ebe&customerEmail=${encodeURIComponent(userEmail)}`}>
               <Zap className="h-4 w-4" />
               Upgrade your plan
               <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        ) : (
+          <Button variant="outline" className="w-full gap-2" asChild>
+            <Link href="/api/portal">
+              <Settings className="h-4 w-4" />
+              Manage subscription
             </Link>
           </Button>
         )}

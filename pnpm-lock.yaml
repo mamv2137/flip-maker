@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@polar-sh/nextjs':
+        specifier: ^0.9.5
+        version: 0.9.5(next@16.1.7(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       '@polar-sh/sdk':
         specifier: ^0.46.6
         version: 0.46.6
@@ -1494,6 +1497,15 @@ packages:
     peerDependencies:
       next: ~15.0.8 || ~15.1.12 || ~15.2.9 || ~15.3.9 || ~15.4.11 || ~15.5.10 || ~16.0.11 || ^16.1.5
       wrangler: ^4.65.0
+
+  '@polar-sh/adapter-utils@0.4.5':
+    resolution: {integrity: sha512-ar9u2BMmF/6h0KQ2gRQBLPF/fKMcFyicZo1EpJU6awx84cmytVepw1LX5xQa7kMBxPgo8AIxUIXG5OPGeefnWQ==}
+
+  '@polar-sh/nextjs@0.9.5':
+    resolution: {integrity: sha512-T0mnFswqCWCpB1UAF1b3rD4HajX3gwR7rCjBMx86J/xUNvp0TKjdBHubAThQZaMlToNuAzYFr5KOTb5oWRVqPA==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      next: ^15.0.0 || ^16.0.0
 
   '@polar-sh/sdk@0.46.6':
     resolution: {integrity: sha512-+ULxRCkGo74IbuVcVbnWEOY1Hu0EHRSJO9QNLKylllaQmhpGf/GeBnbb7l95lrKcjH1pJNdYVU/oA02+pGTluw==}
@@ -7675,6 +7687,16 @@ snapshots:
       - aws-crt
       - encoding
       - supports-color
+
+  '@polar-sh/adapter-utils@0.4.5':
+    dependencies:
+      '@polar-sh/sdk': 0.46.6
+
+  '@polar-sh/nextjs@0.9.5(next@16.1.7(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))':
+    dependencies:
+      '@polar-sh/adapter-utils': 0.4.5
+      '@polar-sh/sdk': 0.46.6
+      next: 16.1.7(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
 
   '@polar-sh/sdk@0.46.6':
     dependencies:
