@@ -1,12 +1,12 @@
 import { Webhooks } from '@polar-sh/nextjs'
 import { createClient } from '@/supabase/server'
 import type { Plan } from '@/lib/plans'
+import { polarProducts } from '@/lib/polar-products'
 
-const POLAR_PLAN_MAP: Record<string, Plan> = {
-  '8c2cbb56-9503-45ad-bf15-e1ee72c50ebe': 'creator',
-  '56c2f1d8-6c7d-4ee2-a09a-e24c0612615c': 'pro_seller',
-  // agency: TBD
-}
+// Reverse map: product ID → plan name (works for both sandbox and production)
+const POLAR_PLAN_MAP: Record<string, Plan> = Object.fromEntries(
+  Object.entries(polarProducts).map(([plan, id]) => [id, plan as Plan])
+)
 
 function getPlanFromProductId(productId: string): Plan {
   return POLAR_PLAN_MAP[productId] || 'free'
@@ -27,49 +27,56 @@ async function updateUserPlan(
     provider: 'polar',
     event_type: `subscription.${status}`,
     payload: { customerId, customerEmail, plan, subscriptionId },
-    status: 'processed',
-    processed_at: new Date().toISOString(),
+    status: 'pending',
   })
 
-  // Try to find user by polar_customer_id first
-  const { data: existingProfile } = await supabase
+  // Find user ID: try by polar_customer_id first, then by email
+  let userId: string | null = null
+
+  // Try by existing polar_customer_id (for returning customers)
+  const { data: byCustomerId } = await supabase
     .from('profiles')
     .select('id')
     .eq('polar_customer_id', customerId)
     .single()
 
-  if (existingProfile) {
-    await supabase
-      .from('profiles')
-      .update({
-        plan,
-        polar_subscription_id: subscriptionId,
-        subscription_status: status,
-        current_period_end: currentPeriodEnd || null,
-      })
-      .eq('id', existingProfile.id)
+  if (byCustomerId) {
+    userId = byCustomerId.id
+  }
+
+  // If not found, try by email (for first-time subscribers)
+  if (!userId && customerEmail) {
+    const { data: byEmail } = await supabase.rpc('get_user_by_email', {
+      user_email: customerEmail,
+    })
+    if (byEmail?.[0]?.id) {
+      userId = byEmail[0].id
+    }
+  }
+
+  if (!userId) {
+    console.error('[polar-webhook] Could not find user for:', { customerId, customerEmail })
     return
   }
 
-  // If not found by customer_id, try by email
-  if (customerEmail) {
-    const { data: userByEmail } = await supabase.rpc('get_user_by_email', {
-      user_email: customerEmail,
-    })
+  // Update using SECURITY DEFINER RPC (bypasses RLS)
+  await supabase.rpc('update_user_plan', {
+    p_user_id: userId,
+    p_plan: plan,
+    p_polar_customer_id: customerId,
+    p_polar_subscription_id: subscriptionId,
+    p_subscription_status: status,
+    p_current_period_end: currentPeriodEnd || null,
+  })
 
-    if (userByEmail?.[0]?.id) {
-      await supabase
-        .from('profiles')
-        .update({
-          plan,
-          polar_customer_id: customerId,
-          polar_subscription_id: subscriptionId,
-          subscription_status: status,
-          current_period_end: currentPeriodEnd || null,
-        })
-        .eq('id', userByEmail[0].id)
-    }
-  }
+  // Mark webhook as processed
+  await supabase
+    .from('webhook_events')
+    .update({ status: 'processed', processed_at: new Date().toISOString() })
+    .eq('provider', 'polar')
+    .eq('status', 'pending')
+    .order('created_at', { ascending: false })
+    .limit(1)
 }
 
 export const POST = Webhooks({

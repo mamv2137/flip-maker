@@ -13,6 +13,8 @@ const PUBLIC_ROUTES = [
   '/auth/confirm',
   '/auth/callback',
   '/auth/error',
+  '/terms',
+  '/privacy',
 ]
 
 // Routes that require authentication

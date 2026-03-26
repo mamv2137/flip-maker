@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Check, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import type { Dictionary } from '@/i18n/get-dictionary'
+import { polarProducts } from '@/lib/polar-products'
 
 type Props = {
   t: Dictionary['landing']['pricing']
@@ -21,13 +22,7 @@ const prices = {
 
 const planKeys = ['free', 'creator', 'pro_seller' /* , 'agency' */] as const
 
-const polarProductIds: Record<string, string> = {
-  // creator: '8c2cbb56-9503-45ad-bf15-e1ee72c50ebe',
-  // pro_seller: '56c2f1d8-6c7d-4ee2-a09a-e24c0612615c',
-  creator: '8f296505-6f50-4b3a-a9b3-0b67b0609901',
-  pro_seller: 'cb1d39c2-895e-4d28-b28c-bd605072d936',
-  // agency: TBD
-}
+const polarProductIds: Record<string, string> = polarProducts
 
 export function PricingSection({ t }: Props) {
   const [billing, setBilling] = useState<'monthly' | 'yearly'>('monthly')

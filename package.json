@@ -31,7 +31,7 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "dev:port": "portless yarn dev"
+    "dev:port": "portless run pnpm run dev"
   },
   "dependencies": {
     "@polar-sh/nextjs": "^0.9.5",
