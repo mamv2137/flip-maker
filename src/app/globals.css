@@ -213,19 +213,19 @@ button:not(:disabled):active,
 /* StPageFlip overrides */
 .stf__wrapper {
   overflow: hidden;
-  max-height: calc(100vh - 4rem) !important;
+  max-height: calc(100dvh - 3.5rem) !important;
 }
 
 .stf__parent {
-  max-height: calc(100vh - 4rem) !important;
+  max-height: calc(100dvh - 3.5rem) !important;
 }
 
 @media (max-width: 768px) {
   .stf__wrapper {
-    max-height: calc(100vh - 3rem) !important;
+    max-height: calc(100dvh - 2.5rem) !important;
   }
   .stf__parent {
-    max-height: calc(100vh - 3rem) !important;
+    max-height: calc(100dvh - 2.5rem) !important;
   }
 }
 

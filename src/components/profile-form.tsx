@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Save, Check } from 'lucide-react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 
 type Props = {
   userId: string
@@ -69,10 +70,12 @@ export function ProfileForm({
       if (res.ok) {
         setSaved(true)
         router.refresh()
+        toast.success('Profile updated')
         setTimeout(() => setSaved(false), 2000)
       } else {
         const data = await res.json()
         setError(data.error || 'Failed to save')
+        toast.error(data.error || 'Failed to save profile')
       }
     } finally {
       setIsLoading(false)

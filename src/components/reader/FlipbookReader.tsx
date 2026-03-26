@@ -50,14 +50,7 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, sho
   const [thumbnailsOpen, setThumbnailsOpen] = useState(false)
   const flipControlRef = useRef<FlipControl | null>(null)
 
-  const { savedPage, savePosition, clearPosition } = useReadingPosition(bookSlug)
-  const [resumeDismissed, setResumeDismissed] = useState(false)
-
-  const showResumePrompt =
-    !resumeDismissed &&
-    savedPage !== null &&
-    savedPage > 0 &&
-    savedPage < pages.length
+  const { savePosition } = useReadingPosition(bookSlug)
 
   const hasHtmlPages = useMemo(() => pages.some((p) => p.type === 'html'), [pages])
   const headings = useMemo(() => extractHeadings(pages), [pages])
@@ -68,21 +61,6 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, sho
       savePosition(currentPage)
     }
   }, [currentPage, savePosition])
-
-  const handleResume = useCallback(() => {
-    if (savedPage !== null) {
-      setCurrentPage(savedPage)
-      if (flipEnabled && flipControlRef.current) {
-        flipControlRef.current.goTo(savedPage)
-      }
-    }
-    setResumeDismissed(true)
-  }, [savedPage, flipEnabled])
-
-  const handleDismissResume = useCallback(() => {
-    setResumeDismissed(true)
-    clearPosition()
-  }, [clearPosition])
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -122,7 +100,7 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, sho
   }, [flipEnabled])
 
   return (
-    <div className="bg-background flex h-screen flex-col">
+    <div className="bg-background flex h-dvh flex-col">
       <ReadingProgressBar currentPage={currentPage} totalPages={pages.length} />
 
       <ReaderToolbar
@@ -142,7 +120,7 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, sho
         showBackButton={showBackButton}
       />
 
-      <div className="relative flex flex-1 items-start justify-center overflow-hidden sm:items-center">
+      <div className="relative flex min-h-0 flex-1 items-start justify-center overflow-hidden sm:items-center">
         {tocOpen && (
           <TableOfContents
             headings={headings}
@@ -171,6 +149,15 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, sho
             zoom={zoom}
           />
         )}
+
+        <PageNavigator
+          currentPage={currentPage}
+          totalPages={pages.length}
+          onNext={goNext}
+          onPrev={goPrev}
+          thumbnailsOpen={thumbnailsOpen}
+          onToggleThumbnails={() => setThumbnailsOpen(!thumbnailsOpen)}
+        />
       </div>
 
       {thumbnailsOpen && (
@@ -180,15 +167,6 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, sho
           onNavigate={goToPage}
         />
       )}
-
-      <PageNavigator
-        currentPage={currentPage}
-        totalPages={pages.length}
-        onNext={goNext}
-        onPrev={goPrev}
-        thumbnailsOpen={thumbnailsOpen}
-        onToggleThumbnails={() => setThumbnailsOpen(!thumbnailsOpen)}
-      />
     </div>
   )
 }

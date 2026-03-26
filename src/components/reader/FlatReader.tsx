@@ -1,8 +1,6 @@
 'use client'
 
 import { useEffect, useCallback } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import type { BookPage } from './FlipbookReader'
 
 type Props = {
@@ -50,26 +48,15 @@ export function FlatReader({ pages, currentPage, onPageChange, fontSize, zoom }:
   if (!page) return null
 
   return (
-    <div className="flex h-full w-full items-center justify-center">
-      {/* Previous button */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute left-2 z-10 h-12 w-12 rounded-full opacity-60 hover:opacity-100"
-        onClick={goPrev}
-        disabled={currentPage === 0}
-      >
-        <ChevronLeft className="h-6 w-6" />
-      </Button>
-
-      {/* Page content */}
+    <div className="flex h-full w-full items-start justify-center sm:items-center">
+      {/* Page content — fills available space */}
       <div
-        className="bg-card mx-16 h-full max-h-[calc(100vh-8rem)] w-full max-w-3xl overflow-auto rounded-lg border shadow-lg"
+        className="bg-card h-full w-full max-w-3xl overflow-auto shadow-lg sm:mx-4 sm:rounded-lg sm:border"
         style={{ transform: zoom !== 1 ? `scale(${zoom})` : undefined, transformOrigin: 'top center' }}
       >
         {page.type === 'html' ? (
           <div
-            className="prose dark:prose-invert max-w-none p-8 md:p-12"
+            className="prose dark:prose-invert max-w-none p-6 sm:p-8 md:p-12"
             style={{ fontSize: `${fontSize}%` }}
             dangerouslySetInnerHTML={{ __html: page.content }}
           />
@@ -81,17 +68,6 @@ export function FlatReader({ pages, currentPage, onPageChange, fontSize, zoom }:
           />
         )}
       </div>
-
-      {/* Next button */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute right-2 z-10 h-12 w-12 rounded-full opacity-60 hover:opacity-100"
-        onClick={goNext}
-        disabled={currentPage === pages.length - 1}
-      >
-        <ChevronRight className="h-6 w-6" />
-      </Button>
     </div>
   )
 }

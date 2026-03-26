@@ -16,6 +16,7 @@ import { Save, Check, X, Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useCategories } from '@/hooks/use-categories'
+import { toast } from 'sonner'
 
 type Book = {
   id: string
@@ -131,10 +132,12 @@ export function BookEditForm({ book }: { book: Book }) {
       if (res.ok) {
         setSaved(true)
         router.refresh()
+        toast.success('Changes saved successfully')
         setTimeout(() => setSaved(false), 2000)
       } else {
         const data = await res.json()
         setSaveError(data.error || 'Failed to save')
+        toast.error(data.error || 'Failed to save changes')
       }
     } finally {
       setIsLoading(false)

@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import './globals.css'
 import ReactQueryProvider from '@/providers/ReactQueryProvider'
+import { Toaster } from '@/components/ui/sonner'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -44,6 +45,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         >
           <ReactQueryProvider>
             {children}
+            <Toaster richColors position="bottom-right" />
             <Analytics />
             <ReactQueryDevtools initialIsOpen={false} />
           </ReactQueryProvider>

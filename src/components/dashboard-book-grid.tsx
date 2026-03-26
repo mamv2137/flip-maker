@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { resolveFileUrl } from '@/lib/storage'
 import { useState } from 'react'
+import { toast } from 'sonner'
 
 type Book = {
   id: string
@@ -25,6 +26,7 @@ export function DashboardBookGrid({ books }: { books: Book[] }) {
     const url = `${window.location.origin}/read/${slug}`
     await navigator.clipboard.writeText(url)
     setCopied(bookId)
+    toast.success('Link copied to clipboard')
     setTimeout(() => setCopied(null), 2000)
   }
 

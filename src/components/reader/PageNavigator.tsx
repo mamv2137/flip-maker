@@ -21,42 +21,40 @@ export function PageNavigator({
   onToggleThumbnails,
 }: Props) {
   return (
-    <div className="border-t">
-      <div className="flex h-12 items-center justify-center gap-4 px-4">
+    <>
+      {/* Side arrows overlaid on the book */}
+      <button
+        onClick={onPrev}
+        disabled={currentPage === 0}
+        className="fixed left-1 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/30 p-1.5 text-white/70 backdrop-blur-sm transition-all hover:bg-black/50 hover:text-white disabled:opacity-0 sm:left-3 sm:p-2"
+        aria-label="Previous page"
+      >
+        <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+      </button>
+      <button
+        onClick={onNext}
+        disabled={currentPage >= totalPages - 1}
+        className="fixed right-1 top-1/2 z-30 -translate-y-1/2 rounded-full bg-black/30 p-1.5 text-white/70 backdrop-blur-sm transition-all hover:bg-black/50 hover:text-white disabled:opacity-0 sm:right-3 sm:p-2"
+        aria-label="Next page"
+      >
+        <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
+      </button>
+
+      {/* Bottom bar — compact, just page count + thumbnails */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 flex items-center justify-center gap-3 bg-gradient-to-t from-black/40 to-transparent px-4 py-2">
         <Button
-          variant={thumbnailsOpen ? 'secondary' : 'ghost'}
+          variant="ghost"
           size="icon"
-          className="h-8 w-8"
+          className="h-7 w-7 text-white/70 hover:text-white hover:bg-white/10"
           onClick={onToggleThumbnails}
           title="Page thumbnails"
         >
-          <LayoutGrid className="h-4 w-4" />
+          <LayoutGrid className="h-3.5 w-3.5" />
         </Button>
-
-        <Button
-          variant="ghost"
-          size="icon"
-          className="h-8 w-8"
-          onClick={onPrev}
-          disabled={currentPage === 0}
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </Button>
-
-        <span className="text-muted-foreground min-w-[80px] text-center text-sm">
+        <span className="text-xs font-medium text-white/70">
           {currentPage + 1} / {totalPages}
         </span>
-
-        <Button
-          variant="ghost"
-          size="icon"
-          className="h-8 w-8"
-          onClick={onNext}
-          disabled={currentPage >= totalPages - 1}
-        >
-          <ChevronRight className="h-4 w-4" />
-        </Button>
       </div>
-    </div>
+    </>
   )
 }

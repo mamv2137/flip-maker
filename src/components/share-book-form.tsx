@@ -21,6 +21,7 @@ import {
 } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 
 type AccessGrant = {
   id: string
@@ -92,6 +93,7 @@ export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility 
         setVisibility(newVisibility)
         setPasswordSaved(false)
         router.refresh()
+        toast.success(`Access changed to ${newVisibility}`)
       }
     } finally {
       setIsTogglingVisibility(false)
@@ -111,6 +113,7 @@ export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility 
         setPasswordSaved(true)
         setVisibility('password')
         router.refresh()
+        toast.success('Password saved')
       }
     } finally {
       setIsTogglingVisibility(false)
@@ -135,13 +138,16 @@ export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility 
 
       if (!res.ok) {
         setSendResult({ success: false, error: data.error })
+        toast.error(data.error || 'Failed to send invite')
       } else {
         setSendResult({ success: true, magicLinkUrl: data.magicLinkUrl })
         setEmail('')
         fetchGrants()
+        toast.success(`Invite sent to ${email.trim()}`)
       }
     } catch {
       setSendResult({ success: false, error: 'An error occurred' })
+      toast.error('Failed to send invite')
     } finally {
       setIsLoading(false)
     }
@@ -157,6 +163,7 @@ export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility 
       })
       if (res.ok) {
         setGrants((prev) => prev.filter((g) => g.id !== grantId))
+        toast.success('Access revoked')
       }
     } finally {
       setRevokingId(null)
@@ -166,6 +173,7 @@ export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility 
   const copyToClipboard = async (text: string, key: string) => {
     await navigator.clipboard.writeText(text)
     setCopied(key)
+    toast.success('Copied to clipboard')
     setTimeout(() => setCopied(null), 2000)
   }
 
