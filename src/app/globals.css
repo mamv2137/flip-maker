@@ -213,11 +213,20 @@ button:not(:disabled):active,
 /* StPageFlip overrides */
 .stf__wrapper {
   overflow: hidden;
-  max-height: calc(100vh - 8rem) !important;
+  max-height: calc(100vh - 4rem) !important;
 }
 
 .stf__parent {
-  max-height: calc(100vh - 8rem) !important;
+  max-height: calc(100vh - 4rem) !important;
+}
+
+@media (max-width: 768px) {
+  .stf__wrapper {
+    max-height: calc(100vh - 3rem) !important;
+  }
+  .stf__parent {
+    max-height: calc(100vh - 3rem) !important;
+  }
 }
 
 /* Book pages are always white like real paper, even in dark mode */
@@ -225,10 +234,22 @@ button:not(:disabled):active,
   background-color: #ffffff !important;
 }
 
-/* Fix flip animation glitch: ensure backface is hidden during 3D transforms */
+/* Fix flip animation glitch: GPU acceleration + backface hidden */
 .stf__block {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.stf__item {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.stf__item img {
+  image-rendering: auto;
+  will-change: transform;
 }
 
 /* Smooth the shadow transition during flips */

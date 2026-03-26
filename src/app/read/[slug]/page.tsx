@@ -155,6 +155,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
 
   // === Check view limits + creator plan ===
   const viewCheck = await checkCanViewBook(book.creator_id)
+  console.log('[reader] viewCheck:', { showWatermark: viewCheck.showWatermark, allowed: viewCheck.allowed, creatorId: book.creator_id })
 
   // Get creator's plan to determine banner type
   let creatorPlan: Plan = 'free'

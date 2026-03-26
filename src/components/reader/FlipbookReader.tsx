@@ -142,7 +142,7 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, sho
         showBackButton={showBackButton}
       />
 
-      <div className="relative flex flex-1 items-center justify-center overflow-hidden">
+      <div className="relative flex flex-1 items-start justify-center overflow-hidden sm:items-center">
         {tocOpen && (
           <TableOfContents
             headings={headings}
@@ -152,25 +152,7 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, sho
           />
         )}
 
-        {showResumePrompt && (
-          <div className="absolute top-4 z-40 flex items-center gap-3 rounded-lg border bg-background px-4 py-3 shadow-lg">
-            <p className="text-sm">
-              Continue from page {(savedPage ?? 0) + 1}?
-            </p>
-            <button
-              onClick={handleResume}
-              className="rounded-md bg-emerald-500 px-3 py-1 text-sm font-medium text-white hover:bg-emerald-600"
-            >
-              Resume
-            </button>
-            <button
-              onClick={handleDismissResume}
-              className="text-muted-foreground text-sm hover:underline"
-            >
-              Start over
-            </button>
-          </div>
-        )}
+        {/* Resume prompt removed — auto-resumes silently via saved position */}
 
         {flipEnabled ? (
           <PageFlipReader

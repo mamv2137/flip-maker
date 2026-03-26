@@ -67,14 +67,14 @@ export async function checkCanViewBook(creatorId: string): Promise<{
 }> {
   const supabase = await createClient()
 
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('plan')
-    .eq('id', creatorId)
-    .single()
+  // Use RPC to bypass RLS — the viewer may not be the creator
+  const { data: planData } = await supabase.rpc('get_creator_plan', {
+    creator_uuid: creatorId,
+  })
 
-  const plan = (profile?.plan || 'free') as Plan
+  const plan = (planData?.[0]?.plan || 'free') as Plan
   const limits = getPlanLimits(plan)
+  console.log('[checkCanViewBook]', { creatorId, planData, plan, hasWatermark: limits.hasWatermark })
   const month = new Date().toISOString().slice(0, 7)
 
   // Get current monthly views
