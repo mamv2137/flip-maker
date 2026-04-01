@@ -20,7 +20,7 @@ export async function createMagicLinkToken(
   })
     .setProtectedHeader({ alg: 'HS256' })
     .setIssuedAt()
-    .setIssuer('flipbooks')
+    .setIssuer('bukify')
     .sign(secret)
 }
 
@@ -29,7 +29,7 @@ export async function verifyMagicLinkToken(
 ): Promise<MagicLinkPayload | null> {
   try {
     const { payload } = await jwtVerify(token, secret, {
-      issuer: 'flipbooks',
+      issuer: 'bukify',
     })
     return {
       grantId: payload.grantId as string,

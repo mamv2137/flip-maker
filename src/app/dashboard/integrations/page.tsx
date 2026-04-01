@@ -31,13 +31,13 @@ const integrations = [
   },
   {
     name: 'Hotmart',
-    description: 'Connect with Hotmart to auto-deliver flipbooks to your buyers.',
+    description: 'Connect with Hotmart to auto-deliver books to your buyers.',
     icon: Zap,
     status: 'coming-soon' as const,
   },
   {
     name: 'MercadoPago',
-    description: 'Sell your flipbooks with MercadoPago checkout integration.',
+    description: 'Sell your books with MercadoPago checkout integration.',
     icon: Zap,
     status: 'coming-soon' as const,
   },
@@ -57,7 +57,7 @@ const shopifySteps = [
   {
     step: 3,
     title: 'Create a webhook',
-    description: 'Click "Create webhook", select "Order payment" as the event, paste your Flipbooks webhook URL, and save.',
+    description: 'Click "Create webhook", select "Order payment" as the event, paste your Bukify webhook URL, and save.',
   },
   {
     step: 4,
@@ -76,7 +76,7 @@ export default function IntegrationsPage() {
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Integrations</h1>
             <p className="text-muted-foreground mt-1">
-              Connect your selling platforms to auto-deliver flipbooks to buyers.
+              Connect your selling platforms to auto-deliver books to buyers.
             </p>
           </div>
 
@@ -112,7 +112,7 @@ export default function IntegrationsPage() {
                 Shopify Setup Guide
               </CardTitle>
               <CardDescription>
-                Follow these 4 steps to connect your Shopify store with Flipbooks
+                Follow these 4 steps to connect your Shopify store with Bukify
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -139,7 +139,7 @@ export default function IntegrationsPage() {
             <CardContent>
               <div className="flex items-center gap-2">
                 <code className="bg-muted flex-1 truncate rounded px-3 py-2 text-xs">
-                  https://flipbooks.app/api/webhooks/shopify/a1b2c3d4-e5f6-7890-abcd-ef1234567890
+                  https://bukify.com/api/webhooks/shopify/a1b2c3d4-e5f6-7890-abcd-ef1234567890
                 </code>
                 <Button size="sm" variant="outline" disabled>
                   <Copy className="h-4 w-4" />
@@ -188,7 +188,7 @@ export default function IntegrationsPage() {
             transition={{ delay: 1, duration: 0.4 }}
           >
             We&apos;re building seamless connections with Shopify, Hotmart, and MercadoPago.
-            Auto-deliver your flipbooks to every buyer — zero manual work.
+            Auto-deliver your books to every buyer — zero manual work.
           </motion.p>
 
           <motion.div

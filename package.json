@@ -1,6 +1,6 @@
 {
-  "name": "flipbook-maker",
-  "description": "A SaaS platform that transforms Markdown/PDF content into premium interactive flipbook reader experiences. Targets the Latam creator economy.",
+  "name": "bukify",
+  "description": "A SaaS platform that transforms PDF content into premium interactive reading experiences. Targets the Latam creator economy.",
   "version": "1.0.0",
   "private": true,
   "author": "Mauricio Maduro @mamv2137",

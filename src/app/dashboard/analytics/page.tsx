@@ -84,7 +84,7 @@ export default function AnalyticsPage() {
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Analytics</h1>
             <p className="text-muted-foreground mt-1">
-              Track your flipbooks performance and reader engagement.
+              Track your books performance and reader engagement.
             </p>
           </div>
 

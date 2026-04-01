@@ -15,8 +15,8 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: 'Flipbooks',
-  description: 'Transform your content into premium interactive flipbooks',
+  title: 'Bukify',
+  description: 'Transform your content into premium interactive reading experiences',
 }
 
 const geistSans = Geist({

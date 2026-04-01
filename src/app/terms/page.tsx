@@ -3,7 +3,7 @@ import { BookOpen, ArrowLeft } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — Flipbooks',
+  title: 'Terms of Service — Bukify',
 }
 
 export default function TermsPage() {
@@ -27,13 +27,13 @@ export default function TermsPage() {
 
         <h2>1. Acceptance of Terms</h2>
         <p>
-          By accessing and using Flipbooks (&quot;the Service&quot;), you agree to be bound by these
+          By accessing and using Bukify (&quot;the Service&quot;), you agree to be bound by these
           Terms of Service. If you do not agree to these terms, do not use the Service.
         </p>
 
         <h2>2. Description of Service</h2>
         <p>
-          Flipbooks is a platform that transforms PDF content from Google Drive into interactive
+          Bukify is a platform that transforms PDF content from Google Drive into interactive
           flipbook reader experiences. The Service allows creators to publish, share, and manage
           access to their flipbooks.
         </p>
@@ -48,7 +48,7 @@ export default function TermsPage() {
         <h2>4. Content Ownership</h2>
         <p>
           You retain all ownership rights to the content you upload or link through Google Drive.
-          By using the Service, you grant Flipbooks a limited, non-exclusive license to display
+          By using the Service, you grant Bukify a limited, non-exclusive license to display
           your content through our reader for the purpose of providing the Service. We do not
           claim ownership of your content.
         </p>
@@ -63,7 +63,7 @@ export default function TermsPage() {
         <h2>6. Google Drive Integration</h2>
         <p>
           The Service integrates with Google Drive to read PDF files. By connecting your Google Drive,
-          you authorize Flipbooks to access your files in read-only mode. We do not modify, delete,
+          you authorize Bukify to access your files in read-only mode. We do not modify, delete,
           or store copies of your files unless you explicitly enable the R2 backup feature.
         </p>
 
@@ -101,7 +101,7 @@ export default function TermsPage() {
 
         <h2>11. Limitation of Liability</h2>
         <p>
-          The Service is provided &quot;as is&quot; without warranties of any kind. Flipbooks shall
+          The Service is provided &quot;as is&quot; without warranties of any kind. Bukify shall
           not be liable for any indirect, incidental, or consequential damages arising from your
           use of the Service.
         </p>
@@ -116,7 +116,7 @@ export default function TermsPage() {
         <h2>13. Contact</h2>
         <p>
           For questions about these terms, contact us at{' '}
-          <a href="mailto:legal@flipbooks.app">legal@flipbooks.app</a>.
+          <a href="mailto:legal@bukify.com">legal@bukify.com</a>.
         </p>
       </div>
     </div>

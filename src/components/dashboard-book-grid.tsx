@@ -42,7 +42,7 @@ export function DashboardBookGrid({ books }: { books: Book[] }) {
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Books</h1>
           <p className="text-muted-foreground mt-1">
-            Upload and manage your flipbooks
+            Upload and manage your books
           </p>
         </div>
         <Button asChild>

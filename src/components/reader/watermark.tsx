@@ -13,7 +13,7 @@ export function Watermark() {
           <div className="flex flex-col items-center gap-2">
             <BookOpen className="h-20 w-20 text-neutral-500 sm:h-32 sm:w-32" strokeWidth={1} />
             <span className="text-base font-bold tracking-widest text-neutral-500 uppercase sm:text-xl">
-              Flipbooks
+              Bukify
             </span>
           </div>
         </div>
@@ -28,7 +28,7 @@ export function Watermark() {
         >
           <BookOpen className="h-4 w-4 text-emerald-400" />
           <AnimatedShinyText shimmerWidth={80} className="text-xs font-medium">
-            Powered by Flipbooks
+            Powered by Bukify
           </AnimatedShinyText>
         </Link>
       </div>

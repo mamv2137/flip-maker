@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Flipbooks is a SaaS platform that transforms Markdown/PDF content into premium interactive flipbook reader experiences. Targets the Latam creator economy. Built with Next.js 16 (App Router), Supabase, React 19, TypeScript, Tailwind CSS v4, and shadcn/ui (new-york style). Deploys to Cloudflare via OpenNext.
+Bukify is a SaaS platform that transforms PDF content into premium interactive reading experiences. Targets the Latam creator economy. Built with Next.js 16 (App Router), Supabase, React 19, TypeScript, Tailwind CSS v4, and shadcn/ui (new-york style). Deploys to Cloudflare via OpenNext.
 
 See `SPEC.md` for full product and architecture spec.
 

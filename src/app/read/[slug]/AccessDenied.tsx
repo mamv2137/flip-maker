@@ -165,10 +165,10 @@ export function AccessDenied({ bookTitle, bookSlug, isLoggedIn }: Props) {
         >
           <div className="flex items-center gap-2">
             <Sparkles className="h-4 w-4 text-emerald-500" />
-            <p className="text-sm font-medium">Create your own flipbook</p>
+            <p className="text-sm font-medium">Create your own book on Bukify</p>
           </div>
           <p className="text-muted-foreground mt-1.5 text-xs leading-relaxed">
-            Turn your Google Drive PDFs into premium interactive flipbooks.
+            Turn your Google Drive PDFs into premium interactive reading experiences.
             Free, no uploads needed.
           </p>
           <Button size="sm" variant="link" className="mt-2 h-auto p-0 text-xs" asChild>

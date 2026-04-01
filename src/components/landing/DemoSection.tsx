@@ -18,7 +18,7 @@ const samplePages: BookPage[] = [
   {
     type: 'html',
     content: `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:2rem">
-<h1 style="font-size:2rem;margin-bottom:0.5rem">Flipbooks</h1>
+<h1 style="font-size:2rem;margin-bottom:0.5rem">Bukify</h1>
 <p style="color:#666;font-size:1.1rem">Interactive reading experiences</p>
 <p style="margin-top:2rem;color:#999;font-size:0.85rem">Flip the page to explore &rarr;</p>
 </div>`,

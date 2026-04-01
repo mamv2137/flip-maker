@@ -22,7 +22,7 @@ export function SignupBanner() {
       >
         <Sparkles className="hidden h-4 w-4 shrink-0 sm:block" />
         <p className="text-xs font-medium sm:text-sm">
-          Create your own interactive flipbooks — free, from Google Drive
+          Create your own interactive books on Bukify — free, from Google Drive
         </p>
         <Button
           size="sm"

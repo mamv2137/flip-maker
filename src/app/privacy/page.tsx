@@ -3,7 +3,7 @@ import { BookOpen, ArrowLeft } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Flipbooks',
+  title: 'Privacy Policy — Bukify',
 }
 
 export default function PrivacyPage() {
@@ -136,7 +136,7 @@ export default function PrivacyPage() {
         <h2>12. Contact</h2>
         <p>
           For questions about this privacy policy, contact us at{' '}
-          <a href="mailto:privacy@flipbooks.app">privacy@flipbooks.app</a>.
+          <a href="mailto:privacy@bukify.com">privacy@bukify.com</a>.
         </p>
       </div>
     </div>

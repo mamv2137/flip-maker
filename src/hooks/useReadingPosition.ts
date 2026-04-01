@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useSyncExternalStore } from 'react'
 
-const STORAGE_KEY_PREFIX = 'flipbooks-reading-position-'
+const STORAGE_KEY_PREFIX = 'bukify-reading-position-'
 
 function getStoredPage(bookSlug: string | undefined): number | null {
   if (!bookSlug) return null

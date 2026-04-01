@@ -16,7 +16,7 @@ export function LandingNavbar({ isAuthenticated, t, lang }: Props) {
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 font-semibold text-white">
           <BookOpen className="h-5 w-5 text-emerald-400" />
-          <span>Flipbooks</span>
+          <span>Bukify</span>
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm text-neutral-400 md:flex" aria-label="Main navigation">

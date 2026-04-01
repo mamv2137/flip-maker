@@ -1,5 +1,5 @@
 const en = {
-  brand: { name: 'Flipbooks' },
+  brand: { name: 'Bukify' },
   landing: {
     nav: {
       features: 'Features',
@@ -90,14 +90,14 @@ const en = {
       footnote: 'Free forever. No credit card. No file uploads.',
     },
     footer: {
-      description: 'Transform your content into premium interactive flipbooks.',
+      description: 'Transform your content into premium interactive reading experiences.',
       product: 'Product',
       resources: 'Resources',
       legal: 'Legal',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
       signUp: 'Sign Up',
-      copyright: '© {year} Flipbooks. All rights reserved.',
+      copyright: '© {year} Bukify. All rights reserved.',
     },
     logoCloud: {
       tagline: 'Works great with your favorite platforms',
@@ -128,7 +128,7 @@ const en = {
             'Google Drive',
             'Public link',
             'Categories & ratings',
-            '"Powered by Flipbooks" watermark',
+            '"Powered by Bukify" watermark',
           ],
         },
         creator: {

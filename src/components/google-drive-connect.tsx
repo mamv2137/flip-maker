@@ -64,8 +64,8 @@ export function GoogleDriveConnect() {
           </div>
           <p className="text-muted-foreground mt-1 text-xs">
             {status === 'connected'
-              ? 'Your Google Drive is connected. You can browse and select PDFs directly when creating flipbooks.'
-              : 'Connect your Google Drive to browse and import PDFs directly into your flipbooks.'}
+              ? 'Your Google Drive is connected. You can browse and select PDFs directly when creating books.'
+              : 'Connect your Google Drive to browse and import PDFs directly into your books.'}
           </p>
           <div className="mt-3 flex items-center gap-2">
             {status === 'connected' ? (
