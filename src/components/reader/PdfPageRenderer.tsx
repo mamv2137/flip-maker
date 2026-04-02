@@ -6,9 +6,38 @@ import type { BookPage } from './FlipbookReader'
 type Props = {
   pdfUrl: string
   onPagesLoaded: (pages: BookPage[]) => void
+  showWatermark?: boolean
 }
 
-export function PdfPageRenderer({ pdfUrl, onPagesLoaded }: Props) {
+function drawWatermark(ctx: CanvasRenderingContext2D, width: number, height: number) {
+  ctx.save()
+  ctx.globalAlpha = 0.08
+  ctx.fillStyle = '#888888'
+  ctx.textAlign = 'center'
+  ctx.textBaseline = 'middle'
+
+  // Diagonal repeated pattern
+  const text = 'BUKIFY'
+  const fontSize = Math.max(width * 0.06, 28)
+  ctx.font = `bold ${fontSize}px sans-serif`
+  ctx.translate(width / 2, height / 2)
+  ctx.rotate(-Math.PI / 6) // -30 degrees
+
+  const spacingX = fontSize * 6
+  const spacingY = fontSize * 4
+  const cols = Math.ceil(width / spacingX) + 2
+  const rows = Math.ceil(height / spacingY) + 2
+
+  for (let r = -rows; r <= rows; r++) {
+    for (let c = -cols; c <= cols; c++) {
+      ctx.fillText(text, c * spacingX, r * spacingY)
+    }
+  }
+
+  ctx.restore()
+}
+
+export function PdfPageRenderer({ pdfUrl, onPagesLoaded, showWatermark }: Props) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [progress, setProgress] = useState(0)
@@ -43,6 +72,10 @@ export function PdfPageRenderer({ pdfUrl, onPagesLoaded }: Props) {
 
           const context = canvas.getContext('2d')!
           await page.render({ canvasContext: context, viewport }).promise
+
+          if (showWatermark) {
+            drawWatermark(context, canvas.width, canvas.height)
+          }
 
           const dataUrl = isMobile
             ? canvas.toDataURL('image/webp', 0.92)

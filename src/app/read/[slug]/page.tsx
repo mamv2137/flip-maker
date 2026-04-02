@@ -205,6 +205,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
           showBackButton={isCreator}
           showSignupBanner={showSignupBanner}
           showUpgradeBanner={showUpgradeBanner}
+          showWatermark={viewCheck.showWatermark}
         />
       </>
     )

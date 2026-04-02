@@ -18,9 +18,10 @@ type Props = {
   showBackButton?: boolean
   showSignupBanner?: boolean
   showUpgradeBanner?: boolean
+  showWatermark?: boolean
 }
 
-export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug, showBackButton, showSignupBanner, showUpgradeBanner }: Props) {
+export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug, showBackButton, showSignupBanner, showUpgradeBanner, showWatermark }: Props) {
   const [pages, setPages] = useState<BookPage[] | null>(null)
 
   const handlePagesLoaded = useCallback((loadedPages: BookPage[]) => {
@@ -49,7 +50,7 @@ export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage
           </div>
         </div>
         <div className="flex flex-1 items-center justify-center">
-          <PdfPageRenderer pdfUrl={pdfUrl} onPagesLoaded={handlePagesLoaded} />
+          <PdfPageRenderer pdfUrl={pdfUrl} onPagesLoaded={handlePagesLoaded} showWatermark={showWatermark} />
         </div>
       </div>
     )
