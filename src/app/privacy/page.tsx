@@ -136,7 +136,7 @@ export default function PrivacyPage() {
         <h2>12. Contact</h2>
         <p>
           For questions about this privacy policy, contact us at{' '}
-          <a href="mailto:privacy@bukify.com">privacy@bukify.com</a>.
+          <a href="mailto:privacy@bukify.io">privacy@bukify.io</a>.
         </p>
       </div>
     </div>

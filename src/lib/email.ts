@@ -23,7 +23,7 @@ export async function sendMagicLinkEmail({
   }
 
   const { data, error } = await resend.emails.send({
-    from: 'Bukify <noreply@bukify.com>',
+    from: 'Bukify <noreply@bukify.io>',
     to,
     subject: `Your book is ready — ${bookTitle}`,
     html: `

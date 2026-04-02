@@ -127,7 +127,7 @@ export function HeroSection({ isAuthenticated, t }: Props) {
             <div className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
             <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
             <div className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
-            <span className="ml-3 text-xs text-neutral-600">bukify.com/dashboard</span>
+            <span className="ml-3 text-xs text-neutral-600">bukify.io/dashboard</span>
           </div>
           <div className="grid grid-cols-4 gap-3 p-6">
             <div className="col-span-1 space-y-3">

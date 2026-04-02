@@ -2,8 +2,8 @@ import { LandingPage } from '@/components/landing/LandingPage'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Bukify - Your Google Drive, your interactive flipbook',
-  description: 'Connect your Google Drive, pick a PDF, and share a premium interactive flipbook — free, in seconds.',
+  title: 'Bukify — Turn PDFs into experiences that sell',
+  description: 'Paste a Google Drive link and get a stunning interactive book with 3D page-turns in seconds. No uploads, no friction.',
   alternates: {
     canonical: '/en',
     languages: { es: '/', en: '/en' },

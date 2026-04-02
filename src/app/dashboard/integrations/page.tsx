@@ -139,7 +139,7 @@ export default function IntegrationsPage() {
             <CardContent>
               <div className="flex items-center gap-2">
                 <code className="bg-muted flex-1 truncate rounded px-3 py-2 text-xs">
-                  https://bukify.com/api/webhooks/shopify/a1b2c3d4-e5f6-7890-abcd-ef1234567890
+                  https://bukify.io/api/webhooks/shopify/a1b2c3d4-e5f6-7890-abcd-ef1234567890
                 </code>
                 <Button size="sm" variant="outline" disabled>
                   <Copy className="h-4 w-4" />

@@ -19,31 +19,31 @@ const samplePages: BookPage[] = [
     type: 'html',
     content: `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:2rem">
 <h1 style="font-size:2rem;margin-bottom:0.5rem">Bukify</h1>
-<p style="color:#666;font-size:1.1rem">Interactive reading experiences</p>
-<p style="margin-top:2rem;color:#999;font-size:0.85rem">Flip the page to explore &rarr;</p>
+<p style="color:#666;font-size:1.1rem">Tus PDFs, como nunca los viste</p>
+<p style="margin-top:2rem;color:#999;font-size:0.85rem">Pasa la página para explorar &rarr;</p>
 </div>`,
     pageNumber: 1,
   },
   {
     type: 'html',
-    content: `<h2>Beautiful Reading</h2><p>Every flipbook features smooth 3D page-turning animations.</p><ul><li>Physics-based animation</li><li>Touch & swipe support</li><li>Keyboard navigation</li><li>Fullscreen mode</li></ul>`,
+    content: `<h2>Lectura premium</h2><p>Cada libro cuenta con animaciones 3D de paso de página.</p><ul><li>Physics-based animation</li><li>Touch & swipe support</li><li>Keyboard navigation</li><li>Fullscreen mode</li></ul>`,
     pageNumber: 2,
   },
   {
     type: 'html',
-    content: `<h2>Built for Creators</h2><p>Upload PDFs or connect Google Drive. Your content is automatically transformed into a premium reader.</p><p style="margin-top:1rem">Control access with public/private visibility and magic link invites.</p>`,
+    content: `<h2>Hecho para creadores</h2><p>Conecta Google Drive y tu contenido se transforma en un lector premium automáticamente.</p><p style="margin-top:1rem">Controla el acceso con visibilidad pública/privada e invitaciones por link.</p>`,
     pageNumber: 3,
   },
   {
     type: 'html',
-    content: `<h2>Share Anywhere</h2><p>Embed your flipbook on any website. Perfect for:</p><ul><li>Course platforms (Hotmart)</li><li>Personal websites</li><li>Email campaigns</li></ul>`,
+    content: `<h2>Comparte donde quieras</h2><p>Embebe tu libro en cualquier sitio web. Perfecto para:</p><ul><li>Plataformas de cursos (Hotmart)</li><li>Sitios personales</li><li>Campañas de email</li></ul>`,
     pageNumber: 4,
   },
   {
     type: 'html',
     content: `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:2rem">
-<h2 style="font-size:1.5rem">Ready to try?</h2>
-<p style="margin-top:1rem;color:#666">Create your free account and publish your first flipbook in minutes.</p>
+<h2 style="font-size:1.5rem">Listo para probar?</h2>
+<p style="margin-top:1rem;color:#666">Crea tu cuenta gratis y publica tu primer ebook en minutos.</p>
 </div>`,
     pageNumber: 5,
   },

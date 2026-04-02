@@ -11,86 +11,86 @@ const en = {
       dashboard: 'Dashboard',
     },
     hero: {
-      badge: 'Powered by Google Drive — zero uploads needed',
-      headline: 'Your Google Drive,',
-      headlineAccent: 'Your Interactive Flipbook',
+      badge: 'Straight from Google Drive — zero uploads',
+      headline: 'Turn PDFs into',
+      headlineAccent: 'experiences that sell',
       subtitle:
-        'Connect your Google Drive, pick a PDF, and get a premium 3D flipbook reader you can share with anyone — in seconds.',
-      cta: 'Start for free with Google',
+        'Paste a Google Drive link and get a stunning interactive book with 3D page-turns ready to share in seconds. No uploads, no friction, no excuses.',
+      cta: 'Publish your first ebook free',
       ctaAuth: 'Go to Dashboard',
-      footnote: 'No file uploads needed — your PDFs stay in your Drive',
+      footnote: 'Free forever · No credit card · Your PDFs stay in your Drive',
     },
     features: {
-      badge: 'Features',
-      title: 'Your Drive, Supercharged',
+      badge: 'Everything you need',
+      title: 'Your content, your rules',
       subtitle:
-        'Turn any Google Drive PDF into a premium interactive flipbook. No uploads, no friction.',
+        'Every tool a creator needs to publish, protect, and monetize their digital content.',
       items: [
         {
-          title: 'Straight from Google Drive',
+          title: 'Connect Google Drive and go',
           description:
-            'Paste a Drive link and your flipbook is ready. No uploads, no storage limits.',
+            'Paste a link and your interactive book builds itself. No uploading, no waiting, no storage limits.',
         },
         {
-          title: 'Realistic 3D Page Flip',
-          description: 'Smooth, physics-based page turning that feels like a real book.',
+          title: '3D page-flip that wows',
+          description: 'Your readers will flip pages like they\'re holding a real book. Realistic physics, smooth transitions.',
         },
         {
-          title: 'Share with a Link',
-          description: 'Every book gets a unique URL. Share via email, socials, or embed anywhere.',
+          title: 'One link, endless reach',
+          description: 'Every book gets its own URL. Share on WhatsApp, socials, email, or embed it on Hotmart, WordPress — anywhere.',
         },
         {
-          title: 'Public or Private',
-          description: 'Control who sees your content. Invite readers with magic links.',
+          title: 'You decide who reads',
+          description: 'Public for everyone or private by invite. Control access with magic links and passwords.',
         },
         {
-          title: 'Works Everywhere',
-          description: 'Responsive with touch gestures. Looks great on any device.',
+          title: 'Perfect on every screen',
+          description: 'Designed mobile-first. Touch gestures, keyboard, fullscreen — it adapts to everything.',
         },
         {
-          title: 'Content Protection',
+          title: 'Your content, locked down',
           description:
-            'Readers view through our secure reader. No downloads, no copies. Your content stays yours.',
+            'Secure reading with no downloads or copies. Your PDFs never leave your control. Perfect for premium content.',
         },
       ],
     },
     process: {
-      badge: 'How It Works',
-      title: 'From Drive to Flipbook in 3 Steps',
-      subtitle: 'No sign-up forms, no file uploads. Just paste, publish, and share.',
+      badge: 'Dead simple',
+      title: 'From PDF to interactive book in 60 seconds',
+      subtitle: 'Three steps. Zero complexity. Your content published before your coffee gets cold.',
       steps: [
         {
-          title: 'Connect your Drive',
+          title: 'Paste your Drive link',
           description:
-            'Paste a Google Drive link to your PDF. No uploads, no storage concerns.',
+            'Copy the URL of any PDF in Google Drive and paste it into Bukify. You upload nothing — your file stays where it is.',
         },
         {
-          title: 'Customize & Publish',
+          title: 'Customize & publish',
           description:
-            'Add a title, cover, and category. Set it as public or private. Your flipbook gets a unique URL instantly.',
+            'Pick a cover, title, and visibility. One click and you have a unique URL ready to share.',
         },
         {
-          title: 'Share with the World',
+          title: 'Share & monetize',
           description:
-            'Share the link, embed on any website, or invite readers by email. Your content is protected — view only, no downloads.',
+            'Send the link on WhatsApp, embed it on your site or Hotmart, or invite readers by email. Your content stays protected.',
         },
       ],
     },
     demo: {
-      badge: 'Live Demo',
-      title: 'Try it yourself',
-      subtitle: 'Drag the page corners or use arrow keys to flip through.',
+      badge: 'See it in action',
+      title: 'This is what your readers will see',
+      subtitle: 'Drag the corners or use arrow keys. The real reading experience, right here.',
     },
     cta: {
-      title: 'Your PDFs deserve a better reader',
+      title: 'Stop sharing boring PDFs',
       subtitle:
-        'Connect Google Drive, pick your PDF, and share a beautiful interactive flipbook — free, in seconds. No uploads, no complexity.',
-      button: 'Get started for free',
+        'Your readers deserve better. Publish your first interactive book in under a minute — free, no credit card, no uploads.',
+      button: 'Publish your ebook now',
       ctaAuth: 'Go to Dashboard',
-      footnote: 'Free forever. No credit card. No file uploads.',
+      footnote: 'Free forever · No credit card · No uploads',
     },
     footer: {
-      description: 'Transform your content into premium interactive reading experiences.',
+      description: 'Turn PDFs into reading experiences your audience will love.',
       product: 'Product',
       resources: 'Resources',
       legal: 'Legal',
@@ -100,20 +100,20 @@ const en = {
       copyright: '© {year} Bukify. All rights reserved.',
     },
     logoCloud: {
-      tagline: 'Works great with your favorite platforms',
+      tagline: 'Integrates with the platforms you already use',
     },
     pricing: {
-      badge: 'Pricing',
-      title: 'Choose the perfect plan for you',
-      subtitle: 'Start free. Scale when you need it.',
+      badge: 'Simple pricing',
+      title: 'Grow at your own pace',
+      subtitle: 'Start free, no time limit. Scale only when your content demands it.',
       monthly: 'Monthly',
       yearly: 'Yearly',
       yearlyDiscount: 'Save 2 months',
       perMonth: '/mo',
       perYear: '/yr',
       current: 'Current plan',
-      getStarted: 'Get started free',
-      upgrade: 'Get started',
+      getStarted: 'Start free',
+      upgrade: 'Choose plan',
       comingSoon: 'Coming soon',
       viewsPerMonth: 'views/mo',
       unlimitedBooks: 'Unlimited books',
@@ -121,9 +121,9 @@ const en = {
       plans: {
         free: {
           name: 'Free',
-          description: 'To try the platform',
+          description: 'Perfect to get started',
           features: [
-            '3 flipbooks',
+            '3 books',
             '200 views/mo',
             'Google Drive',
             'Public link',
@@ -133,7 +133,7 @@ const en = {
         },
         creator: {
           name: 'Creator',
-          description: 'For independent creators',
+          description: 'For creators who mean business',
           features: [
             'Unlimited books',
             '2,000 views/mo',
@@ -145,7 +145,7 @@ const en = {
         },
         pro_seller: {
           name: 'Pro Seller',
-          description: 'For content sellers',
+          description: 'For those who live off their content',
           features: [
             'Everything in Creator',
             '10,000 views/mo',

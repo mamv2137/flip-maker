@@ -11,86 +11,86 @@ const es = {
       dashboard: 'Panel',
     },
     hero: {
-      badge: 'Con Google Drive — sin subir archivos',
-      headline: 'Tu Google Drive,',
-      headlineAccent: 'Tu Flipbook Interactivo',
+      badge: 'Directo desde Google Drive — cero subidas',
+      headline: 'Convierte PDFs en',
+      headlineAccent: 'experiencias que venden',
       subtitle:
-        'Conecta tu Google Drive, elige un PDF y obtén un flipbook 3D premium que puedes compartir con cualquiera — en segundos.',
-      cta: 'Comienza gratis con Google',
+        'Pega un link de Google Drive y en segundos tienes un libro interactivo con efecto 3D listo para compartir. Sin subidas, sin fricción, sin excusas.',
+      cta: 'Publica tu primer ebook gratis',
       ctaAuth: 'Ir al Panel',
-      footnote: 'Sin subir archivos — tus PDFs se quedan en tu Drive',
+      footnote: 'Gratis para siempre · Sin tarjeta · Tus PDFs no salen de tu Drive',
     },
     features: {
-      badge: 'Funcionalidades',
-      title: 'Tu Drive, Potenciado',
+      badge: 'Todo lo que necesitas',
+      title: 'Tu contenido, tus reglas',
       subtitle:
-        'Convierte cualquier PDF de Google Drive en un flipbook interactivo premium. Sin subidas, sin fricción.',
+        'Todo lo que necesitas para publicar, proteger y monetizar tu contenido digital.',
       items: [
         {
-          title: 'Directo desde Google Drive',
+          title: 'Conecta Google Drive y listo',
           description:
-            'Pega un link de Drive y tu flipbook está listo. Sin subidas, sin límites de almacenamiento.',
+            'Pega un link y tu libro interactivo se genera solo. Sin subir archivos, sin esperar, sin límites de almacenamiento.',
         },
         {
-          title: 'Efecto 3D Realista',
-          description: 'Animación de paso de página fluida y basada en física, como un libro real.',
+          title: 'Animación 3D que enamora',
+          description: 'Tus lectores van a pasar páginas como si tuvieran el libro en las manos. Física realista, transiciones fluidas.',
         },
         {
-          title: 'Comparte con un Link',
-          description: 'Cada libro tiene una URL única. Comparte por email, redes, o embebe donde quieras.',
+          title: 'Un link, mil posibilidades',
+          description: 'Cada libro tiene su propia URL. Comparte en WhatsApp, redes, email, o embébelo en Hotmart, WordPress — donde sea.',
         },
         {
-          title: 'Público o Privado',
-          description: 'Controla quién ve tu contenido. Invita lectores con links mágicos.',
+          title: 'Tú decides quién lee',
+          description: 'Público para todos o privado con invitación. Controla el acceso con links mágicos y contraseñas.',
         },
         {
-          title: 'Funciona en Todos Lados',
-          description: 'Responsivo con gestos táctiles. Se ve genial en cualquier dispositivo.',
+          title: 'Perfecto en cualquier pantalla',
+          description: 'Diseñado mobile-first. Gestos táctiles, teclado, pantalla completa — se adapta a todo.',
         },
         {
-          title: 'Protección de Contenido',
+          title: 'Tu contenido blindado',
           description:
-            'Los lectores ven a través de nuestro reader seguro. Sin descargas, sin copias. Tu contenido es tuyo.',
+            'Lectura segura sin descargas ni copias. Tus PDFs nunca salen de tu control. Ideal para contenido premium.',
         },
       ],
     },
     process: {
-      badge: 'Cómo Funciona',
-      title: 'De Drive a Flipbook en 3 Pasos',
-      subtitle: 'Sin formularios, sin subidas. Solo pega, publica y comparte.',
+      badge: 'Así de fácil',
+      title: 'De PDF a libro interactivo en 60 segundos',
+      subtitle: 'Tres pasos. Cero complicaciones. Tu contenido publicado antes de que termine el café.',
       steps: [
         {
-          title: 'Conecta tu Drive',
+          title: 'Pega el link de tu Drive',
           description:
-            'Pega un link de Google Drive a tu PDF. Sin subidas, sin preocupaciones de almacenamiento.',
+            'Copia la URL de cualquier PDF en Google Drive y pégala en Bukify. No subes nada — tu archivo se queda donde está.',
         },
         {
-          title: 'Personaliza y Publica',
+          title: 'Personaliza y publica',
           description:
-            'Agrega título, portada y categoría. Configúralo público o privado. Tu flipbook obtiene una URL única al instante.',
+            'Elige portada, título y visibilidad. En un clic tienes una URL única lista para compartir.',
         },
         {
-          title: 'Comparte con el Mundo',
+          title: 'Comparte y monetiza',
           description:
-            'Comparte el link, embebe en cualquier sitio, o invita lectores por email. Tu contenido está protegido — solo lectura, sin descargas.',
+            'Envía el link por WhatsApp, embébelo en tu sitio o Hotmart, o invita lectores por email. Tu contenido siempre protegido.',
         },
       ],
     },
     demo: {
-      badge: 'Demo en Vivo',
-      title: 'Pruébalo tú mismo',
-      subtitle: 'Arrastra las esquinas de las páginas o usa las flechas del teclado.',
+      badge: 'Míralo en acción',
+      title: 'Así se siente leer en Bukify',
+      subtitle: 'Arrastra las esquinas o usa las flechas. Esto es lo que tus lectores van a ver.',
     },
     cta: {
-      title: 'Tus PDFs merecen un mejor lector',
+      title: 'Deja de compartir PDFs aburridos',
       subtitle:
-        'Conecta Google Drive, elige tu PDF y comparte un flipbook interactivo hermoso — gratis, en segundos. Sin subidas, sin complejidad.',
-      button: 'Comienza gratis',
+        'Tus lectores merecen algo mejor. Publica tu primer libro interactivo en menos de un minuto — gratis, sin tarjeta, sin subir nada.',
+      button: 'Publica tu ebook ahora',
       ctaAuth: 'Ir al Panel',
-      footnote: 'Gratis para siempre. Sin tarjeta de crédito. Sin subidas.',
+      footnote: 'Gratis para siempre · Sin tarjeta de crédito · Sin subidas',
     },
     footer: {
-      description: 'Transforma tu contenido en experiencias de lectura interactivas premium.',
+      description: 'Transforma PDFs en experiencias de lectura que tus clientes van a amar.',
       product: 'Producto',
       resources: 'Recursos',
       legal: 'Legal',
@@ -100,20 +100,20 @@ const es = {
       copyright: '© {year} Bukify. Todos los derechos reservados.',
     },
     logoCloud: {
-      tagline: 'Funciona con tus plataformas favoritas',
+      tagline: 'Se integra con las plataformas que ya usas',
     },
     pricing: {
-      badge: 'Precios',
-      title: 'Elige el plan perfecto para ti',
-      subtitle: 'Comienza gratis. Escala cuando lo necesites.',
+      badge: 'Precios simples',
+      title: 'Crece a tu ritmo',
+      subtitle: 'Empieza gratis, sin límite de tiempo. Escala solo cuando tu contenido lo pida.',
       monthly: 'Mensual',
       yearly: 'Anual',
       yearlyDiscount: 'Ahorra 2 meses',
       perMonth: '/mes',
       perYear: '/año',
       current: 'Plan actual',
-      getStarted: 'Comenzar gratis',
-      upgrade: 'Comenzar',
+      getStarted: 'Empezar gratis',
+      upgrade: 'Elegir plan',
       comingSoon: 'Próximamente',
       viewsPerMonth: 'views/mes',
       unlimitedBooks: 'Libros ilimitados',
@@ -121,9 +121,9 @@ const es = {
       plans: {
         free: {
           name: 'Free',
-          description: 'Para probar la plataforma',
+          description: 'Perfecto para empezar y probar',
           features: [
-            '3 flipbooks',
+            '3 libros',
             '200 views/mes',
             'Google Drive',
             'Link público',
@@ -133,7 +133,7 @@ const es = {
         },
         creator: {
           name: 'Creator',
-          description: 'Para creadores independientes',
+          description: 'Para creadores que van en serio',
           features: [
             'Libros ilimitados',
             '2,000 views/mes',
@@ -145,7 +145,7 @@ const es = {
         },
         pro_seller: {
           name: 'Pro Seller',
-          description: 'Para vendedores de contenido',
+          description: 'Para quienes viven de su contenido',
           features: [
             'Todo en Creator',
             '10,000 views/mes',

@@ -116,7 +116,7 @@ export default function TermsPage() {
         <h2>13. Contact</h2>
         <p>
           For questions about these terms, contact us at{' '}
-          <a href="mailto:legal@bukify.com">legal@bukify.com</a>.
+          <a href="mailto:legal@bukify.io">legal@bukify.io</a>.
         </p>
       </div>
     </div>
