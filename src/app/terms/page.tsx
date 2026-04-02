@@ -34,8 +34,8 @@ export default function TermsPage() {
         <h2>2. Description of Service</h2>
         <p>
           Bukify is a platform that transforms PDF content from Google Drive into interactive
-          flipbook reader experiences. The Service allows creators to publish, share, and manage
-          access to their flipbooks.
+          interactive reading experiences. The Service allows creators to publish, share, and manage
+          access to their digital books.
         </p>
 
         <h2>3. User Accounts</h2>
@@ -78,7 +78,7 @@ export default function TermsPage() {
         <h2>8. View Limits & Overages</h2>
         <p>
           Each plan includes a monthly view limit. Views are counted as unique visitors per 24-hour
-          period per flipbook. If your views exceed your plan limit, access to your flipbooks may be
+          period per book. If your views exceed your plan limit, access to your books may be
           temporarily restricted until the next billing cycle.
         </p>
 
@@ -95,7 +95,7 @@ export default function TermsPage() {
         <h2>10. Termination</h2>
         <p>
           We reserve the right to suspend or terminate your account if you violate these terms.
-          You may delete your account at any time. Upon termination, your flipbooks will no longer
+          You may delete your account at any time. Upon termination, your books will no longer
           be accessible to readers.
         </p>
 
@@ -116,7 +116,7 @@ export default function TermsPage() {
         <h2>13. Contact</h2>
         <p>
           For questions about these terms, contact us at{' '}
-          <a href="mailto:legal@bukify.io">legal@bukify.io</a>.
+          <a href="mailto:qiubitlabs@gmail.com">qiubitlabs@gmail.com</a>.
         </p>
       </div>
     </div>

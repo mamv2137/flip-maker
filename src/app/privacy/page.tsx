@@ -60,7 +60,7 @@ export default function PrivacyPage() {
           <li>To provide and maintain the Service</li>
           <li>To manage your account and subscription</li>
           <li>To enforce plan limits (view counting)</li>
-          <li>To deliver flipbooks to authorized readers</li>
+          <li>To deliver books to authorized readers</li>
           <li>To send important service notifications</li>
           <li>To improve the Service based on usage patterns</li>
         </ul>
@@ -110,7 +110,7 @@ export default function PrivacyPage() {
         <h2>8. Data Retention</h2>
         <p>
           We retain your data for as long as your account is active. If you delete your
-          account, we delete your personal data and flipbook metadata within 30 days.
+          account, we delete your personal data and book metadata within 30 days.
           Anonymized analytics data may be retained for longer.
         </p>
 
@@ -136,7 +136,7 @@ export default function PrivacyPage() {
         <h2>12. Contact</h2>
         <p>
           For questions about this privacy policy, contact us at{' '}
-          <a href="mailto:privacy@bukify.io">privacy@bukify.io</a>.
+          <a href="mailto:qiubitlabs@gmail.com">qiubitlabs@gmail.com</a>.
         </p>
       </div>
     </div>
