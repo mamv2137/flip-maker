@@ -13,6 +13,7 @@ import { resolveFileUrl, resolvePdfUrl } from '@/lib/storage'
 import { checkCanViewBook } from '@/lib/check-plan-limits'
 import { ViewCounter } from '@/components/reader/view-counter'
 import { Watermark } from '@/components/reader/watermark'
+import { MadeWithBadge } from '@/components/reader/made-with-badge'
 import type { Plan } from '@/lib/plans'
 
 type Props = {
@@ -214,6 +215,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
       <>
         <ViewCounter bookId={book.id} />
         {viewCheck.showWatermark && <Watermark />}
+        {!isCreator && <MadeWithBadge />}
         <PdfReaderWrapper
           title={book.title}
           bookId={book.id}
@@ -226,6 +228,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
           showSignupBanner={showSignupBanner}
           showUpgradeBanner={showUpgradeBanner}
           showWatermark={viewCheck.showWatermark}
+          isAuthenticated={isLoggedIn}
         />
       </>
     )
@@ -258,6 +261,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
     <>
       <ViewCounter bookId={book.id} />
       {viewCheck.showWatermark && <Watermark />}
+      {!isCreator && <MadeWithBadge />}
       <MarkdownReader
         title={book.title}
         pages={pages}
@@ -267,6 +271,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
         showBackButton={isCreator}
         showSignupBanner={showSignupBanner}
         showUpgradeBanner={showUpgradeBanner}
+        isAuthenticated={isLoggedIn}
       />
     </>
   )

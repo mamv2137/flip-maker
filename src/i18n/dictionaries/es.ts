@@ -27,9 +27,9 @@ const es = {
         'Todo lo que necesitas para publicar, proteger y monetizar tu contenido digital.',
       items: [
         {
-          title: 'Conecta Google Drive y listo',
+          title: 'Agrega tu PDF y listo',
           description:
-            'Pega un link y tu libro interactivo se genera solo. Sin subir archivos, sin esperar, sin límites de almacenamiento.',
+            'Pega un link público de Google Drive o conecta tu Drive para archivos privados. Tu flipbook se genera solo.',
         },
         {
           title: 'Animación 3D que enamora',
@@ -60,9 +60,9 @@ const es = {
       subtitle: 'Tres pasos. Cero complicaciones. Tu contenido publicado antes de que termine el café.',
       steps: [
         {
-          title: 'Pega el link de tu Drive',
+          title: 'Agrega tu PDF',
           description:
-            'Copia la URL de cualquier PDF en Google Drive y pégala en Bukify. No subes nada — tu archivo se queda donde está.',
+            'Pega un link público de Google Drive o conecta tu Drive para elegir archivos privados. No subes nada — tu archivo se queda donde está.',
         },
         {
           title: 'Personaliza y publica',

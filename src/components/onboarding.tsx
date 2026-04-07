@@ -8,8 +8,8 @@ import Link from 'next/link'
 const steps = [
   {
     icon: HardDrive,
-    title: 'Connect your Drive',
-    description: 'Paste a Google Drive link to your PDF. No uploads needed — your file stays in Drive.',
+    title: 'Add your PDF',
+    description: 'Paste a public Google Drive link — or connect your Drive to browse private files. Your PDF stays in Drive.',
     color: 'bg-emerald-500/10 text-emerald-500',
   },
   {

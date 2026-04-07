@@ -11,6 +11,7 @@ import { PageThumbnails } from './PageThumbnails'
 import { useReadingPosition } from '@/hooks/useReadingPosition'
 import { extractHeadings } from '@/lib/extract-headings'
 import { RatingModal } from './RatingModal'
+import { EndOfBookCta } from './end-of-book-cta'
 
 const PageFlipReader = dynamic(() => import('./PageFlipReader'), {
   ssr: false,
@@ -40,9 +41,10 @@ type Props = {
   bookId?: string
   bookSlug?: string
   showBackButton?: boolean
+  isAuthenticated?: boolean
 }
 
-export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookSlug, showBackButton = true }: Props) {
+export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookSlug, showBackButton = true, isAuthenticated }: Props) {
   const [flipEnabled, setFlipEnabled] = useState(defaultFlipEnabled)
   const [currentPage, setCurrentPage] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -51,7 +53,8 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookS
   const [tocOpen, setTocOpen] = useState(false)
   const [thumbnailsOpen, setThumbnailsOpen] = useState(false)
   const [ratingOpen, setRatingOpen] = useState(false)
-  const ratingShownRef = useRef(false)
+  const [ctaOpen, setCtaOpen] = useState(false)
+  const endOfBookShownRef = useRef(false)
   const flipControlRef = useRef<FlipControl | null>(null)
 
   const { savePosition } = useReadingPosition(bookSlug)
@@ -66,15 +69,20 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookS
     }
   }, [currentPage, savePosition])
 
-  // Show rating modal when reaching the last page
+  // Show end-of-book modal when reaching the last page
   useEffect(() => {
-    if (bookId && currentPage === pages.length - 1 && pages.length > 1 && !ratingShownRef.current) {
-      ratingShownRef.current = true
-      // Small delay so the page flip animation finishes
-      const timer = setTimeout(() => setRatingOpen(true), 1000)
+    if (currentPage === pages.length - 1 && pages.length > 1 && !endOfBookShownRef.current) {
+      endOfBookShownRef.current = true
+      const timer = setTimeout(() => {
+        if (isAuthenticated && bookId) {
+          setRatingOpen(true)
+        } else {
+          setCtaOpen(true)
+        }
+      }, 1000)
       return () => clearTimeout(timer)
     }
-  }, [bookId, currentPage, pages.length])
+  }, [bookId, currentPage, pages.length, isAuthenticated])
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -182,11 +190,18 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookS
         />
       )}
 
-      {bookId && (
+      {bookId && isAuthenticated && (
         <RatingModal
           bookId={bookId}
           open={ratingOpen}
           onOpenChange={setRatingOpen}
+        />
+      )}
+
+      {!isAuthenticated && (
+        <EndOfBookCta
+          open={ctaOpen}
+          onOpenChange={setCtaOpen}
         />
       )}
     </div>

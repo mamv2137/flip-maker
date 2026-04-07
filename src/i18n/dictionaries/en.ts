@@ -27,9 +27,9 @@ const en = {
         'Every tool a creator needs to publish, protect, and monetize their digital content.',
       items: [
         {
-          title: 'Connect Google Drive and go',
+          title: 'Add your PDF and go',
           description:
-            'Paste a link and your interactive book builds itself. No uploading, no waiting, no storage limits.',
+            'Paste a public Google Drive link or connect your Drive for private files. Your flipbook builds itself.',
         },
         {
           title: '3D page-flip that wows',
@@ -60,9 +60,9 @@ const en = {
       subtitle: 'Three steps. Zero complexity. Your content published before your coffee gets cold.',
       steps: [
         {
-          title: 'Paste your Drive link',
+          title: 'Add your PDF',
           description:
-            'Copy the URL of any PDF in Google Drive and paste it into Bukify. You upload nothing — your file stays where it is.',
+            'Paste a public Google Drive link or connect your Drive to pick private files. You upload nothing — your file stays where it is.',
         },
         {
           title: 'Customize & publish',
