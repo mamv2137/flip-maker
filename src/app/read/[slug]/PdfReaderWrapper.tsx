@@ -20,9 +20,10 @@ type Props = {
   showUpgradeBanner?: boolean
   showWatermark?: boolean
   isAuthenticated?: boolean
+  savedInLibrary?: boolean
 }
 
-export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug, showBackButton, showSignupBanner, showUpgradeBanner, showWatermark, isAuthenticated }: Props) {
+export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug, showBackButton, showSignupBanner, showUpgradeBanner, showWatermark, isAuthenticated, savedInLibrary }: Props) {
   const [pages, setPages] = useState<BookPage[] | null>(null)
 
   const handlePagesLoaded = useCallback((loadedPages: BookPage[]) => {
@@ -68,6 +69,7 @@ export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage
         bookSlug={bookSlug}
         showBackButton={showBackButton}
         isAuthenticated={isAuthenticated}
+        savedInLibrary={savedInLibrary}
       />
     </>
   )

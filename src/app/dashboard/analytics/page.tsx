@@ -8,9 +8,10 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Eye, BookOpen, BarChart3, Gauge } from 'lucide-react'
+import { Eye, BookOpen, BarChart3, Gauge, Lock, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { AnalyticsUpgradeOverlay } from './upgrade-overlay'
 
 export default async function AnalyticsPage() {
   const supabase = await createClient()
@@ -28,20 +29,14 @@ export default async function AnalyticsPage() {
   const plan = (profile?.plan || 'free') as Plan
   const limits = getPlanLimits(plan)
 
-  // Gate: free users can't access analytics
+  // Gate: free users see blurred preview with upgrade overlay
   if (!limits.hasAnalytics) {
     return (
-      <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 text-center">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-          <BarChart3 className="h-7 w-7 text-primary" />
+      <div className="relative min-h-[calc(100vh-10rem)]">
+        <div className="pointer-events-none max-h-[calc(100vh-10rem)] select-none overflow-hidden blur-[2px]" aria-hidden="true">
+          <AnalyticsPreview />
         </div>
-        <h2 className="text-2xl font-bold tracking-tight">Analytics</h2>
-        <p className="text-muted-foreground max-w-sm text-sm">
-          Upgrade to the Creator plan to unlock analytics and track your books&apos; performance.
-        </p>
-        <Button asChild>
-          <Link href="/dashboard">Upgrade plan</Link>
-        </Button>
+        <AnalyticsUpgradeOverlay />
       </div>
     )
   }
@@ -279,6 +274,75 @@ export default async function AnalyticsPage() {
           </div>
         </CardContent>
       </Card>
+    </div>
+  )
+}
+
+// Dummy preview for free users (shown blurred behind upgrade overlay)
+const dummyBars = [35, 52, 41, 67, 45, 73, 58, 82, 63, 91, 77, 85]
+const dummyMonths = ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr']
+
+function AnalyticsPreview() {
+  const maxBar = Math.max(...dummyBars)
+  return (
+    <div className="flex flex-col gap-6">
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight">Analytics</h1>
+        <p className="text-muted-foreground mt-1">Track your books&apos; performance and reader engagement.</p>
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { title: 'Views this month', value: '1,247', icon: Eye },
+          { title: 'Total views', value: '8,432', icon: BarChart3 },
+          { title: 'Books published', value: '5', icon: BookOpen },
+          { title: 'Plan usage', value: '62%', icon: Gauge },
+        ].map((s) => (
+          <Card key={s.title}>
+            <CardContent className="pt-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-muted-foreground text-sm">{s.title}</p>
+                  <p className="mt-1 text-2xl font-bold">{s.value}</p>
+                </div>
+                <div className="bg-primary/10 flex h-10 w-10 items-center justify-center rounded-lg">
+                  <s.icon className="text-primary h-5 w-5" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      <div className="grid gap-6 lg:grid-cols-[1fr_360px]">
+        <Card>
+          <CardHeader><CardTitle className="text-base">Views over time</CardTitle></CardHeader>
+          <CardContent>
+            <div className="flex h-52 items-end gap-2">
+              {dummyBars.map((value, i) => (
+                <div key={i} className="flex flex-1 flex-col items-center gap-1">
+                  <div className="bg-primary/20 w-full rounded-t" style={{ height: `${(value / maxBar) * 100}%` }} />
+                  <span className="text-muted-foreground text-[10px]">{dummyMonths[i]}</span>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader><CardTitle className="text-base">Top books</CardTitle></CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {['Marketing Digital 2026', 'Recetas Saludables', 'Portfolio Studio', 'Guía Inversiones', 'Comics #12'].map((t, i) => (
+                <div key={t} className="flex items-center gap-3">
+                  <span className="text-muted-foreground w-5 text-sm font-medium">{i + 1}</span>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-medium">{t}</p>
+                    <p className="text-muted-foreground text-xs">{(5000 - i * 900).toLocaleString()} views</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   )
 }

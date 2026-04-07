@@ -90,6 +90,19 @@ export default async function ReaderPage({ params, searchParams }: Props) {
   const isCreator = !!userId && userId === book.creator_id
   const isLoggedIn = !!userId
 
+  // Check if book is already in user's library
+  let savedInLibrary = false
+  if (userId && !isCreator) {
+    const { data: grant } = await supabase
+      .from('access_grants')
+      .select('id')
+      .eq('book_id', book.id)
+      .eq('buyer_id', userId)
+      .limit(1)
+      .maybeSingle()
+    savedInLibrary = !!grant
+  }
+
   // Book not ready
   if (book.status !== 'ready') {
     if (isCreator) {
@@ -229,6 +242,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
           showUpgradeBanner={showUpgradeBanner}
           showWatermark={viewCheck.showWatermark}
           isAuthenticated={isLoggedIn}
+          savedInLibrary={savedInLibrary}
         />
       </>
     )
@@ -272,6 +286,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
         showSignupBanner={showSignupBanner}
         showUpgradeBanner={showUpgradeBanner}
         isAuthenticated={isLoggedIn}
+        savedInLibrary={savedInLibrary}
       />
     </>
   )

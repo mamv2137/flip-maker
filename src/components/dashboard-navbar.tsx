@@ -139,7 +139,9 @@ export function DashboardNavbar({ userEmail, displayName, avatarUrl }: Props) {
           {/* Desktop nav links */}
           <div className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
+              const isActive = link.href === '/dashboard'
+                ? pathname === '/dashboard' || pathname.startsWith('/dashboard/books')
+                : pathname === link.href || pathname.startsWith(link.href + '/')
               return (
                 <Button
                   key={link.name}
@@ -250,7 +252,9 @@ export function DashboardNavbar({ userEmail, displayName, avatarUrl }: Props) {
 
                 {/* Nav links */}
                 {navLinks.map((link) => {
-                  const isActive = pathname === link.href
+                  const isActive = link.href === '/dashboard'
+                    ? pathname === '/dashboard' || pathname.startsWith('/dashboard/books')
+                    : pathname === link.href || pathname.startsWith(link.href + '/')
                   return (
                     <Button
                       key={link.name}

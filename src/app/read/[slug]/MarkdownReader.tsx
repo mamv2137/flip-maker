@@ -13,9 +13,10 @@ type Props = {
   showSignupBanner?: boolean
   showUpgradeBanner?: boolean
   isAuthenticated?: boolean
+  savedInLibrary?: boolean
 }
 
-export function MarkdownReader({ title, pages, flipEnabled, bookId, bookSlug, showBackButton, showSignupBanner, showUpgradeBanner, isAuthenticated }: Props) {
+export function MarkdownReader({ title, pages, flipEnabled, bookId, bookSlug, showBackButton, showSignupBanner, showUpgradeBanner, isAuthenticated, savedInLibrary }: Props) {
   return (
     <>
       {showUpgradeBanner && <UpgradeBanner />}
@@ -28,6 +29,7 @@ export function MarkdownReader({ title, pages, flipEnabled, bookId, bookSlug, sh
         bookSlug={bookSlug}
         showBackButton={showBackButton}
         isAuthenticated={isAuthenticated}
+        savedInLibrary={savedInLibrary}
       />
     </>
   )

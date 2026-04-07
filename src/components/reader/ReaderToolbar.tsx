@@ -36,6 +36,7 @@ type Props = {
   onToggleToc: () => void
   hasHeadings: boolean
   showBackButton?: boolean
+  toolbarActions?: React.ReactNode
 }
 
 export function ReaderToolbar({
@@ -53,6 +54,7 @@ export function ReaderToolbar({
   onToggleToc,
   hasHeadings,
   showBackButton = true,
+  toolbarActions,
 }: Props) {
   return (
     <div className="border-b">
@@ -137,6 +139,8 @@ export function ReaderToolbar({
               </>
             )}
           </Button>
+
+          {toolbarActions}
 
           <Button
             variant="ghost"

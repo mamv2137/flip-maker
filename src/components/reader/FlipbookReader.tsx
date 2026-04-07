@@ -12,6 +12,7 @@ import { useReadingPosition } from '@/hooks/useReadingPosition'
 import { extractHeadings } from '@/lib/extract-headings'
 import { RatingModal } from './RatingModal'
 import { EndOfBookCta } from './end-of-book-cta'
+import { SaveToLibrary } from './save-to-library'
 
 const PageFlipReader = dynamic(() => import('./PageFlipReader'), {
   ssr: false,
@@ -42,9 +43,10 @@ type Props = {
   bookSlug?: string
   showBackButton?: boolean
   isAuthenticated?: boolean
+  savedInLibrary?: boolean
 }
 
-export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookSlug, showBackButton = true, isAuthenticated }: Props) {
+export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookSlug, showBackButton = true, isAuthenticated, savedInLibrary }: Props) {
   const [flipEnabled, setFlipEnabled] = useState(defaultFlipEnabled)
   const [currentPage, setCurrentPage] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -140,6 +142,11 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookS
         onToggleToc={() => setTocOpen(!tocOpen)}
         hasHeadings={headings.length > 0}
         showBackButton={showBackButton}
+        toolbarActions={
+          isAuthenticated && bookId && !showBackButton ? (
+            <SaveToLibrary bookId={bookId} alreadySaved={!!savedInLibrary} />
+          ) : null
+        }
       />
 
       <div className="relative flex min-h-0 flex-1 items-start justify-center overflow-hidden sm:items-center">
