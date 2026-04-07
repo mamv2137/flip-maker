@@ -8,6 +8,8 @@ const APP_HOSTNAMES = new Set(
       ? new URL(process.env.NEXT_PUBLIC_APP_URL).hostname
       : null,
     'localhost',
+    'bukify.io',
+    'www.bukify.io',
   ].filter(Boolean) as string[],
 )
 
