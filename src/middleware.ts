@@ -1,6 +1,16 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
+// The app's own hostnames — requests from these are handled normally
+const APP_HOSTNAMES = new Set(
+  [
+    process.env.NEXT_PUBLIC_APP_URL
+      ? new URL(process.env.NEXT_PUBLIC_APP_URL).hostname
+      : null,
+    'localhost',
+  ].filter(Boolean) as string[],
+)
+
 // Routes that don't require authentication
 const PUBLIC_ROUTES = [
   '/',
@@ -25,6 +35,17 @@ const READER_PREFIX = '/read/'
 const EMBED_PREFIX = '/embed/'
 
 export async function middleware(request: NextRequest) {
+  const hostname = request.headers.get('host')?.split(':')[0] ?? ''
+
+  // Custom domain: rewrite to the reader route so /read/[slug]/page.tsx handles it
+  if (!APP_HOSTNAMES.has(hostname)) {
+    const url = request.nextUrl.clone()
+    // Pass the custom domain as a search param so the reader page can look it up
+    url.pathname = `/read/_domain`
+    url.searchParams.set('domain', hostname)
+    return NextResponse.rewrite(url)
+  }
+
   let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(

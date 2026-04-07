@@ -7,13 +7,14 @@ type Props = {
   title: string
   pages: BookPage[]
   flipEnabled: boolean
+  bookId?: string
   bookSlug: string
   showBackButton?: boolean
   showSignupBanner?: boolean
   showUpgradeBanner?: boolean
 }
 
-export function MarkdownReader({ title, pages, flipEnabled, bookSlug, showBackButton, showSignupBanner, showUpgradeBanner }: Props) {
+export function MarkdownReader({ title, pages, flipEnabled, bookId, bookSlug, showBackButton, showSignupBanner, showUpgradeBanner }: Props) {
   return (
     <>
       {showUpgradeBanner && <UpgradeBanner />}
@@ -22,6 +23,7 @@ export function MarkdownReader({ title, pages, flipEnabled, bookSlug, showBackBu
         title={title}
         pages={pages}
         defaultFlipEnabled={flipEnabled}
+        bookId={bookId}
         bookSlug={bookSlug}
         showBackButton={showBackButton}
       />

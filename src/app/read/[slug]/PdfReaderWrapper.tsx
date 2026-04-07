@@ -63,6 +63,7 @@ export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage
         title={title}
         pages={pages}
         defaultFlipEnabled={flipEnabled}
+        bookId={bookId}
         bookSlug={bookSlug}
         showBackButton={showBackButton}
       />

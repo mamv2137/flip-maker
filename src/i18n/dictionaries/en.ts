@@ -127,8 +127,8 @@ const en = {
             '200 views/mo',
             'Google Drive',
             'Public link',
-            'Categories & ratings',
-            '"Powered by Bukify" watermark',
+            'Interactive flip reader',
+            'Watermark on every page',
           ],
         },
         creator: {

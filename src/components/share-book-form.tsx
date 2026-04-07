@@ -35,9 +35,11 @@ type Props = {
   bookId: string
   bookSlug: string
   visibility: 'public' | 'private' | 'password'
+  customDomain?: string | null
+  hasCustomDomainFeature?: boolean
 }
 
-export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility }: Props) {
+export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility, customDomain: initialCustomDomain, hasCustomDomainFeature }: Props) {
   const [visibility, setVisibility] = useState(initialVisibility)
   const [isTogglingVisibility, setIsTogglingVisibility] = useState(false)
   const [bookPassword, setBookPassword] = useState('')
@@ -54,6 +56,9 @@ export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility 
   const [grants, setGrants] = useState<AccessGrant[]>([])
   const [isLoadingGrants, setIsLoadingGrants] = useState(false)
   const [revokingId, setRevokingId] = useState<string | null>(null)
+  const [customDomain, setCustomDomain] = useState(initialCustomDomain ?? '')
+  const [domainSaved, setDomainSaved] = useState(!!initialCustomDomain)
+  const [isSavingDomain, setIsSavingDomain] = useState(false)
   const router = useRouter()
 
   const appUrl = typeof window !== 'undefined' ? window.location.origin : ''
@@ -167,6 +172,30 @@ export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility 
       }
     } finally {
       setRevokingId(null)
+    }
+  }
+
+  const handleSaveDomain = async () => {
+    const domain = customDomain.trim().toLowerCase()
+    setIsSavingDomain(true)
+    try {
+      const res = await fetch(`/api/books/${bookId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ custom_domain: domain || null }),
+      })
+      if (res.ok) {
+        setDomainSaved(!!domain)
+        router.refresh()
+        toast.success(domain ? 'Custom domain saved' : 'Custom domain removed')
+      } else {
+        const data = await res.json()
+        toast.error(data.error || 'Failed to save domain')
+      }
+    } catch {
+      toast.error('Failed to save domain')
+    } finally {
+      setIsSavingDomain(false)
     }
   }
 
@@ -435,6 +464,36 @@ export function ShareBookForm({ bookId, bookSlug, visibility: initialVisibility 
           </div>
         )}
       </div>
+
+      {/* Custom Domain */}
+      {hasCustomDomainFeature && (
+        <div className="border-t pt-4">
+          <Label className="mb-2 block text-xs">Custom domain</Label>
+          <p className="text-muted-foreground mb-3 text-xs">
+            Point your domain&apos;s CNAME to <code className="bg-muted rounded px-1">cname.bukify.com</code> then enter it here.
+          </p>
+          <div className="flex gap-2">
+            <Input
+              type="text"
+              placeholder="docs.yourdomain.com"
+              value={customDomain}
+              onChange={(e) => { setCustomDomain(e.target.value); setDomainSaved(false) }}
+            />
+            <Button
+              size="sm"
+              onClick={handleSaveDomain}
+              disabled={isSavingDomain}
+            >
+              {domainSaved ? <Check className="h-4 w-4" /> : isSavingDomain ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Save'}
+            </Button>
+          </div>
+          {domainSaved && customDomain.trim() && (
+            <p className="mt-2 text-xs text-emerald-600 dark:text-emerald-400">
+              Domain configured. Your book is accessible at <strong>https://{customDomain.trim()}</strong>
+            </p>
+          )}
+        </div>
+      )}
     </div>
   )
 }

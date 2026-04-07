@@ -10,6 +10,7 @@ import { TableOfContents } from './TableOfContents'
 import { PageThumbnails } from './PageThumbnails'
 import { useReadingPosition } from '@/hooks/useReadingPosition'
 import { extractHeadings } from '@/lib/extract-headings'
+import { RatingModal } from './RatingModal'
 
 const PageFlipReader = dynamic(() => import('./PageFlipReader'), {
   ssr: false,
@@ -36,11 +37,12 @@ type Props = {
   title: string
   pages: BookPage[]
   defaultFlipEnabled: boolean
+  bookId?: string
   bookSlug?: string
   showBackButton?: boolean
 }
 
-export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, showBackButton = true }: Props) {
+export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookSlug, showBackButton = true }: Props) {
   const [flipEnabled, setFlipEnabled] = useState(defaultFlipEnabled)
   const [currentPage, setCurrentPage] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -48,6 +50,8 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, sho
   const [zoom, setZoom] = useState(1)
   const [tocOpen, setTocOpen] = useState(false)
   const [thumbnailsOpen, setThumbnailsOpen] = useState(false)
+  const [ratingOpen, setRatingOpen] = useState(false)
+  const ratingShownRef = useRef(false)
   const flipControlRef = useRef<FlipControl | null>(null)
 
   const { savePosition } = useReadingPosition(bookSlug)
@@ -61,6 +65,16 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, sho
       savePosition(currentPage)
     }
   }, [currentPage, savePosition])
+
+  // Show rating modal when reaching the last page
+  useEffect(() => {
+    if (bookId && currentPage === pages.length - 1 && pages.length > 1 && !ratingShownRef.current) {
+      ratingShownRef.current = true
+      // Small delay so the page flip animation finishes
+      const timer = setTimeout(() => setRatingOpen(true), 1000)
+      return () => clearTimeout(timer)
+    }
+  }, [bookId, currentPage, pages.length])
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -165,6 +179,14 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookSlug, sho
           pages={pages}
           currentPage={currentPage}
           onNavigate={goToPage}
+        />
+      )}
+
+      {bookId && (
+        <RatingModal
+          bookId={bookId}
+          open={ratingOpen}
+          onOpenChange={setRatingOpen}
         />
       )}
     </div>

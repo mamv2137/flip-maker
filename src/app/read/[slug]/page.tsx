@@ -17,7 +17,7 @@ import { getPlanLimits, type Plan } from '@/lib/plans'
 
 type Props = {
   params: Promise<{ slug: string }>
-  searchParams: Promise<{ token?: string; preview?: string }>
+  searchParams: Promise<{ token?: string; preview?: string; domain?: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ReaderPage({ params, searchParams }: Props) {
   const { slug } = await params
-  const { token, preview } = await searchParams
+  const { token, preview, domain } = await searchParams
   const supabase = await createClient()
 
   let hasValidToken = false
@@ -54,8 +54,20 @@ export default async function ReaderPage({ params, searchParams }: Props) {
     }
   }
 
+  // Resolve the book slug — custom domains get rewritten by middleware
+  const resolvedSlug = domain
+    ? await (async () => {
+        const { data } = await supabase.rpc('get_book_by_domain', { lookup_domain: domain })
+        return data?.[0]?.slug as string | undefined
+      })()
+    : slug
+
+  if (!resolvedSlug) {
+    return <BookNotFound />
+  }
+
   // Get book info via RPC (bypasses RLS — works for any user including unauthenticated)
-  const { data: bookData } = await supabase.rpc('get_book_access_info', { book_slug: slug })
+  const { data: bookData } = await supabase.rpc('get_book_access_info', { book_slug: resolvedSlug })
   const book = bookData?.[0]
 
   // Book truly doesn't exist
@@ -242,6 +254,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
         title={book.title}
         pages={pages}
         flipEnabled={book.flip_effect_enabled}
+        bookId={book.id}
         bookSlug={slug}
         showBackButton={isCreator}
         showSignupBanner={showSignupBanner}

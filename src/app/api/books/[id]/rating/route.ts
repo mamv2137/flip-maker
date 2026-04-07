@@ -11,7 +11,7 @@ export async function GET(_request: Request, context: Context) {
 
   const { data, error } = await supabase
     .from('book_ratings')
-    .select('rating')
+    .select('rating, user_id')
     .eq('book_id', id)
 
   if (error) {
@@ -21,7 +21,16 @@ export async function GET(_request: Request, context: Context) {
   const count = data.length
   const average = count > 0 ? data.reduce((sum, r) => sum + r.rating, 0) / count : 0
 
-  return NextResponse.json({ average: Math.round(average * 10) / 10, count })
+  // Include the current user's rating if authenticated
+  let userRating: number | null = null
+  const { data: authData } = await supabase.auth.getClaims()
+  const userId = authData?.claims?.sub as string | undefined
+  if (userId) {
+    const own = data.find((r) => r.user_id === userId)
+    if (own) userRating = own.rating
+  }
+
+  return NextResponse.json({ average: Math.round(average * 10) / 10, count, userRating })
 }
 
 export async function POST(request: Request, context: Context) {

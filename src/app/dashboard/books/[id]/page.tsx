@@ -24,6 +24,7 @@ import { ShareBookForm } from '@/components/share-book-form'
 import { BookEditForm } from '@/components/book-edit-form'
 import { CoverUpload } from '@/components/cover-upload'
 import { Separator } from '@/components/ui/separator'
+import { getPlanLimits, type Plan } from '@/lib/plans'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -33,17 +34,24 @@ export default async function BookDetailPage({ params }: Props) {
   const { id } = await params
   const supabase = await createClient()
 
-  const { data: book } = await supabase
-    .from('books')
-    .select('*, categories(name, emoji)')
-    .eq('id', id)
-    .single()
+  const [{ data: book }, { data: { user } }] = await Promise.all([
+    supabase.from('books').select('*, categories(name, emoji)').eq('id', id).single(),
+    supabase.auth.getUser(),
+  ])
 
   if (!book) {
     notFound()
   }
 
   const category = book.categories as { name: string; emoji: string } | null
+
+  // Get creator's plan for feature gating
+  let userPlan: Plan = 'free'
+  if (user) {
+    const { data: profile } = await supabase.from('profiles').select('plan').eq('id', user.id).single()
+    userPlan = (profile?.plan || 'free') as Plan
+  }
+  const planLimits = getPlanLimits(userPlan)
 
   return (
     <div className="flex flex-col gap-6">
@@ -199,6 +207,8 @@ export default async function BookDetailPage({ params }: Props) {
                   bookId={book.id}
                   bookSlug={book.slug}
                   visibility={book.visibility ?? 'public'}
+                  customDomain={book.custom_domain}
+                  hasCustomDomainFeature={planLimits.hasCustomDomain}
                 />
               ) : (
                 <div className="flex flex-col items-center gap-2 py-6 text-center">
