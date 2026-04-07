@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, HardDrive } from 'lucide-react'
@@ -123,28 +124,16 @@ export function HeroSection({ isAuthenticated, t }: Props) {
             <div className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
             <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
             <div className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
-            <span className="ml-3 text-xs text-neutral-600">bukify.io/dashboard</span>
+            <span className="ml-3 text-xs text-neutral-600">bukify.com/dashboard</span>
           </div>
-          <div className="grid grid-cols-4 gap-3 p-6">
-            <div className="col-span-1 space-y-3">
-              <div className="h-4 w-20 rounded bg-white/5" />
-              <div className="h-3 w-16 rounded bg-white/5" />
-              <div className="h-3 w-24 rounded bg-white/5" />
-              <div className="h-3 w-14 rounded bg-white/5" />
-            </div>
-            <div className="col-span-3 space-y-4">
-              {['emerald', 'violet', 'amber'].map((color) => (
-                <div key={color} className="flex gap-3">
-                  <div className={`h-20 w-20 rounded-lg bg-${color}-500/10`} />
-                  <div className="flex-1 space-y-2 py-1">
-                    <div className="h-4 w-48 rounded bg-white/10" />
-                    <div className="h-3 w-64 rounded bg-white/5" />
-                    <div className="h-3 w-32 rounded bg-white/5" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <Image
+            src="/images/dashboard-preview.png"
+            alt="Bukify analytics dashboard"
+            width={1440}
+            height={900}
+            className="w-full"
+            priority
+          />
         </div>
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
       </motion.div>

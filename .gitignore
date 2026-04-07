@@ -47,3 +47,6 @@ public/uploads/covers/
 
 # swc
 .swc
+
+# playwright mcp
+.playwright-mcp
