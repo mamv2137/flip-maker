@@ -6,7 +6,7 @@ import { ArrowRight, HardDrive } from 'lucide-react'
 import { motion } from 'motion/react'
 import { BorderBeam } from '@/components/ui/border-beam'
 import { AnimatedShinyText } from '@/components/ui/animated-shiny-text'
-import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
+import { RainbowButton } from '@/components/ui/rainbow-button'
 import type { Dictionary } from '@/i18n/get-dictionary'
 
 type Props = {
@@ -92,16 +92,12 @@ export function HeroSection({ isAuthenticated, t }: Props) {
               </Link>
             </Button>
           ) : (
-            <HoverBorderGradient
-              as={Link}
-              href="/auth/sign-up"
-              containerClassName="rounded-full"
-              className="flex items-center gap-2 bg-black px-8 py-3 text-base font-semibold text-white dark:bg-black"
-              duration={1.2}
-            >
-              {t.cta}
-              <ArrowRight className="h-4 w-4" />
-            </HoverBorderGradient>
+            <RainbowButton asChild size="lg" className="h-auto min-h-12 rounded-full px-8 py-3 text-base font-semibold">
+              <Link href="/auth/sign-up">
+                {t.cta}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </RainbowButton>
           )}
         </motion.div>
 

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
 import { InView } from '@/components/ui/in-view'
 import { motion } from 'motion/react'
-import { ShimmerButton } from '@/components/ui/shimmer-button'
+import { RainbowButton } from '@/components/ui/rainbow-button'
 import type { Dictionary } from '@/i18n/get-dictionary'
 
 type Props = {
@@ -32,7 +32,7 @@ export function CtaSection({ isAuthenticated, t }: Props) {
       >
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">{t.title}</h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-neutral-400">{t.subtitle}</p>
-        <div className="mt-10">
+        <div className="mt-10 flex justify-center">
           {isAuthenticated ? (
             <Button size="lg" asChild className="bg-white px-8 text-black hover:bg-neutral-200">
               <Link href="/dashboard">
@@ -41,17 +41,12 @@ export function CtaSection({ isAuthenticated, t }: Props) {
               </Link>
             </Button>
           ) : (
-            <Link href="/auth/sign-up">
-              <ShimmerButton
-                shimmerColor="#10b981"
-                shimmerSize="0.1em"
-                background="rgba(16, 185, 129, 0.1)"
-                className="px-8 py-3 text-base font-semibold"
-              >
+            <RainbowButton asChild size="lg" className="h-auto min-h-12 rounded-full px-8 py-3 text-base font-semibold">
+              <Link href="/auth/sign-up">
                 {t.button}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </ShimmerButton>
-            </Link>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </RainbowButton>
           )}
         </div>
         <p className="mt-4 text-sm text-neutral-600">{t.footnote}</p>
