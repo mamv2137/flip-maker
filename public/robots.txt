@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /auth
+Disallow: /api
+Disallow: /embed/
+Disallow: /library
+
+Sitemap: https://bukify.io/sitemap.xml

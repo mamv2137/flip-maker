@@ -13,7 +13,7 @@ import { resolveFileUrl, resolvePdfUrl } from '@/lib/storage'
 import { checkCanViewBook } from '@/lib/check-plan-limits'
 import { ViewCounter } from '@/components/reader/view-counter'
 import { Watermark } from '@/components/reader/watermark'
-import { getPlanLimits, type Plan } from '@/lib/plans'
+import type { Plan } from '@/lib/plans'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -29,9 +29,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!book) return { title: 'Not Found' }
 
+  const coverUrl = book.cover_image_url ? resolveFileUrl(book.cover_image_url) : undefined
+
   return {
     title: book.title,
-    description: `Read ${book.title}`,
+    description: book.description || `Read ${book.title} — interactive flipbook on Bukify`,
+    openGraph: {
+      title: book.title,
+      description: book.description || `Read ${book.title}`,
+      ...(coverUrl && { images: [{ url: coverUrl }] }),
+    },
+    robots: book.visibility === 'public' ? { index: true, follow: true } : { index: false },
   }
 }
 

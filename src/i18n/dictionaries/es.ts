@@ -149,7 +149,7 @@ const es = {
           features: [
             'Todo en Creator',
             '10,000 views/mes',
-            'Backup en R2',
+            'Backup en la nube',
             'Dominio personalizado',
             'Integración Shopify (próximamente)',
             'MercadoPago (próximamente)',

@@ -149,7 +149,7 @@ const en = {
           features: [
             'Everything in Creator',
             '10,000 views/mo',
-            'R2 backup',
+            'Cloud backup',
             'Custom domain',
             'Shopify integration (coming soon)',
             'MercadoPago (coming soon)',

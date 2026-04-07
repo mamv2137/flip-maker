@@ -9,14 +9,32 @@ import './globals.css'
 import ReactQueryProvider from '@/providers/ReactQueryProvider'
 import { Toaster } from '@/components/ui/sonner'
 
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : 'http://localhost:3000'
+const defaultUrl = process.env.NEXT_PUBLIC_APP_URL || (
+  process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'http://localhost:3000'
+)
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: 'Bukify',
-  description: 'Transform your content into premium interactive reading experiences',
+  title: {
+    default: 'Bukify — Interactive Flipbooks from PDFs',
+    template: '%s | Bukify',
+  },
+  description: 'Create interactive flipbooks from PDFs in seconds. Google Drive integration, 3D page-flip effect, password protection, and analytics. Free forever.',
+  openGraph: {
+    type: 'website',
+    siteName: 'Bukify',
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630, alt: 'Bukify — Interactive Flipbooks' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/twitter-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 const geistSans = Geist({
@@ -36,6 +54,36 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang={lang} suppressHydrationWarning>
       <body className={`${geistSans.className} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'Organization',
+                  name: 'Bukify',
+                  url: 'https://bukify.io',
+                  logo: 'https://bukify.io/opengraph-image.png',
+                  description: 'Platform that transforms PDFs into interactive flipbooks with 3D page-turn effects for creators and businesses in Latin America.',
+                },
+                {
+                  '@type': 'SoftwareApplication',
+                  name: 'Bukify',
+                  url: 'https://bukify.io',
+                  applicationCategory: 'BusinessApplication',
+                  operatingSystem: 'Web',
+                  offers: [
+                    { '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' },
+                    { '@type': 'Offer', price: '7', priceCurrency: 'USD', name: 'Creator' },
+                    { '@type': 'Offer', price: '15', priceCurrency: 'USD', name: 'Pro Seller' },
+                  ],
+                  featureList: 'Google Drive integration, 3D page-flip effect, password protection, email access control, analytics, custom domains',
+                },
+              ],
+            }),
+          }}
+        />
         <NextTopLoader showSpinner={false} height={2} color="#2acf80" />
         <ThemeProvider
           attribute="class"
