@@ -130,11 +130,11 @@ export default function PageFlipReader({
         maxWidth={600}
         minHeight={350}
         maxHeight={800}
-        maxShadowOpacity={0.2}
+        maxShadowOpacity={0.5}
         showCover={true}
         mobileScrollSupport={false}
         drawShadow={true}
-        flippingTime={600}
+        flippingTime={450}
         usePortrait={true}
         startZIndex={0}
         autoSize={true}
@@ -146,7 +146,8 @@ export default function PageFlipReader({
         onFlip={handleFlip}
         className="flipbook-container"
         style={{
-          boxShadow: '0 4px 24px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08)',
+          boxShadow:
+            '0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1), 0 16px 32px rgba(0,0,0,0.08), inset 0 0 2px rgba(0,0,0,0.06)',
           maxHeight: 'calc(100vh - 8rem)',
         }}
       >

@@ -66,6 +66,21 @@ export default async function RootLayout({ children }: RootLayoutProps) {
                   url: 'https://bukify.io',
                   logo: 'https://bukify.io/opengraph-image.png',
                   description: 'Platform that transforms PDFs into interactive flipbooks with 3D page-turn effects for creators and businesses in Latin America.',
+                  contactPoint: {
+                    '@type': 'ContactPoint',
+                    email: 'qiubitlabs@gmail.com',
+                    contactType: 'customer support',
+                  },
+                },
+                {
+                  '@type': 'WebSite',
+                  name: 'Bukify',
+                  url: 'https://bukify.io',
+                },
+                {
+                  '@type': 'WebPage',
+                  name: 'Privacy Policy',
+                  url: 'https://bukify.io/privacy',
                 },
                 {
                   '@type': 'SoftwareApplication',

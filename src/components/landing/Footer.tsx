@@ -52,10 +52,18 @@ export function Footer({ t, brand }: Props) {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-white/5 pt-6">
-          <p className="text-center text-sm text-neutral-600">
+        <div className="mt-12 border-t border-white/5 pt-6 flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
+          <p className="text-sm text-neutral-600">
             {t.copyright.replace('{year}', new Date().getFullYear().toString())}
           </p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="text-sm text-neutral-500 transition-colors hover:text-white">
+              {t.privacy}
+            </Link>
+            <Link href="/terms" className="text-sm text-neutral-500 transition-colors hover:text-white">
+              {t.terms}
+            </Link>
+          </div>
         </div>
       </div>
 
