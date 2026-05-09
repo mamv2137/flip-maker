@@ -1,12 +1,14 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { Loader2 } from 'lucide-react'
 import type { BookPage } from './FlipbookReader'
 
 type Props = {
   pdfUrl: string
   onPagesLoaded: (pages: BookPage[]) => void
   showWatermark?: boolean
+  onError?: (error: string) => void
 }
 
 function drawWatermark(ctx: CanvasRenderingContext2D, width: number, height: number) {
@@ -37,10 +39,12 @@ function drawWatermark(ctx: CanvasRenderingContext2D, width: number, height: num
   ctx.restore()
 }
 
-export function PdfPageRenderer({ pdfUrl, onPagesLoaded, showWatermark }: Props) {
+export function PdfPageRenderer({ pdfUrl, onPagesLoaded, showWatermark, onError }: Props) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [progress, setProgress] = useState(0)
+  const onErrorRef = useRef(onError)
+  onErrorRef.current = onError
 
   useEffect(() => {
     let cancelled = false
@@ -95,8 +99,10 @@ export function PdfPageRenderer({ pdfUrl, onPagesLoaded, showWatermark }: Props)
         }
       } catch (err) {
         if (!cancelled) {
-          setError(err instanceof Error ? err.message : 'Failed to load PDF')
+          const message = err instanceof Error ? err.message : 'Failed to load PDF'
+          setError(message)
           setLoading(false)
+          onErrorRef.current?.(message)
         }
       }
     }
@@ -109,6 +115,7 @@ export function PdfPageRenderer({ pdfUrl, onPagesLoaded, showWatermark }: Props)
   }, [pdfUrl, onPagesLoaded])
 
   if (error) {
+    if (onErrorRef.current) return null
     return (
       <div className="flex h-full items-center justify-center">
         <p className="text-destructive text-sm">Failed to load PDF: {error}</p>
@@ -120,13 +127,16 @@ export function PdfPageRenderer({ pdfUrl, onPagesLoaded, showWatermark }: Props)
     return (
       <div className="flex h-full flex-col items-center justify-center gap-3">
         <p className="text-muted-foreground text-sm">Rendering PDF pages...</p>
-        <div className="bg-muted h-2 w-48 overflow-hidden rounded-full">
-          <div
-            className="bg-primary h-full transition-all duration-300"
-            style={{ width: `${progress}%` }}
-          />
+        <div className="flex items-center gap-3">
+          <Loader2 className="text-muted-foreground h-4 w-4 shrink-0 animate-spin" />
+          <div className="bg-muted h-2 w-48 overflow-hidden rounded-full">
+            <div
+              className="bg-primary h-full transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <span className="text-muted-foreground w-9 text-xs tabular-nums">{progress}%</span>
         </div>
-        <p className="text-muted-foreground text-xs">{progress}%</p>
       </div>
     )
   }

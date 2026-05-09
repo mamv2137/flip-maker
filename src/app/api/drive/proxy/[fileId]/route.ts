@@ -2,6 +2,7 @@ import { createClient } from '@/supabase/server'
 import { NextResponse, type NextRequest } from 'next/server'
 
 const GOOGLE_TOKEN_URL = 'https://oauth2.googleapis.com/token'
+const MAX_PDF_BYTES = 50 * 1024 * 1024 // 50 MB hard cap for public/demo flow
 
 type Context = {
   params: Promise<{ fileId: string }>
@@ -121,10 +122,20 @@ export async function GET(request: NextRequest, context: Context) {
     }
 
     const contentType = res.headers.get('content-type') || ''
-    if (contentType.includes('text/html') || !res.body) {
+    const isPdf =
+      contentType.includes('application/pdf') || contentType.includes('application/octet-stream')
+    if (!isPdf || !res.body) {
       return NextResponse.json(
-        { error: 'File is not accessible. The creator may need to reconnect Google Drive.' },
+        { error: 'File is not accessible or is not a PDF. Make sure it is shared as "Anyone with the link".' },
         { status: 403 }
+      )
+    }
+
+    const contentLength = Number(res.headers.get('content-length') || 0)
+    if (contentLength > MAX_PDF_BYTES) {
+      return NextResponse.json(
+        { error: 'File too large (50 MB max).' },
+        { status: 413 }
       )
     }
 

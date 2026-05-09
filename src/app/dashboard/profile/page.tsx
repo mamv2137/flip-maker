@@ -59,6 +59,7 @@ export default async function ProfilePage() {
           {/* Plan */}
           <PlanCard
             plan={profile?.plan || 'free'}
+            userId={user.id}
             userEmail={user.email || ''}
             subscriptionStatus={profile?.subscription_status || null}
             currentPeriodEnd={profile?.current_period_end || null}

@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Zap, Check, ArrowRight, Settings, AlertTriangle, Calendar, Clock, CircleDot } from 'lucide-react'
+import { Zap, Check, ArrowRight, Settings, AlertTriangle, Calendar, Clock, CircleDot, Sparkles } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -88,8 +88,120 @@ const planColors: Record<Plan, string> = {
   agency: 'bg-violet-500',
 }
 
+type UpgradeDialogProps = {
+  userId: string
+  userEmail: string
+}
+
+function UpgradeDialog({ userId, userEmail }: UpgradeDialogProps) {
+  const [open, setOpen] = useState(false)
+
+  const upgradePlans = [
+    {
+      key: 'creator' as const,
+      tagline: 'For creators who mean business',
+      productId: polarProducts.creator,
+      features: [
+        'Unlimited books',
+        '2,000 views/mo',
+        'No watermark',
+        'Password protection',
+        'Basic analytics',
+      ],
+      popular: false,
+    },
+    {
+      key: 'pro_seller' as const,
+      tagline: 'For those who live off their content',
+      productId: polarProducts.pro_seller,
+      features: [
+        'Everything in Creator',
+        '10,000 views/mo',
+        'Cloud backup',
+        'Custom domain',
+        'Priority support',
+      ],
+      popular: true,
+    },
+  ]
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button className="btn-cta w-full gap-2">
+          <Zap className="h-4 w-4" />
+          Upgrade your plan
+          <ArrowRight className="h-4 w-4" />
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-2xl">
+        <DialogHeader>
+          <DialogTitle>Choose your plan</DialogTitle>
+          <DialogDescription>
+            Pick the plan that fits your goals. Change or cancel anytime.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 pt-2 sm:grid-cols-2">
+          {upgradePlans.map((plan) => {
+            const price = PLAN_PRICES[plan.key].monthly
+            const checkoutUrl = `/api/checkout?products=${plan.productId}&customerExternalId=${encodeURIComponent(userId)}&customerEmail=${encodeURIComponent(userEmail)}`
+
+            return (
+              <div
+                key={plan.key}
+                className={`relative flex flex-col rounded-lg border p-5 transition-colors ${
+                  plan.popular
+                    ? 'border-emerald-500/60 bg-emerald-500/5'
+                    : 'border-border hover:border-foreground/20'
+                }`}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+                    <Badge className="gap-1 bg-emerald-500 text-white hover:bg-emerald-500">
+                      <Sparkles className="h-3 w-3" />
+                      Most popular
+                    </Badge>
+                  </div>
+                )}
+                <div className="flex items-center gap-2">
+                  <span className={`h-2.5 w-2.5 rounded-full ${planColors[plan.key]}`} />
+                  <h3 className="font-semibold">{planLabels[plan.key]}</h3>
+                </div>
+                <p className="text-muted-foreground mt-1 text-xs">{plan.tagline}</p>
+                <div className="mt-4">
+                  <span className="text-3xl font-bold">${price}</span>
+                  <span className="text-muted-foreground text-sm">/mo</span>
+                </div>
+                <ul className="mt-4 flex-1 space-y-2">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2 text-sm">
+                      <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                      <span className="text-muted-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  asChild
+                  variant={plan.popular ? 'default' : 'outline'}
+                  className={`mt-5 w-full gap-2 ${plan.popular ? 'btn-cta' : ''}`}
+                >
+                  <Link href={checkoutUrl}>
+                    Choose {planLabels[plan.key]}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            )
+          })}
+        </div>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
 type PlanCardProps = {
   plan: string
+  userId: string
   userEmail: string
   subscriptionStatus: string | null
   currentPeriodEnd: string | null
@@ -112,7 +224,7 @@ function formatDate(dateStr: string | null): string {
   })
 }
 
-export function PlanCard({ plan, userEmail, subscriptionStatus, currentPeriodEnd, createdAt }: PlanCardProps) {
+export function PlanCard({ plan, userId, userEmail, subscriptionStatus, currentPeriodEnd, createdAt }: PlanCardProps) {
   const currentPlan = (plan || 'free') as Plan
   const limits = getPlanLimits(currentPlan)
   const price = PLAN_PRICES[currentPlan]
@@ -200,13 +312,7 @@ export function PlanCard({ plan, userEmail, subscriptionStatus, currentPeriodEnd
         )}
 
         {isFree ? (
-          <Button className="btn-cta w-full gap-2" asChild>
-            <Link href={`/api/checkout?products=${polarProducts.creator}&customerEmail=${encodeURIComponent(userEmail)}`}>
-              <Zap className="h-4 w-4" />
-              Upgrade your plan
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
+          <UpgradeDialog userId={userId} userEmail={userEmail} />
         ) : (
           <div className="space-y-2">
             <Button variant="outline" className="w-full gap-2" asChild>

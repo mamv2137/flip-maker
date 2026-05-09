@@ -51,17 +51,15 @@ export async function POST(request: Request, context: Context) {
     return NextResponse.json({ error: 'Password is required' }, { status: 400 })
   }
 
-  const { data: book } = await supabase
-    .from('books')
-    .select('password_hash')
-    .eq('id', id)
-    .single()
+  // Use SECURITY DEFINER RPC so anonymous readers (blocked by books RLS) can verify.
+  const { data: valid, error } = await supabase.rpc('verify_book_password', {
+    p_book_id: id,
+    p_password_hash: hashPassword(password),
+  })
 
-  if (!book?.password_hash) {
-    return NextResponse.json({ error: 'Book not found' }, { status: 404 })
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 })
   }
 
-  const valid = book.password_hash === hashPassword(password)
-
-  return NextResponse.json({ valid })
+  return NextResponse.json({ valid: !!valid })
 }

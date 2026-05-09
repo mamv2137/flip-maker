@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Media Creator"
+		},
+		{
+			"path": "../ebooks"
+		},
+		{
+			"path": "../slot-bot"
+		},
+		{
+			"path": "../qiubitlabs"
+		}
+	],
+	"settings": {}
+}
