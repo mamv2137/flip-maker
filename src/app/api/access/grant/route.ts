@@ -1,6 +1,7 @@
 import { createClient } from '@/supabase/server'
 import { createMagicLinkToken } from '@/lib/magic-link'
 import { sendMagicLinkEmail } from '@/lib/email'
+import { getLocaleFromCookie } from '@/i18n/get-locale'
 import { NextResponse } from 'next/server'
 
 export async function POST(request: Request) {
@@ -76,12 +77,14 @@ export async function POST(request: Request) {
     .eq('id', user.id)
     .single()
 
-  // Send email
+  // Send email — locale follows the inviting creator's UI cookie.
+  const locale = await getLocaleFromCookie()
   const emailResult = await sendMagicLinkEmail({
     to: buyerEmail,
     bookTitle: book.title,
     creatorName: profile?.display_name || user.email || 'A creator',
     magicLinkUrl,
+    locale,
   })
 
   return NextResponse.json({

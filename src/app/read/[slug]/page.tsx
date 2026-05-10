@@ -1,4 +1,3 @@
-
 import { createClient } from '@/supabase/server'
 import { cookies } from 'next/headers'
 import { createHash } from 'crypto'
@@ -12,7 +11,6 @@ import type { BookPage } from '@/components/reader/FlipbookReader'
 import { resolveFileUrl, resolvePdfUrl } from '@/lib/storage'
 import { checkCanViewBook } from '@/lib/check-plan-limits'
 import { ViewCounter } from '@/components/reader/view-counter'
-import { Watermark } from '@/components/reader/watermark'
 import { MadeWithBadge } from '@/components/reader/made-with-badge'
 import type { Plan } from '@/lib/plans'
 
@@ -25,22 +23,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const supabase = await createClient()
 
-  const { data } = await supabase.rpc('get_book_access_info', { book_slug: slug })
+  const { data } = await supabase.rpc('get_book_access_info', {
+    book_slug: slug,
+  })
   const book = data?.[0]
 
   if (!book) return { title: 'Not Found' }
 
-  const coverUrl = book.cover_image_url ? resolveFileUrl(book.cover_image_url) : undefined
+  const coverUrl = book.cover_image_url
+    ? resolveFileUrl(book.cover_image_url)
+    : undefined
 
   return {
     title: book.title,
-    description: book.description || `Read ${book.title} — interactive flipbook on Bukify`,
+    description:
+      book.description || `Read ${book.title} — interactive flipbook on Bukify`,
     openGraph: {
       title: book.title,
       description: book.description || `Read ${book.title}`,
       ...(coverUrl && { images: [{ url: coverUrl }] }),
     },
-    robots: book.visibility === 'public' ? { index: true, follow: true } : { index: false },
+    robots:
+      book.visibility === 'public'
+        ? { index: true, follow: true }
+        : { index: false },
   }
 }
 
@@ -66,7 +72,9 @@ export default async function ReaderPage({ params, searchParams }: Props) {
   // Resolve the book slug — custom domains get rewritten by middleware
   const resolvedSlug = domain
     ? await (async () => {
-        const { data } = await supabase.rpc('get_book_by_domain', { lookup_domain: domain })
+        const { data } = await supabase.rpc('get_book_by_domain', {
+          lookup_domain: domain,
+        })
         return data?.[0]?.slug as string | undefined
       })()
     : slug
@@ -76,7 +84,9 @@ export default async function ReaderPage({ params, searchParams }: Props) {
   }
 
   // Get book info via RPC (bypasses RLS — works for any user including unauthenticated)
-  const { data: bookData } = await supabase.rpc('get_book_access_info', { book_slug: resolvedSlug })
+  const { data: bookData } = await supabase.rpc('get_book_access_info', {
+    book_slug: resolvedSlug,
+  })
   const book = bookData?.[0]
 
   // Book truly doesn't exist
@@ -189,7 +199,11 @@ export default async function ReaderPage({ params, searchParams }: Props) {
 
   // === Check view limits + creator plan ===
   const viewCheck = await checkCanViewBook(book.creator_id)
-  console.log('[reader] viewCheck:', { showWatermark: viewCheck.showWatermark, allowed: viewCheck.allowed, creatorId: book.creator_id })
+  console.log('[reader] viewCheck:', {
+    showWatermark: viewCheck.showWatermark,
+    allowed: viewCheck.allowed,
+    creatorId: book.creator_id,
+  })
 
   // Get creator's plan to determine banner type
   let creatorPlan: Plan = 'free'
@@ -209,17 +223,27 @@ export default async function ReaderPage({ params, searchParams }: Props) {
   const showSignupBanner = !isLoggedIn
   const showUpgradeBanner = isCreator && creatorPlan === 'free'
 
+  // Preview = creator viewing their own book via ?preview=true (typically from
+  // the dashboard). Suppress reader-end modals (rating + signup CTA).
+  const isPreview = isCreator && preview === 'true'
+
   if (!viewCheck.allowed && !isCreator) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-4 text-center">
         <h1 className="text-xl font-semibold">View limit reached</h1>
-        <p className="text-muted-foreground max-w-md text-sm">{viewCheck.reason}</p>
+        <p className="text-muted-foreground max-w-md text-sm">
+          {viewCheck.reason}
+        </p>
       </div>
     )
   }
 
   const coverPage: BookPage | null = book.cover_image_url
-    ? { type: 'image', content: resolveFileUrl(book.cover_image_url), pageNumber: 0 }
+    ? {
+        type: 'image',
+        content: resolveFileUrl(book.cover_image_url),
+        pageNumber: 0,
+      }
     : null
 
   const pdfUrl = resolvePdfUrl(book)
@@ -227,7 +251,6 @@ export default async function ReaderPage({ params, searchParams }: Props) {
     return (
       <>
         <ViewCounter bookId={book.id} />
-        {viewCheck.showWatermark && <Watermark />}
         {!isCreator && <MadeWithBadge />}
         <PdfReaderWrapper
           title={book.title}
@@ -243,6 +266,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
           showWatermark={viewCheck.showWatermark}
           isAuthenticated={isLoggedIn}
           savedInLibrary={savedInLibrary}
+          isPreview={isPreview}
         />
       </>
     )
@@ -274,7 +298,6 @@ export default async function ReaderPage({ params, searchParams }: Props) {
   return (
     <>
       <ViewCounter bookId={book.id} />
-      {viewCheck.showWatermark && <Watermark />}
       {!isCreator && <MadeWithBadge />}
       <MarkdownReader
         title={book.title}
@@ -287,6 +310,7 @@ export default async function ReaderPage({ params, searchParams }: Props) {
         showUpgradeBanner={showUpgradeBanner}
         isAuthenticated={isLoggedIn}
         savedInLibrary={savedInLibrary}
+        isPreview={isPreview}
       />
     </>
   )

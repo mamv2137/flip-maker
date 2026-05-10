@@ -21,25 +21,44 @@ type Props = {
   showWatermark?: boolean
   isAuthenticated?: boolean
   savedInLibrary?: boolean
+  isPreview?: boolean
 }
 
-export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage, skipFirstPage, bookSlug, showBackButton, showSignupBanner, showUpgradeBanner, showWatermark, isAuthenticated, savedInLibrary }: Props) {
+export function PdfReaderWrapper({
+  title,
+  bookId,
+  pdfUrl,
+  flipEnabled,
+  coverPage,
+  skipFirstPage,
+  bookSlug,
+  showBackButton,
+  showSignupBanner,
+  showUpgradeBanner,
+  showWatermark,
+  isAuthenticated,
+  savedInLibrary,
+  isPreview,
+}: Props) {
   const [pages, setPages] = useState<BookPage[] | null>(null)
 
-  const handlePagesLoaded = useCallback((loadedPages: BookPage[]) => {
-    const contentPages = skipFirstPage ? loadedPages.slice(1) : loadedPages
-    const allPages = coverPage ? [coverPage, ...contentPages] : contentPages
-    setPages(allPages)
+  const handlePagesLoaded = useCallback(
+    (loadedPages: BookPage[]) => {
+      const contentPages = skipFirstPage ? loadedPages.slice(1) : loadedPages
+      const allPages = coverPage ? [coverPage, ...contentPages] : contentPages
+      setPages(allPages)
 
-    // Update page count in the database if it hasn't been set
-    fetch(`/api/books/${bookId}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ page_count: loadedPages.length }),
-    }).catch(() => {
-      // Silently fail — page count update is not critical
-    })
-  }, [coverPage, skipFirstPage, bookId])
+      // Update page count in the database if it hasn't been set
+      fetch(`/api/books/${bookId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ page_count: loadedPages.length }),
+      }).catch(() => {
+        // Silently fail — page count update is not critical
+      })
+    },
+    [coverPage, skipFirstPage, bookId],
+  )
 
   if (!pages) {
     return (
@@ -52,7 +71,11 @@ export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage
           </div>
         </div>
         <div className="flex flex-1 items-center justify-center">
-          <PdfPageRenderer pdfUrl={pdfUrl} onPagesLoaded={handlePagesLoaded} showWatermark={showWatermark} />
+          <PdfPageRenderer
+            pdfUrl={pdfUrl}
+            onPagesLoaded={handlePagesLoaded}
+            showWatermark={showWatermark}
+          />
         </div>
       </div>
     )
@@ -70,6 +93,7 @@ export function PdfReaderWrapper({ title, bookId, pdfUrl, flipEnabled, coverPage
         showBackButton={showBackButton}
         isAuthenticated={isAuthenticated}
         savedInLibrary={savedInLibrary}
+        isPreview={isPreview}
       />
     </>
   )

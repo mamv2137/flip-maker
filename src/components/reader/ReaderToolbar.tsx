@@ -3,13 +3,16 @@
 import { Button } from '@/components/ui/button'
 import {
   BookOpen,
+  GalleryHorizontal,
   Layers,
   Maximize,
   Minimize,
   ArrowLeft,
   List,
   Settings,
+  Sparkles,
 } from 'lucide-react'
+import type { ReaderAnimation } from './FlipbookReader'
 import Link from 'next/link'
 import { FontSizeControl } from './FontSizeControl'
 import { ZoomControls } from './ZoomControls'
@@ -24,6 +27,8 @@ import {
 type Props = {
   title: string
   flipEnabled: boolean
+  animation: ReaderAnimation
+  onToggleAnimation: () => void
   isFullscreen: boolean
   onToggleFlip: () => void
   onToggleFullscreen: () => void
@@ -42,6 +47,8 @@ type Props = {
 export function ReaderToolbar({
   title,
   flipEnabled,
+  animation,
+  onToggleAnimation,
   isFullscreen,
   onToggleFlip,
   onToggleFullscreen,
@@ -89,7 +96,10 @@ export function ReaderToolbar({
           {/* Desktop controls */}
           <div className="hidden items-center gap-1 md:flex">
             {hasHtmlPages && (
-              <FontSizeControl fontSize={fontSize} onFontSizeChange={onFontSizeChange} />
+              <FontSizeControl
+                fontSize={fontSize}
+                onFontSizeChange={onFontSizeChange}
+              />
             )}
             <ZoomControls zoom={zoom} onZoomChange={onZoomChange} />
           </div>
@@ -105,9 +115,14 @@ export function ReaderToolbar({
               <DropdownMenuContent align="end" className="w-48">
                 {hasHtmlPages && (
                   <>
-                    <DropdownMenuLabel className="text-xs">Font Size</DropdownMenuLabel>
+                    <DropdownMenuLabel className="text-xs">
+                      Font Size
+                    </DropdownMenuLabel>
                     <div className="flex justify-center px-2 py-1">
-                      <FontSizeControl fontSize={fontSize} onFontSizeChange={onFontSizeChange} />
+                      <FontSizeControl
+                        fontSize={fontSize}
+                        onFontSizeChange={onFontSizeChange}
+                      />
                     </div>
                     <DropdownMenuSeparator />
                   </>
@@ -120,12 +135,40 @@ export function ReaderToolbar({
             </DropdownMenu>
           </div>
 
+          {flipEnabled && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onToggleAnimation}
+              className="text-xs"
+              title={
+                animation === 'curl'
+                  ? 'Switch to slide animation'
+                  : 'Switch to 3D curl animation'
+              }
+            >
+              {animation === 'curl' ? (
+                <>
+                  <Sparkles className="mr-1.5 h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">3D Curl</span>
+                </>
+              ) : (
+                <>
+                  <GalleryHorizontal className="mr-1.5 h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">Slide</span>
+                </>
+              )}
+            </Button>
+          )}
+
           <Button
             variant="ghost"
             size="sm"
             onClick={onToggleFlip}
             className="text-xs"
-            title={flipEnabled ? 'Switch to flat mode' : 'Switch to 3D flip mode'}
+            title={
+              flipEnabled ? 'Switch to flat mode' : 'Switch to 3D flip mode'
+            }
           >
             {flipEnabled ? (
               <>

@@ -36,6 +36,7 @@ See `SPEC.md` for full product and architecture spec.
 - **UI components:** shadcn/ui components in `src/components/ui/`. Utility alias for shadcn is `@/utils/tailwind` (not `@/lib/utils`).
 - **Testing:** Vitest + jsdom + React Testing Library. Use `import { render, userEvent } from '@/test/test-utils'` which wraps components with QueryClientProvider. MSW v2 server starts automatically via `vitest.setup.ts` for API mocking — add handlers in `src/mocks/handlers.ts`.
 - **Database:** Supabase PostgreSQL with RLS. Migration files in `supabase/migrations/`.
+- **Email (Resend):** `src/lib/email/send.ts` is the single send entrypoint. Templates live in `src/emails/*.tsx` (`@react-email/components`). Senders: `notifications@`, `billing@`, `hello@`. Strings in `src/lib/email/strings.ts` (es/en). Dev safety: outside production, emails are console-logged unless `RESEND_TEST_TO` is set, in which case ALL outbound mail is rerouted to that inbox with a `[TEST]` subject prefix. This protects the 3K/mo Resend free-tier quota.
 - **Pre-commit hooks:** Husky runs lint-staged (ESLint --fix + Prettier) on staged `.js/.jsx/.ts/.tsx` files.
 - **CI:** PR workflow runs type-check, lint, format-check, and test:ci.
 

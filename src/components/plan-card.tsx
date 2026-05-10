@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Zap, Check, ArrowRight, Settings, AlertTriangle, Calendar, Clock, CircleDot, Sparkles } from 'lucide-react'
+import { Zap, Check, ArrowRight, Settings, AlertTriangle, Calendar, Clock, CircleDot, Sparkles, Loader2 } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -93,12 +93,21 @@ type UpgradeDialogProps = {
   userEmail: string
 }
 
+type UpgradePlanKey = 'creator' | 'pro_seller'
+
 function UpgradeDialog({ userId, userEmail }: UpgradeDialogProps) {
   const [open, setOpen] = useState(false)
+  const [selectedKey, setSelectedKey] = useState<UpgradePlanKey | null>(null)
 
-  const upgradePlans = [
+  const upgradePlans: Array<{
+    key: UpgradePlanKey
+    tagline: string
+    productId: string
+    features: string[]
+    popular: boolean
+  }> = [
     {
-      key: 'creator' as const,
+      key: 'creator',
       tagline: 'For creators who mean business',
       productId: polarProducts.creator,
       features: [
@@ -111,7 +120,7 @@ function UpgradeDialog({ userId, userEmail }: UpgradeDialogProps) {
       popular: false,
     },
     {
-      key: 'pro_seller' as const,
+      key: 'pro_seller',
       tagline: 'For those who live off their content',
       productId: polarProducts.pro_seller,
       features: [
@@ -125,8 +134,21 @@ function UpgradeDialog({ userId, userEmail }: UpgradeDialogProps) {
     },
   ]
 
+  const handleOpenChange = (next: boolean) => {
+    if (selectedKey) return
+    setOpen(next)
+  }
+
+  const handleSelect = (key: UpgradePlanKey, checkoutUrl: string) => {
+    if (selectedKey) return
+    setSelectedKey(key)
+    window.setTimeout(() => {
+      window.location.href = checkoutUrl
+    }, 450)
+  }
+
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         <Button className="btn-cta w-full gap-2">
           <Zap className="h-4 w-4" />
@@ -145,14 +167,22 @@ function UpgradeDialog({ userId, userEmail }: UpgradeDialogProps) {
           {upgradePlans.map((plan) => {
             const price = PLAN_PRICES[plan.key].monthly
             const checkoutUrl = `/api/checkout?products=${plan.productId}&customerExternalId=${encodeURIComponent(userId)}&customerEmail=${encodeURIComponent(userEmail)}`
+            const isSelected = selectedKey === plan.key
+            const isDimmed = selectedKey !== null && !isSelected
 
             return (
               <div
                 key={plan.key}
-                className={`relative flex flex-col rounded-lg border p-5 transition-colors ${
+                className={`relative flex flex-col rounded-lg border p-5 transition-all duration-300 ease-out ${
                   plan.popular
                     ? 'border-emerald-500/60 bg-emerald-500/5'
-                    : 'border-border hover:border-foreground/20'
+                    : 'border-border'
+                } ${
+                  isSelected
+                    ? 'ring-offset-background scale-[1.02] ring-2 ring-emerald-500/70 ring-offset-2'
+                    : ''
+                } ${isDimmed ? 'pointer-events-none scale-[0.97] opacity-40' : ''} ${
+                  selectedKey === null && !plan.popular ? 'hover:border-foreground/20' : ''
                 }`}
               >
                 {plan.popular && (
@@ -181,14 +211,23 @@ function UpgradeDialog({ userId, userEmail }: UpgradeDialogProps) {
                   ))}
                 </ul>
                 <Button
-                  asChild
+                  type="button"
                   variant={plan.popular ? 'default' : 'outline'}
-                  className={`mt-5 w-full gap-2 ${plan.popular ? 'btn-cta' : ''}`}
+                  disabled={selectedKey !== null}
+                  onClick={() => handleSelect(plan.key, checkoutUrl)}
+                  className={`mt-5 w-full gap-2 ${plan.popular ? 'btn-cta' : ''} disabled:opacity-100`}
                 >
-                  <Link href={checkoutUrl}>
-                    Choose {planLabels[plan.key]}
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  {isSelected ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Redirecting…
+                    </>
+                  ) : (
+                    <>
+                      Choose {planLabels[plan.key]}
+                      <ArrowRight className="h-4 w-4" />
+                    </>
+                  )}
                 </Button>
               </div>
             )

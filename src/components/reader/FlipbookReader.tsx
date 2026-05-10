@@ -23,6 +23,15 @@ const PageFlipReader = dynamic(() => import('./PageFlipReader'), {
   ),
 })
 
+const SlideReader = dynamic(() => import('./SlideReader'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex flex-1 items-center justify-center">
+      <p className="text-muted-foreground">Loading reader...</p>
+    </div>
+  ),
+})
+
 export type BookPage = {
   type: 'html' | 'image'
   content: string
@@ -35,6 +44,8 @@ export type FlipControl = {
   goTo: (page: number) => void
 }
 
+export type ReaderAnimation = 'curl' | 'slide'
+
 type Props = {
   title: string
   pages: BookPage[]
@@ -44,10 +55,22 @@ type Props = {
   showBackButton?: boolean
   isAuthenticated?: boolean
   savedInLibrary?: boolean
+  isPreview?: boolean
 }
 
-export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookSlug, showBackButton = true, isAuthenticated, savedInLibrary }: Props) {
+export function FlipbookReader({
+  title,
+  pages,
+  defaultFlipEnabled,
+  bookId,
+  bookSlug,
+  showBackButton = true,
+  isAuthenticated,
+  savedInLibrary,
+  isPreview,
+}: Props) {
   const [flipEnabled, setFlipEnabled] = useState(defaultFlipEnabled)
+  const [animation, setAnimation] = useState<ReaderAnimation>('curl')
   const [currentPage, setCurrentPage] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [fontSize, setFontSize] = useState(100)
@@ -61,7 +84,10 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookS
 
   const { savePosition } = useReadingPosition(bookSlug)
 
-  const hasHtmlPages = useMemo(() => pages.some((p) => p.type === 'html'), [pages])
+  const hasHtmlPages = useMemo(
+    () => pages.some((p) => p.type === 'html'),
+    [pages],
+  )
   const headings = useMemo(() => extractHeadings(pages), [pages])
 
   // Save position on page change
@@ -71,9 +97,17 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookS
     }
   }, [currentPage, savePosition])
 
-  // Show end-of-book modal when reaching the last page
+  // Show end-of-book modal when reaching the last page.
+  // In preview mode (creator viewing their own unpublished book) we suppress
+  // both modals — the creator can't rate their own book and shouldn't be
+  // pitched a signup CTA.
   useEffect(() => {
-    if (currentPage === pages.length - 1 && pages.length > 1 && !endOfBookShownRef.current) {
+    if (isPreview) return
+    if (
+      currentPage === pages.length - 1 &&
+      pages.length > 1 &&
+      !endOfBookShownRef.current
+    ) {
       endOfBookShownRef.current = true
       const timer = setTimeout(() => {
         if (isAuthenticated && bookId) {
@@ -84,7 +118,7 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookS
       }, 1000)
       return () => clearTimeout(timer)
     }
-  }, [bookId, currentPage, pages.length, isAuthenticated])
+  }, [bookId, currentPage, pages.length, isAuthenticated, isPreview])
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -130,6 +164,10 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookS
       <ReaderToolbar
         title={title}
         flipEnabled={flipEnabled}
+        animation={animation}
+        onToggleAnimation={() =>
+          setAnimation(animation === 'curl' ? 'slide' : 'curl')
+        }
         isFullscreen={isFullscreen}
         onToggleFlip={() => setFlipEnabled(!flipEnabled)}
         onToggleFullscreen={toggleFullscreen}
@@ -162,13 +200,23 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookS
         {/* Resume prompt removed — auto-resumes silently via saved position */}
 
         {flipEnabled ? (
-          <PageFlipReader
-            pages={pages}
-            onPageChange={setCurrentPage}
-            controlRef={flipControlRef}
-            fontSize={fontSize}
-            zoom={zoom}
-          />
+          animation === 'curl' ? (
+            <PageFlipReader
+              pages={pages}
+              onPageChange={setCurrentPage}
+              controlRef={flipControlRef}
+              fontSize={fontSize}
+              zoom={zoom}
+            />
+          ) : (
+            <SlideReader
+              pages={pages}
+              onPageChange={setCurrentPage}
+              controlRef={flipControlRef}
+              fontSize={fontSize}
+              zoom={zoom}
+            />
+          )
         ) : (
           <FlatReader
             pages={pages}
@@ -206,10 +254,7 @@ export function FlipbookReader({ title, pages, defaultFlipEnabled, bookId, bookS
       )}
 
       {!isAuthenticated && (
-        <EndOfBookCta
-          open={ctaOpen}
-          onOpenChange={setCtaOpen}
-        />
+        <EndOfBookCta open={ctaOpen} onOpenChange={setCtaOpen} />
       )}
     </div>
   )
